@@ -1,0 +1,39 @@
+@model libraryMVC.Models.Uye
+
+<h2 class="text-primary">Yeni Üye Oluştur</h2>
+<hr>
+<div class="jumbotron mt-5">
+    <div class="row ml-4">
+        <div class="col-4">
+
+            @* <h5>Lütfen <span class="text text-danger">"^"</span> karakterini kullanmayınız. </h5> *@
+            <form asp-action="CreateUyeler" >
+                <div class="mb-3">
+                    <label for="UyeAd" class="form-label">Üye Adı</label>
+                    <input required title="^ karakerini kullanmayın." asp-for="UyeAd" type="text" class="form-control" id="UyeAd" aria-describedby="emailHelp" maxlength="20">
+                    <div id="UyeAd" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="UyeSoyad" class="form-label">Üye Soyadı</label>
+                    <input required title="^ karakerini kullanmayın." asp-for="UyeSoyad" type="text" class="form-control" id="UyeSoyad" aria-describedby="emailHelp" maxlength="20">
+                </div>
+                <div class="mb-3">
+                    <label for="UyeTel" class="form-label">Üye Telefon Numarası</label>
+                    <input required title="^ karakerini kullanmayın." asp-for="UyeTelefon" type="tel" class="form-control" id="UyeTel" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="UyeEposta" class="form-label">Üye E-postası</label>
+                    <input required title="^ karakerini kullanmayın." asp-for="UyeEposta" type="email" class="form-control" id="UyeEposta" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="UyeAdres" class="form-label">Üye Adresi</label>
+                    <input required title="^ karakerini kullanmayın." asp-for="UyeAdres" type="text" class="form-control" id="UyeAdres" aria-describedby="emailHelp">
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Oluştur</button>
+            </form>
+        </div>
+    </div>
+</div>
+<a style="margin-bootm:100px;"asp-action="Uyeler" class="btn btn-outline-secondary btn-sm mx-2">Listeye Geri Dön</a>
+

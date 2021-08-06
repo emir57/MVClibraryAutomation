@@ -1,0 +1,76 @@
+@model IEnumerable<libraryMVC.Models.Emanet>
+@using System;
+@using System.Collections.Generic;
+@using System.Diagnostics;
+
+<div class="jumbotron mt-5">
+    <h2 class="text-info">Emanet Listesi</h2>
+    <table class="table table-hover mt-3">
+        <thead>
+            <th>Emanet No</th>
+            <th>Üye No</th>
+            <th>Kitap No</th>
+            <th>Emanet Verme Tarihi</th>
+            <th>Emanet Geri Alma Tarihi</th>
+            <th>Emanet İşlem Tarihi </th>
+            <th>Emanet Not</th>
+            <th>Emanet Teslim Edildi</th>
+            <th>İşlemler</th>
+        </thead>
+        @foreach (var item in Model)
+        {
+            
+            <tr>
+                <td>@item.EmanetNo</td>
+                <td>@item.UyeNo</td>
+                <td>@item.KitapNo</td>
+                <td>@item.EmanetVermeTarih</td>
+                <td>@item.EmanetGeriAlmaTarih</td>
+                <td>@item.EmanetIslemTarih</td>
+                <td>@item.EmanetNot</td>
+                <td>
+                    @if(@item.EmanetTeslimEdildi=="Sürüyor"){
+                            <p class="text-primary">Sürüyor.</p>
+                        }
+                        else if(@item.EmanetTeslimEdildi=="Teslim Edildi"){
+                            <p class="text-success">Teslim Edildi.</p>
+                        }
+                        else{
+                            <p class="text-danger">Teslim Edilmedi.</p>
+                        }
+                </td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal@(item.EmanetNo)">
+                    Sil
+                    </button>
+                    <a asp-action="EditEmanetler" asp-route-id="@item.EmanetNo">Düzenle</a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal@(item.EmanetNo)" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
+                                </div>
+                                <div class="modal-body">
+                                    <span class="text-danger">@item.EmanetNo - @item.EmanetTeslimEdildi</span>
+                                    <br>
+                                    Bu Kaydı Silmek İstediğinizden Emin misiniz?
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="text text-secondary" data-dismiss="modal">İptal</a>
+                                    <a class="text text-danger"asp-action="DeleteEmanetler" asp-route-id="@item.EmanetNo">Sil</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            
+        }
+        
+    </table>
+
+</div>
+<a style="margin-bottom:100px;" asp-action="Emanetler" class="btn btn-outline-secondary btn-sm mx-2">Listeye Geri Dön</a>
