@@ -46,7 +46,7 @@ namespace libraryMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateEmanetler(Emanet emanet)
+        public async Task<IActionResult> CreateEmanetler(Emanet emanet)
         {
             DateTime now = DateTime.Now;
             if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
@@ -54,8 +54,8 @@ namespace libraryMVC.Controllers
             if (emanet.EmanetTeslimEdildi.Contains("^") == true) emanet.EmanetTeslimEdildi = "Sürüyor";
             emanet.EmanetIslemTarih = now.ToString("yyyy/MM/dd");
             emanet.EmanetIslemTarih = emanet.EmanetIslemTarih.Replace(".", "-");
-            _context.Emanetler.Add(emanet);
-            _context.SaveChanges();
+            await _context.Emanetler.AddAsync(emanet);
+            await _context.SaveChangesAsync();
             return RedirectToAction("Emanetler");
         }
         public async Task<IActionResult> EditEmanetler(int? id)
