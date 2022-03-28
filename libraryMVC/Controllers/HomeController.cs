@@ -82,7 +82,7 @@ namespace site.Controllers
         }
         public async Task<IActionResult> DeleteKitaplar(int id)
         {
-            var kitap = _context.Kitaplar.SingleOrDefault(x => x.KitapNo==id);
+            var kitap = await _context.Kitaplar.SingleOrDefaultAsync(x => x.KitapNo==id);
             _context.Kitaplar.Remove(kitap);
             await _context.SaveChangesAsync();
             return RedirectToAction("Kitaplar");

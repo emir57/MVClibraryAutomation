@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\site.csproj",
+  "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\site.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15619,118 +15619,113 @@
   "RootNamespace": "site",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\KitaplarSearch.cshtml",
-      "TargetPath": "Views\\Home\\KitaplarSearch.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\DeleteUyeler.cshtml",
-      "TargetPath": "Views\\Home\\DeleteUyeler.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\Emanetler.cshtml",
-      "TargetPath": "Views\\Home\\Emanetler.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\UyelerSearch.cshtml",
-      "TargetPath": "Views\\Home\\UyelerSearch.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\Welcome.cshtml",
-      "TargetPath": "Views\\Home\\Welcome.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\EditEmanetler.cshtml",
-      "TargetPath": "Views\\Home\\EditEmanetler.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\DeleteEmanetler.cshtml",
-      "TargetPath": "Views\\Home\\DeleteEmanetler.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\EmanetlerSearch.cshtml",
-      "TargetPath": "Views\\Home\\EmanetlerSearch.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\CreateUyeler.cshtml",
-      "TargetPath": "Views\\Home\\CreateUyeler.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\Uyeler.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\Uyeler.cshtml",
       "TargetPath": "Views\\Home\\Uyeler.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Login\\Logins.cshtml",
-      "TargetPath": "Views\\Login\\Logins.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\DeleteEmanetler.cshtml",
+      "TargetPath": "Views\\Home\\DeleteEmanetler.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\EditUyeler.cshtml",
-      "TargetPath": "Views\\Home\\EditUyeler.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\CreateKitaplar.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\CreateKitaplar.cshtml",
       "TargetPath": "Views\\Home\\CreateKitaplar.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\EditKitaplar.cshtml",
-      "TargetPath": "Views\\Home\\EditKitaplar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\Kitaplar.cshtml",
-      "TargetPath": "Views\\Home\\Kitaplar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\CreateEmanetler.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\CreateEmanetler.cshtml",
       "TargetPath": "Views\\Home\\CreateEmanetler.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\EditKitaplar.cshtml",
+      "TargetPath": "Views\\Home\\EditKitaplar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\CreateUyeler.cshtml",
+      "TargetPath": "Views\\Home\\CreateUyeler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\DeleteKitaplar.cshtml",
+      "TargetPath": "Views\\Home\\DeleteKitaplar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\EditUyeler.cshtml",
+      "TargetPath": "Views\\Home\\EditUyeler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\Kitaplar.cshtml",
+      "TargetPath": "Views\\Home\\Kitaplar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\KitaplarSearch.cshtml",
+      "TargetPath": "Views\\Home\\KitaplarSearch.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\libraryMVC\\Views\\Home\\DeleteKitaplar.cshtml",
-      "TargetPath": "Views\\Home\\DeleteKitaplar.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\UyelerSearch.cshtml",
+      "TargetPath": "Views\\Home\\UyelerSearch.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\DeleteUyeler.cshtml",
+      "TargetPath": "Views\\Home\\DeleteUyeler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\Welcome.cshtml",
+      "TargetPath": "Views\\Home\\Welcome.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\EditEmanetler.cshtml",
+      "TargetPath": "Views\\Home\\EditEmanetler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\EmanetlerSearch.cshtml",
+      "TargetPath": "Views\\Home\\EmanetlerSearch.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\Emanetler.cshtml",
+      "TargetPath": "Views\\Home\\Emanetler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     }
   ],
