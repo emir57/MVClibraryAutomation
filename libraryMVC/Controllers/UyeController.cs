@@ -10,7 +10,6 @@ namespace libraryMVC.Controllers
     public class UyeController : Controller
     {
         private readonly AppDbContext _context;
-
         public UyeController(AppDbContext context)
         {
             _context = context;
@@ -72,7 +71,6 @@ namespace libraryMVC.Controllers
             if (uye.UyeEposta.Contains("^") == true) uye.UyeEposta = "unknown@hotmail.com";
             if (uye.UyeTelefon.Contains("^") == true) uye.UyeTelefon = "000 000 00 00";
             if (uye.UyeAdres.Contains("^") == true) uye.UyeAdres = "Ankara";
-
             if (ModelState.IsValid)
             {
                 try
@@ -81,9 +79,7 @@ namespace libraryMVC.Controllers
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
-                {
-
-                }
+                {}
                 return RedirectToAction("Uyeler");
             }
             return View(uye);
