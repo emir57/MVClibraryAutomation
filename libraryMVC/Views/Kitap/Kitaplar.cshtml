@@ -121,68 +121,70 @@
         let searchString = $("#searchString");
         let kitaplarTable = $("#kitaplarTable");
         searchString.keyup(function () {
-            if(searchString.val() == ""){
+            if (searchString.val() == "") {
 
             }
             if (searchString.val().length > 1) {
                 $.ajax({
                     url: "/Kitap/KitaplarSearchBySearchString?searchString=" + searchString.val(),
                     method: "GET",
-                     @* data: { searchString: searchString.val() }, *@
                     success: function (datas) {
-                        console.log(datas)
-                        let html = "";
-                        datas.forEach(data => {
-                            html += `
-                            <tr>
-                                <td>${data.kitapNo}</td>
-                                <td>${data.kitapAd}</td>
-                                <td>${data.kitapYazari}</td>
-                                <td>${data.kitapBaskiYil}</td>
-                                <td>${data.kitapSayfaSayi}</td>
-                                <td>${data.kitapDil}</td>
-                                <td>${data.kitapYayinEvi}</td>
-                                <td>${data.kitapAciklama}</td>
-                                <td>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.kitapNo}">
-                                        Sil
-                                    </button>
-                                    <a style="cursor:pointer;" class="btn btn-primary text text-white" onClick="window.location.href='/Kitap/EditKitaplar/${data.kitapNo}'"
-                                    role="button">Düzenle</a>
-                                    <!-- Modal -->
-                                    <div class="modal fade" id="modal${data.kitapNo}" role="dialog" tabindex="-1"
-                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
-                                                    <button type="button" class="btn-close" data-dismiss="modal"
-                                                    aria-label="Close">X</button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <span class="text-danger">${data.kitapNo} - ${data.kitapAd}</span>
-                                                    <br>
-                                                    Bu Kaydı Silmek İstediğinizden Emin misiniz?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <a class="btn btn-secondary text text-white" data-dismiss="modal">İptal</a>
-                                                    <a class="btn btn-danger text text-white" asp-action="DeleteKitaplar"
-                                                    asp-route-id="${data.kitapNo}">Sil</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            `
-                        })
+                        let html = getData(datas)
                         kitaplarTable.empty();
                         kitaplarTable.append(html);
                     },
                     error: function (error) { console.log(error) }
                 })
-            }
+    }
         })
     })
+    function getData(datas) {
+        let html = "";
+        datas.forEach(data => {
+            html += `
+                        <tr>
+                            <td>${data.kitapNo}</td>
+                            <td>${data.kitapAd}</td>
+                            <td>${data.kitapYazari}</td>
+                            <td>${data.kitapBaskiYil}</td>
+                            <td>${data.kitapSayfaSayi}</td>
+                            <td>${data.kitapDil}</td>
+                            <td>${data.kitapYayinEvi}</td>
+                            <td>${data.kitapAciklama}</td>
+                            <td>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.kitapNo}">
+                                    Sil
+                                </button>
+                                <a style="cursor:pointer;" class="btn btn-primary text text-white" onClick="window.location.href='/Kitap/EditKitaplar/${data.kitapNo}'"
+                                role="button">Düzenle</a>
+                                <!-- Modal -->
+                                <div class="modal fade" id="modal${data.kitapNo}" role="dialog" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
+                                                <button type="button" class="btn-close" data-dismiss="modal"
+                                                aria-label="Close">X</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <span class="text-danger">${data.kitapNo} - ${data.kitapAd}</span>
+                                                <br>
+                                                Bu Kaydı Silmek İstediğinizden Emin misiniz?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a class="btn btn-secondary text text-white" data-dismiss="modal">İptal</a>
+                                                <a class="btn btn-danger text text-white" asp-action="DeleteKitaplar"
+                                                asp-route-id="${data.kitapNo}">Sil</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    `
+        })
+        return html;
+    }
 </script>
 }
