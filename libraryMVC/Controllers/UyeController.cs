@@ -20,12 +20,16 @@ namespace libraryMVC.Controllers
             return View(_context.Uyeler);
         }
         [HttpPost]
-        public IActionResult UyelerSearch(string searchString, int id)
+        public async Task<IActionResult> UyelerSearch(string searchString, int id)
         {
             if (searchString == null) searchString = "^";
             searchString = searchString.ToLower();
             //searchString = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(searchString);
-            var arama = _context.Uyeler.Where(x => x.UyeAd.ToLower().Contains(searchString) || x.UyeSoyad.ToLower().Contains(searchString) || x.UyeEposta.ToLower().Contains(searchString) || x.UyeTelefon.Contains(searchString) || x.UyeAdres.ToLower().Contains(searchString) || x.UyeNo == id).ToList();
+            var arama = await _context.Uyeler.Where(x => x.UyeAd.ToLower().Contains(searchString) ||
+                    x.UyeSoyad.ToLower().Contains(searchString) ||
+                    x.UyeEposta.ToLower().Contains(searchString) ||
+                    x.UyeTelefon.Contains(searchString) ||
+                    x.UyeAdres.ToLower().Contains(searchString) || x.UyeNo == id).ToListAsync();
             return View(arama);
         }
         public async Task<IActionResult> DeleteUyeler(int id)
@@ -62,7 +66,7 @@ namespace libraryMVC.Controllers
             return View(uye);
         }
         [HttpPost]
-        public async Task<IActionResult> EditUyeler(int id,Uye uye)
+        public async Task<IActionResult> EditUyeler(int id, Uye uye)
         {
             if (uye.UyeAd.Contains("^") == true) uye.UyeAd = "-";
             if (uye.UyeSoyad.Contains("^") == true) uye.UyeSoyad = "-";
