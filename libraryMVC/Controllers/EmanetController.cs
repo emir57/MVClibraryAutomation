@@ -11,12 +11,10 @@ namespace libraryMVC.Controllers
     public class EmanetController : Controller
     {
         private readonly AppDbContext _context;
-
         public EmanetController(AppDbContext context)
         {
             _context = context;
         }
-
         public IActionResult Emanetler(string searchString, int id)
         {
             return View(_context.Emanetler);
@@ -30,7 +28,6 @@ namespace libraryMVC.Controllers
             var arama = await _context.Emanetler.Where(x =>
                     x.EmanetTeslimEdildi.ToLower().Contains(searchString) || x.EmanetNo == id)
             .ToListAsync();
-
             return View(arama);
         }
         public async Task<IActionResult> DeleteEmanetler(int id)
@@ -44,7 +41,6 @@ namespace libraryMVC.Controllers
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> CreateEmanetler(Emanet emanet)
         {
@@ -73,7 +69,6 @@ namespace libraryMVC.Controllers
             if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
             if (emanet.EmanetNot.Contains("^") == true) emanet.EmanetNot = "-";
             if (emanet.EmanetTeslimEdildi.Contains("^") == true) emanet.EmanetTeslimEdildi = "Sürüyor";
-
             if (ModelState.IsValid)
             {
                 try
@@ -82,9 +77,7 @@ namespace libraryMVC.Controllers
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
-                {
-
-                }
+                {}
                 return RedirectToAction("Emanetler");
             }
             return View(emanet);
