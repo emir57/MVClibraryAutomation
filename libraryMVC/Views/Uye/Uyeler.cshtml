@@ -1,15 +1,20 @@
 @model IEnumerable<libraryMVC.Models.Uye>
 
+@section Css{
+    <style>
+        #searchSection{
+            
+        }
+    </style>
+}
 
 <div class="jumbotron mt-5">
-    <h2 style="float:left;"class="text-info">Üye Listesi</h2>
-<div>
-    <form asp-action="UyelerSearch">
-        <input style="width:80px; margin-left:570px; top:-50px;" placeholder="ID"name="id"type="number"/>
-        <input style="margin-right:5px;margin-top:-150px;" placeholder="Ara" name="searchString"type="text"/>
-        <button style="float:right;margin-top:-4px;" class="btn btn-primary"type="submit">Ara</button>
-    </form>
-</div>
+    <h2 style="float:left;" class="text-info">Üye Listesi</h2>
+    <div id="searchSection">
+        <input class="form-control" style="max-width: 100px;" placeholder="ID" id="id" type="number" />
+        <input class="form-control" style="max-width: 200px;" placeholder="Ara" id="searchString" type="text" />
+        @* <button style="float:right;margin-top:-4px;" class="btn btn-primary" type="submit">Ara</button> *@
+    </div>
     <table class="table table-hover mt-3">
         <thead>
             <th>Üye No</th>
@@ -25,39 +30,54 @@
             <tr>
                 <td>@item.UyeNo</td>
                 <td>
-                    @if(@item.UyeAd.Contains("^")==true){
+                    @if (@item.UyeAd.Contains("^") == true)
+                    {
                         <p>-</p>
                     }
-                    else{@item.UyeAd}
+                    else
+                    {
+                        @item.UyeAd
+                    }
                 </td>
                 <td>
-                    @if(@item.UyeSoyad.Contains("^")==true){
+                    @if (@item.UyeSoyad.Contains("^") == true)
+                    {
                         <p>-</p>
                     }
-                    else{@item.UyeSoyad}
+                    else
+                    {
+                        @item.UyeSoyad
+                    }
                 </td>
                 <td>@item.UyeTelefon</td>
                 <td>@item.UyeEposta</td>
                 <td>
-                    @if(@item.UyeAdres.Contains("^")==true){
+                    @if (@item.UyeAdres.Contains("^") == true)
+                    {
                         <p>-</p>
                     }
-                    else{@item.UyeAdres}
+                    else
+                    {
+                        @item.UyeAdres
+                    }
 
                 </td>
                 <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal@(item.UyeNo)">
-                    Sil
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal@(item.UyeNo)">
+                        Sil
                     </button>
-                    <a class="btn btn-primary text text-white"asp-action="EditUyeler" asp-route-id="@item.UyeNo" role="button">Düzenle</a>
+                    <a class="btn btn-primary text text-white" asp-action="EditUyeler" asp-route-id="@item.UyeNo"
+                    role="button">Düzenle</a>
                     <!-- Modal -->
-                    <div class="modal fade" id="modal@(item.UyeNo)" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modal@(item.UyeNo)" role="dialog" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
-                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
+                                    <button type="button" class="btn-close" data-dismiss="modal"
+                                    aria-label="Close">X</button>
                                 </div>
                                 <div class="modal-body">
                                     <span class="text-danger">@item.UyeAd - @item.UyeSoyad - @item.UyeEposta</span>
@@ -66,18 +86,20 @@
                                 </div>
                                 <div class="modal-footer">
                                     <!-- Button trigger modal -->
-                                    <a class="btn btn-secondary text text-white" data-dismiss="modal" role="button">İptal</a>
-                                    <a class="btn btn-danger text text-white"asp-action="DeleteUyeler" asp-route-id="@item.UyeNo" role="button">Sil</a>
+                                <a class="btn btn-secondary text text-white" data-dismiss="modal"
+                                    role="button">İptal</a>
+                                    <a class="btn btn-danger text text-white" asp-action="DeleteUyeler"
+                                    asp-route-id="@item.UyeNo" role="button">Sil</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 </td>
             </tr>
-            
+
         }
-        
-        
+
+
     </table>
 </div>
-<a style="float:left; margin-bottom:100px;" asp-action="CreateUyeler" class="btn btn-outline-secondary btn-sm mx-2">Yeni Üye Oluştur</a>
-
+<a style="float:left; margin-bottom:100px;" asp-action="CreateUyeler" class="btn btn-outline-secondary btn-sm mx-2">Yeni
+    Üye Oluştur</a>
