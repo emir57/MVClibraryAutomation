@@ -19,18 +19,17 @@ namespace libraryMVC.Controllers
         {
             return View(_context.Kitaplar);
         }
-        [HttpPost]
-        public async Task<IActionResult> KitaplarSearch(string searchString, int id)
+        [HttpGet]
+        public async Task<IActionResult> KitaplarSearchBySearchString(string searchString)
         {
             if (searchString == null) searchString = "^";
             searchString = searchString.ToLower();
             //searchString = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(searchString);
             var arama = await _context.Kitaplar.Where(x => x.KitapAd.ToLower().Contains(searchString) ||
                     x.KitapYazari.ToLower().Contains(searchString) ||
-                    x.KitapYayinEvi.ToLower().Contains(searchString) ||
-                    x.KitapDil.ToLower().Contains(searchString) || x.KitapNo == id)
+                    x.KitapYayinEvi.ToLower().Contains(searchString))
             .ToListAsync();
-            return View(arama);
+            return Ok(arama);
         }
         public async Task<IActionResult> DeleteKitaplar(int id)
         {
@@ -80,7 +79,7 @@ namespace libraryMVC.Controllers
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
-                {}
+                { }
                 return RedirectToAction("Kitaplar");
             }
             return View(kitap);
