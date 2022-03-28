@@ -143,11 +143,6 @@ C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\staticwe
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\site.TagHelpers.input.cache
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\site.TagHelpers.output.cache
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\site.RazorCoreGenerate.cache
-C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Home\CreateEmanetler.cshtml.g.cs
-C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Home\DeleteEmanetler.cshtml.g.cs
-C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Home\EditEmanetler.cshtml.g.cs
-C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Home\Emanetler.cshtml.g.cs
-C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Home\EmanetlerSearch.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Home\Welcome.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Kitap\CreateKitaplar.cshtml.g.cs
@@ -174,3 +169,8 @@ C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\refint\s
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\site.pdb
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\site.genruntimeconfig.cache
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\ref\site.dll
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Emanet\CreateEmanetler.cshtml.g.cs
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Emanet\DeleteEmanetler.cshtml.g.cs
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Emanet\EditEmanetler.cshtml.g.cs
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Emanet\Emanetler.cshtml.g.cs
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Emanet\EmanetlerSearch.cshtml.g.cs
