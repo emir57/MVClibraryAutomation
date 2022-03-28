@@ -31,18 +31,22 @@ namespace libraryMVC.Controllers
         }
         public async Task<IActionResult> DeleteKitaplar(int id)
         {
-            var kitap = await _context.Kitaplar.SingleOrDefaultAsync(x => x.KitapNo==id);
+            var kitap = await _context.Kitaplar.SingleOrDefaultAsync(x => x.KitapNo == id);
             _context.Kitaplar.Remove(kitap);
             await _context.SaveChangesAsync();
             return RedirectToAction("Kitaplar");
         }
+        public IActionResult CreateKitaplar()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult CreateKitaplar(Kitap kitap)
         {
-            if(kitap.KitapAciklama==null)kitap.KitapAciklama="-";
-            if(kitap.KitapAd.Contains("^") == true) kitap.KitapAd="-";
-            if(kitap.KitapAciklama.Contains("^")==true) kitap.KitapAciklama="-";
-            if(kitap.KitapDil.Contains("^")==true) kitap.KitapDil="Türkçe";
+            if (kitap.KitapAciklama == null) kitap.KitapAciklama = "-";
+            if (kitap.KitapAd.Contains("^") == true) kitap.KitapAd = "-";
+            if (kitap.KitapAciklama.Contains("^") == true) kitap.KitapAciklama = "-";
+            if (kitap.KitapDil.Contains("^") == true) kitap.KitapDil = "Türkçe";
 
             _context.Kitaplar.Add(kitap);
             _context.SaveChanges();
@@ -50,9 +54,9 @@ namespace libraryMVC.Controllers
         }
         public IActionResult EditKitaplar(int? id)
         {
-            
-            var kitap = _context.Kitaplar.Where(x => x.KitapNo==id).SingleOrDefault();
-            if(kitap == null)
+
+            var kitap = _context.Kitaplar.Where(x => x.KitapNo == id).SingleOrDefault();
+            if (kitap == null)
             {
 
             }
@@ -65,13 +69,13 @@ namespace libraryMVC.Controllers
             {
                 return RedirectToAction("Error");
             }
-            if(kitap.KitapAciklama==null)kitap.KitapAciklama="-";
-            if(kitap.KitapAd.Contains("^")==true) kitap.KitapAd="-";
-            if(kitap.KitapYazari.Contains("^")==true) kitap.KitapYazari="-";
-            if(kitap.KitapDil.Contains("^")==true) kitap.KitapDil="Türkçe";
-            if(kitap.KitapYayinEvi.Contains("^")==true) kitap.KitapYayinEvi="-";
-            if(kitap.KitapAciklama.Contains("^")==true) kitap.KitapAciklama="-";
-            
+            if (kitap.KitapAciklama == null) kitap.KitapAciklama = "-";
+            if (kitap.KitapAd.Contains("^") == true) kitap.KitapAd = "-";
+            if (kitap.KitapYazari.Contains("^") == true) kitap.KitapYazari = "-";
+            if (kitap.KitapDil.Contains("^") == true) kitap.KitapDil = "Türkçe";
+            if (kitap.KitapYayinEvi.Contains("^") == true) kitap.KitapYayinEvi = "-";
+            if (kitap.KitapAciklama.Contains("^") == true) kitap.KitapAciklama = "-";
+
 
             if (ModelState.IsValid)
             {
@@ -82,7 +86,7 @@ namespace libraryMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                        
+
                 }
                 return RedirectToAction("Kitaplar");
             }

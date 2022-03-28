@@ -54,10 +54,6 @@ namespace site.Controllers
         {
             return View();
         }
-        public IActionResult CreateKitaplar()
-        {
-            return View();
-        }
         
         [HttpPost]
         public IActionResult CreateEmanetler(Emanet emanet)
@@ -72,8 +68,6 @@ namespace site.Controllers
             _context.SaveChanges();
             return RedirectToAction("Emanetler");
         }
-        
-        
         public async Task<IActionResult> EditEmanetler(int? id)
         {
             
