@@ -22,13 +22,14 @@ namespace libraryMVC.Controllers
             return View(_context.Emanetler);
         }
         [HttpPost]
-        public IActionResult EmanetlerSearch(string searchString, int id)
+        public async Task<IActionResult> EmanetlerSearch(string searchString, int id)
         {
             if (searchString == null) searchString = "^";
             searchString = searchString.ToLower();
-
             //searchString = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(searchString);
-            var arama = _context.Emanetler.Where(x => x.EmanetTeslimEdildi.ToLower().Contains(searchString) || x.EmanetNo == id).ToList();
+            var arama = await _context.Emanetler.Where(x =>
+                    x.EmanetTeslimEdildi.ToLower().Contains(searchString) || x.EmanetNo == id)
+            .ToListAsync();
 
             return View(arama);
         }
@@ -68,7 +69,7 @@ namespace libraryMVC.Controllers
             return View(emanet);
         }
         [HttpPost]
-        public async Task<IActionResult> EditEmanetler(int id,Emanet emanet)
+        public async Task<IActionResult> EditEmanetler(int id, Emanet emanet)
         {
             if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
             if (emanet.EmanetNot.Contains("^") == true) emanet.EmanetNot = "-";
