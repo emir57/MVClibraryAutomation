@@ -114,3 +114,24 @@
 </div>
 <a style="float:left; margin-bottom:100px;" asp-action="CreateKitaplar"
     class="btn btn-outline-secondary btn-sm mx-2">Yeni Kitap Oluştur</a>
+
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        let searchString = $("#searchString");
+        searchString.keyup(function () {
+            if (searchString.val().length > 1) {
+                $.ajax({
+                    url: "/Kitap/KitaplarSearchBySearchString?searchString="+searchString,
+                    method: "GET",
+                    @* data: { searchString:searchString }, *@
+                    success: function (data) {
+                        console.log(data)
+                    },
+                    eror:function(error){console.log(error)}
+                })
+            }
+        })
+    })
+</script>
+}
