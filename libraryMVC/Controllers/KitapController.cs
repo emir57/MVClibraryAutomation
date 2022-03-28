@@ -63,11 +63,11 @@ namespace libraryMVC.Controllers
             return View(kitap);
         }
         [HttpPost]
-        public async Task<IActionResult> EditKitaplar(int id, [Bind("KitapNo,KitapAd,KitapYazari,KitapBaskiYil,KitapSayfaSayi,KitapDil,KitapYayinEvi,KitapAciklama")] Kitap kitap)
+        public async Task<IActionResult> EditKitaplar(int id, Kitap kitap)
         {
             if (id != kitap.KitapNo)
             {
-                return RedirectToAction("Error");
+                
             }
             if (kitap.KitapAciklama == null) kitap.KitapAciklama = "-";
             if (kitap.KitapAd.Contains("^") == true) kitap.KitapAd = "-";

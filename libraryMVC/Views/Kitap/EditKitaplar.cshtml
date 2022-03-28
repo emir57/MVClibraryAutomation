@@ -7,42 +7,71 @@
         <div class="col-4">
 
             @* <h5>Lütfen <span class="text text-danger">"^"</span> karakterini kullanmayınız. </h5> *@
-            <form asp-action="EditKitaplar" >
+            <form asp-action="EditKitaplar" id="editKitaplarForm">
                 <input type="hidden" asp-for="KitapNo" />
                 <div class="mb-3">
                     <label for="kitapAd" class="form-label">Kitap Adı</label>
-                    <input  required asp-for="KitapAd" class="form-control" id="kitapAd" aria-describedby="emailHelp">
+                    <input required asp-for="KitapAd" class="form-control" id="kitapAd" aria-describedby="emailHelp">
                     <div id="kitapAd" class="form-text"></div>
                 </div>
                 <div class="mb-3">
                     <label for="KitapYazar" class="form-label">Kitap Yazarı</label>
-                    <input  required asp-for="KitapYazari" class="form-control" id="KitapYazar" aria-describedby="emailHelp">
+                    <input required asp-for="KitapYazari" class="form-control" id="KitapYazar"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="KitapBaski" class="form-label">Kitap Baskı Yılı</label>
-                    <input  required asp-for="KitapBaskiYil" class="form-control" id="KitapBaski" aria-describedby="emailHelp">
+                    <input required asp-for="KitapBaskiYil" class="form-control" id="KitapBaski"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="KitapSayfa" class="form-label">Kitabın Sayfa Sayısı</label>
-                    <input  required asp-for="KitapSayfaSayi" class="form-control" id="KitapSayfa" aria-describedby="emailHelp">
+                    <input required asp-for="KitapSayfaSayi" class="form-control" id="KitapSayfa"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="KitapDil" class="form-label">Kitap Dili</label>
-                    <input  required asp-for="KitapDil" class="form-control" id="KitapDil" aria-describedby="emailHelp">
+                    <input required asp-for="KitapDil" class="form-control" id="KitapDil" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="KitapYayin" class="form-label">Kitap Yayın Evi</label>
-                    <input  required asp-for="KitapYayinEvi" class="form-control" id="KitapYayin" aria-describedby="emailHelp" >
+                    <input required asp-for="KitapYayinEvi" class="form-control" id="KitapYayin"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="KitapAciklama" class="form-label">Kitap Açıklaması</label>
-                    <input asp-for="KitapAciklama" class="form-control" id="KitapAciklama" aria-describedby="emailHelp" maxlength="30">
+                    <input asp-for="KitapAciklama" class="form-control" id="KitapAciklama" aria-describedby="emailHelp"
+                        maxlength="30">
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Kaydet</button>
             </form>
         </div>
     </div>
 </div>
-<a style="float:left; margin-bottom:100px;"asp-action="Kitaplar" class="btn btn-outline-secondary btn-sm mx-2">Listeye Geri Dön</a>
+<a style="float:left; margin-bottom:100px;" asp-action="Kitaplar" class="btn btn-outline-secondary btn-sm mx-2">Listeye
+    Geri Dön</a>
 
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        $("#editKitaplarForm").submit(function () {
+            let data = $("#editKitaplarForm").serializeArray();
+            $.ajax({
+                url: "/Kitap/EditKitaplar",
+                method: "POST",
+                data: data,
+                success: function () {
+                    showSuccessAlert("Kaydetme Başarılı\nKitaplar'a yönlendiriliyorsunuz");
+                    setTimeout(() => {
+                        window.location.href = "/Kitap/Kitaplar";
+                    }, 2500)
+                }, error: function () {
+                    showErrorAlert("Kaydetme Başarısız");
+                }
+            })
+            return false;
+        })
+    })
+</script>
+}
