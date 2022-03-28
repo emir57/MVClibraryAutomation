@@ -65,18 +65,12 @@ namespace libraryMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> EditKitaplar(int id, Kitap kitap)
         {
-            if (id != kitap.KitapNo)
-            {
-                
-            }
             if (kitap.KitapAciklama == null) kitap.KitapAciklama = "-";
             if (kitap.KitapAd.Contains("^") == true) kitap.KitapAd = "-";
             if (kitap.KitapYazari.Contains("^") == true) kitap.KitapYazari = "-";
             if (kitap.KitapDil.Contains("^") == true) kitap.KitapDil = "Türkçe";
             if (kitap.KitapYayinEvi.Contains("^") == true) kitap.KitapYayinEvi = "-";
             if (kitap.KitapAciklama.Contains("^") == true) kitap.KitapAciklama = "-";
-
-
             if (ModelState.IsValid)
             {
                 try
