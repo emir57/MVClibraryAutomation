@@ -34,6 +34,16 @@ namespace libraryMVC.Controllers
             .ToListAsync();
             return Ok(arama);
         }
+        [HttpGet]
+        public async Task<IActionResult> KitaplarSearchById(int id=0)
+        {
+            if (id == 0){
+                var kitaplar = await _context.Kitaplar.ToListAsync();
+                return Ok(kitaplar);
+            }
+            var arama = await _context.Kitaplar.SingleOrDefaultAsync(x => x.KitapNo == id);
+            return Ok(arama);
+        }
         public async Task<IActionResult> DeleteKitaplar(int id)
         {
             var kitap = await _context.Kitaplar.SingleOrDefaultAsync(x => x.KitapNo == id);
