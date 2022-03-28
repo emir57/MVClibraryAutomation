@@ -41,15 +41,15 @@ namespace libraryMVC.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateKitaplar(Kitap kitap)
+        public async Task<IActionResult> CreateKitaplar(Kitap kitap)
         {
             if (kitap.KitapAciklama == null) kitap.KitapAciklama = "-";
             if (kitap.KitapAd.Contains("^") == true) kitap.KitapAd = "-";
             if (kitap.KitapAciklama.Contains("^") == true) kitap.KitapAciklama = "-";
             if (kitap.KitapDil.Contains("^") == true) kitap.KitapDil = "Türkçe";
 
-            _context.Kitaplar.Add(kitap);
-            _context.SaveChanges();
+            await _context.Kitaplar.AddAsync(kitap);
+            await _context.SaveChangesAsync();
             return RedirectToAction("Kitaplar");
         }
         public IActionResult EditKitaplar(int? id)
