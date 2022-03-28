@@ -45,23 +45,25 @@
 
 @section Scripts{
 <script>
-    $("#editUyeForm").submit(function () {
-        let data = $("#editUyeForm").serializeArray();
-        $.ajax({
-            url: "/Uye/EditUyeler",
-            method: "POST",
-            data: data,
-            success: function () {
-                showSuccessAlert("Kaydetme Başarılı!\nUyeler'e yönlendiriliyorsunuz");
-                setTimeout(() => {
-                    window.location.href = "/Uye/Uyeler";
-                }, 2500)
+    $(document).ready(function () {
+        $("#editUyeForm").submit(function () {
+            let data = $("#editUyeForm").serializeArray();
+            $.ajax({
+                url: "/Uye/EditUyeler",
+                method: "POST",
+                data: data,
+                success: function () {
+                    showSuccessAlert("Kaydetme Başarılı!\nUyeler'e yönlendiriliyorsunuz");
+                    setTimeout(() => {
+                        window.location.href = "/Uye/Uyeler";
+                    }, 2500)
 
-            }, error: function () {
-                showErrorAlert("Kaydetme Başarısız!");
-            }
+                }, error: function () {
+                    showErrorAlert("Kaydetme Başarısız!");
+                }
+            })
+            return false;
         })
-        return false;
     })
 </script>
 }
