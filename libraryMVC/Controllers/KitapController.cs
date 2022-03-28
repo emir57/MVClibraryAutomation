@@ -21,12 +21,16 @@ namespace libraryMVC.Controllers
             return View(_context.Kitaplar);
         }
         [HttpPost]
-        public IActionResult KitaplarSearch(string searchString, int id)
+        public async Task<IActionResult> KitaplarSearch(string searchString, int id)
         {
             if (searchString == null) searchString = "^";
             searchString = searchString.ToLower();
             //searchString = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(searchString);
-            var arama = _context.Kitaplar.Where(x => x.KitapAd.ToLower().Contains(searchString) || x.KitapYazari.ToLower().Contains(searchString) || x.KitapYayinEvi.ToLower().Contains(searchString) || x.KitapDil.ToLower().Contains(searchString) || x.KitapNo == id).ToList();
+            var arama = await _context.Kitaplar.Where(x => x.KitapAd.ToLower().Contains(searchString) ||
+                    x.KitapYazari.ToLower().Contains(searchString) ||
+                    x.KitapYayinEvi.ToLower().Contains(searchString) ||
+                    x.KitapDil.ToLower().Contains(searchString) || x.KitapNo == id)
+            .ToListAsync();
             return View(arama);
         }
         public async Task<IActionResult> DeleteKitaplar(int id)
