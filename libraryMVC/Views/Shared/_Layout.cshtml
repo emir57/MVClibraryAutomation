@@ -55,7 +55,7 @@
     @await RenderSectionAsync("Scripts", required: false)
     <script>
         
-        function showSuccessMessage(message) {
+        function showSuccessAlert(message) {
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'bottom-end',
@@ -73,7 +73,7 @@
                 title: message
             })
         }
-        function showErrorMessage(message) {
+        function showErrorAlert(message) {
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'bottom-end',
