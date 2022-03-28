@@ -64,10 +64,6 @@ namespace libraryMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> EditUyeler(int id,Uye uye)
         {
-            if (id != uye.UyeNo)
-            {
-
-            }
             if (uye.UyeAd.Contains("^") == true) uye.UyeAd = "-";
             if (uye.UyeSoyad.Contains("^") == true) uye.UyeSoyad = "-";
             if (uye.UyeEposta.Contains("^") == true) uye.UyeEposta = "unknown@hotmail.com";
