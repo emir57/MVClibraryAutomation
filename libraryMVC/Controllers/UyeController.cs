@@ -55,13 +55,12 @@ namespace libraryMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Uyeler");
         }
-        public IActionResult EditUyeler(int? id)
+        public async Task<IActionResult> EditUyeler(int? id)
         {
-
-            var uye = _context.Uyeler.Where(x => x.UyeNo == id).SingleOrDefault();
+            var uye = await _context.Uyeler.Where(x => x.UyeNo == id).SingleOrDefaultAsync();
             if (uye == null)
             {
-
+                return RedirectToAction(nameof(Uyeler));
             }
             return View(uye);
         }
