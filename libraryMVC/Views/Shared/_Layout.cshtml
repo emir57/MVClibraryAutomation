@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     @await RenderSectionAsync("Css",false);
+    <style>
+        .searchSection {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 
 <body>
@@ -55,7 +63,7 @@
     <script src="~/js/swal.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <script>
-        
+
         function showSuccessAlert(message) {
             const Toast = Swal.mixin({
                 toast: true,
