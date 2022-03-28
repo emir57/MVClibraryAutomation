@@ -122,13 +122,13 @@
         searchString.keyup(function () {
             if (searchString.val().length > 1) {
                 $.ajax({
-                    url: "/Kitap/KitaplarSearchBySearchString?searchString="+searchString,
+                    url: "/Kitap/KitaplarSearchBySearchString?searchString="+searchString.val(),
                     method: "GET",
-                    @* data: { searchString:searchString }, *@
+                    @* data: { searchString: searchString.val() }, *@
                     success: function (data) {
                         console.log(data)
                     },
-                    eror:function(error){console.log(error)}
+                    eror: function (error) { console.log(error) }
                 })
             }
         })
