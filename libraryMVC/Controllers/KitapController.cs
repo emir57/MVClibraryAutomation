@@ -11,7 +11,6 @@ namespace libraryMVC.Controllers
     public class KitapController : Controller
     {
         private readonly AppDbContext _context;
-
         public KitapController(AppDbContext context)
         {
             _context = context;
@@ -51,14 +50,12 @@ namespace libraryMVC.Controllers
             if (kitap.KitapAd.Contains("^") == true) kitap.KitapAd = "-";
             if (kitap.KitapAciklama.Contains("^") == true) kitap.KitapAciklama = "-";
             if (kitap.KitapDil.Contains("^") == true) kitap.KitapDil = "Türkçe";
-
             await _context.Kitaplar.AddAsync(kitap);
             await _context.SaveChangesAsync();
             return RedirectToAction("Kitaplar");
         }
         public async Task<IActionResult> EditKitaplar(int? id)
         {
-
             var kitap = await _context.Kitaplar.Where(x => x.KitapNo == id).SingleOrDefaultAsync();
             if (kitap == null)
             {
@@ -83,9 +80,7 @@ namespace libraryMVC.Controllers
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
-                {
-
-                }
+                {}
                 return RedirectToAction("Kitaplar");
             }
             return View(kitap);
