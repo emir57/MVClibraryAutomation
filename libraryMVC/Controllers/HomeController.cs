@@ -39,7 +39,6 @@ namespace site.Controllers
             var arama = _context.Uyeler.Where(x => x.UyeAd.ToLower().Contains(searchString) || x.UyeSoyad.ToLower().Contains(searchString) || x.UyeEposta.ToLower().Contains(searchString) || x.UyeTelefon.Contains(searchString) || x.UyeAdres.ToLower().Contains(searchString) || x.UyeNo == id).ToList();
             return View(arama);
         }
-        
         public IActionResult Emanetler(string searchString, int id)
         {
             return View(_context.Emanetler);
