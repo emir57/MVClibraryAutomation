@@ -60,11 +60,10 @@ namespace libraryMVC.Controllers
         }
         public async Task<IActionResult> EditEmanetler(int? id)
         {
-
             var emanet = await _context.Emanetler.FindAsync(id);
             if (emanet == null)
             {
-
+                return RedirectToAction(nameof(Emanetler));
             }
             return View(emanet);
         }
