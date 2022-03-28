@@ -122,7 +122,7 @@
         let kitaplarTable = $("#kitaplarTable");
         searchString.keyup(function () {
             if(searchString.val() == ""){
-                
+
             }
             if (searchString.val().length > 1) {
                 $.ajax({
@@ -147,7 +147,7 @@
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.kitapNo}">
                                         Sil
                                     </button>
-                                    <a class="btn btn-primary text text-white" asp-action="EditKitaplar" asp-route-id="${data.kitapNo}"
+                                    <a style="cursor:pointer;" class="btn btn-primary text text-white" onClick="window.location.href='/Kitap/EditKitaplar/${data.kitapNo}'"
                                     role="button">Düzenle</a>
                                     <!-- Modal -->
                                     <div class="modal fade" id="modal${data.kitapNo}" role="dialog" tabindex="-1"
