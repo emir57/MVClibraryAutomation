@@ -15629,6 +15629,26 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Uye\\CreateUyeler.cshtml",
+      "TargetPath": "Views\\Uye\\CreateUyeler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Uye\\Uyeler.cshtml",
+      "TargetPath": "Views\\Uye\\Uyeler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Uye\\EditUyeler.cshtml",
+      "TargetPath": "Views\\Uye\\EditUyeler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Uye\\DeleteUyeler.cshtml",
+      "TargetPath": "Views\\Uye\\DeleteUyeler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Kitap\\Kitaplar.cshtml",
       "TargetPath": "Views\\Kitap\\Kitaplar.cshtml",
       "FileKind": "mvc"
@@ -15639,8 +15659,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\Uyeler.cshtml",
-      "TargetPath": "Views\\Home\\Uyeler.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Uye\\UyelerSearch.cshtml",
+      "TargetPath": "Views\\Uye\\UyelerSearch.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15659,16 +15679,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\CreateUyeler.cshtml",
-      "TargetPath": "Views\\Home\\CreateUyeler.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\EditUyeler.cshtml",
-      "TargetPath": "Views\\Home\\EditUyeler.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Kitap\\EditKitaplar.cshtml",
       "TargetPath": "Views\\Kitap\\EditKitaplar.cshtml",
       "FileKind": "mvc"
@@ -15676,16 +15686,6 @@
     {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\UyelerSearch.cshtml",
-      "TargetPath": "Views\\Home\\UyelerSearch.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\DeleteUyeler.cshtml",
-      "TargetPath": "Views\\Home\\DeleteUyeler.cshtml",
       "FileKind": "mvc"
     },
     {
