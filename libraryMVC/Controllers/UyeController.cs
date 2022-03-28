@@ -40,15 +40,15 @@ namespace libraryMVC.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateUyeler(Uye uye)
+        public async Task<IActionResult> CreateUyeler(Uye uye)
         {
             if (uye.UyeAd.Contains("^") == true) uye.UyeAd = "-";
             if (uye.UyeSoyad.Contains("^") == true) uye.UyeSoyad = "-";
             if (uye.UyeTelefon.Contains("^") == true) uye.UyeTelefon = "000 000 00 00";
             if (uye.UyeEposta.Contains("^") == true) uye.UyeEposta = "unknown@hotmail.com";
             if (uye.UyeAdres.Contains("^") == true) uye.UyeAdres = "Ankara";
-            _context.Uyeler.Add(uye);
-            _context.SaveChanges();
+            await _context.Uyeler.AddAsync(uye);
+            await _context.SaveChangesAsync();
             return RedirectToAction("Uyeler");
         }
         public IActionResult EditUyeler(int? id)
