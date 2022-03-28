@@ -20,9 +20,12 @@ namespace libraryMVC.Controllers
             return View(_context.Kitaplar);
         }
         [HttpGet]
-        public async Task<IActionResult> KitaplarSearchBySearchString(string searchString)
+        public async Task<IActionResult> KitaplarSearchBySearchString(string searchString=null)
         {
-            if (searchString == null) searchString = "^";
+            if (searchString == null){
+                var kitaplar = await _context.Kitaplar.ToListAsync();
+                return Ok(kitaplar);
+            }
             searchString = searchString.ToLower();
             //searchString = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(searchString);
             var arama = await _context.Kitaplar.Where(x => x.KitapAd.ToLower().Contains(searchString) ||

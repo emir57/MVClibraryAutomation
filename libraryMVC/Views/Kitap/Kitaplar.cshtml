@@ -6,7 +6,7 @@
         <input class="form-control" style="max-width: 100px;" placeholder="ID" id="id" type="number" />&nbsp;
         <input class="form-control" style="max-width: 200px;" placeholder="Ara" id="searchString" type="text" />
     </div>
-    <table class="table table-hover mt-3" id="kitaplarTable">
+    <table class="table table-hover mt-3">
         <thead>
             <th>Kitap No</th>
             <th>Kitap Adı</th>
@@ -18,7 +18,10 @@
             <th>Kitap Açıklama</th>
             <th width="155px">İşlemler</th>
         </thead>
-        @foreach (var item in Model)
+        <tbody id="kitaplarTable">
+
+        </tbody>
+        @* @foreach (var item in Model)
         {
             <tr>
                 <td>@item.KitapNo</td>
@@ -108,7 +111,7 @@
                 </td>
             </tr>
 
-        }
+        } *@
 
     </table>
 </div>
@@ -120,9 +123,26 @@
     $(document).ready(function () {
         let searchString = $("#searchString");
         let kitaplarTable = $("#kitaplarTable");
+        $.ajax({
+            url: "/Kitap/KitaplarSearchBySearchString",
+            method: "GET",
+            success: function (datas) {
+                let html = getData(datas)
+                kitaplarTable.empty();
+                kitaplarTable.append(html);
+            }
+        })
         searchString.keyup(function () {
             if (searchString.val() == "") {
-
+                $.ajax({
+                    url: "/Kitap/KitaplarSearchBySearchString?searchString=" + searchString.val(),
+                    method: "GET",
+                    success: function (datas) {
+                        let html = getData(datas)
+                        kitaplarTable.empty();
+                        kitaplarTable.append(html);
+                    }
+                })
             }
             if (searchString.val().length > 1) {
                 $.ajax({
@@ -132,10 +152,9 @@
                         let html = getData(datas)
                         kitaplarTable.empty();
                         kitaplarTable.append(html);
-                    },
-                    error: function (error) { console.log(error) }
+                    }
                 })
-    }
+            }
         })
     })
     function getData(datas) {
