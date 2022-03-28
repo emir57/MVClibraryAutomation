@@ -68,12 +68,8 @@ namespace libraryMVC.Controllers
             return View(emanet);
         }
         [HttpPost]
-        public async Task<IActionResult> EditEmanetler(int id, [Bind("EmanetNo,UyeNo,KitapNo,EmanetVermeTarih,EmanetGeriAlmaTarih,EmanetIslemTarih,EmanetNot,EmanetTeslimEdildi")] Emanet emanet)
+        public async Task<IActionResult> EditEmanetler(int id,Emanet emanet)
         {
-            if (id != emanet.EmanetNo)
-            {
-
-            }
             if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
             if (emanet.EmanetNot.Contains("^") == true) emanet.EmanetNot = "-";
             if (emanet.EmanetTeslimEdildi.Contains("^") == true) emanet.EmanetTeslimEdildi = "Sürüyor";

@@ -7,48 +7,81 @@
         <div class="col-4">
 
             @* <h5>Lütfen <span class="text text-danger">"^"</span> karakterini kullanmayınız. </h5> *@
-            <form asp-action="EditEmanetler" >
+            <form asp-action="EditEmanetler" id="editEmanetlerForm">
                 <input type="hidden" asp-for="EmanetNo" />
                 <div class="mb-3">
                     <label for="uyeNo" class="form-label">Üye Numarası</label>
-                    <input  required asp-for="UyeNo" type="number" class="form-control" id="uyeNo" aria-describedby="emailHelp">
+                    <input required asp-for="UyeNo" type="number" class="form-control" id="uyeNo"
+                        aria-describedby="emailHelp">
                     <div id="uyeNo" class="form-text"></div>
                 </div>
                 <div class="mb-3">
                     <label for="KitapNo" class="form-label">Kitap Numarası</label>
-                    <input  required asp-for="KitapNo" type="number" class="form-control" id="KitapNo" aria-describedby="emailHelp">
+                    <input required asp-for="KitapNo" type="number" class="form-control" id="KitapNo"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="EmanetVerme" class="form-label">Emanet Verme Tarihi</label>
-                    <input  required asp-for="EmanetVermeTarih" type="date" class="form-control" id="EmanetVerme" aria-describedby="emailHelp">
+                    <input required asp-for="EmanetVermeTarih" type="date" class="form-control" id="EmanetVerme"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="EmanetAlma" class="form-label">Emanet Geri Alma Tarihi</label>
-                    <input  required asp-for="EmanetGeriAlmaTarih" type="date" class="form-control" id="EmanetAlma" aria-describedby="emailHelp">
+                    <input required asp-for="EmanetGeriAlmaTarih" type="date" class="form-control" id="EmanetAlma"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="EmanetIslem" class="form-label">Emanet İşlem Tarihi</label>
-                    <input  required asp-for="EmanetIslemTarih" type="date" class="form-control" id="EmanetIslem" aria-describedby="emailHelp">
+                    <input required asp-for="EmanetIslemTarih" type="date" class="form-control" id="EmanetIslem"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="EmanetNot" class="form-label">Emanet Not</label>
-                    <input asp-for="EmanetNot" type="text" class="form-control" id="EmanetNot" aria-describedby="emailHelp" maxlength="30">
+                    <input asp-for="EmanetNot" type="text" class="form-control" id="EmanetNot"
+                        aria-describedby="emailHelp" maxlength="30">
                 </div>
                 <div class="mb-3">
                     <label for="EmanetTeslim" class="form-label">Emanet Teslim Edildi</label>
-                    @*<input  required title="^ karakerini kullanmayın." asp-for="EmanetTeslimEdildi" type="text" class="form-control" id="EmanetTeslim" aria-describedby="emailHelp">*@
-                    <select class="form-control" asp-for="EmanetTeslimEdildi" id="EmanetTeslim" aria-label="Floating label select example">
+                    @*<input required title="^ karakerini kullanmayın." asp-for="EmanetTeslimEdildi" type="text"
+                        class="form-control" id="EmanetTeslim" aria-describedby="emailHelp">*@
+                    <select class="form-control" asp-for="EmanetTeslimEdildi" id="EmanetTeslim"
+                        aria-label="Floating label select example">
                         <option selected>Lütfen Birini seçiniz.</option>
                         <option value="Teslim Edilmedi">Teslim Edilmedi</option>
                         <option value="Teslim Edildi">Teslim Edildi</option>
                         <option value="Sürüyor">Sürüyor</option>
                     </select>
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary">Kaydet</button>
             </form>
         </div>
     </div>
 </div>
-<a style="margin-bottom:100px;" asp-action="Emanetler" class="btn btn-outline-secondary btn-sm mx-2">Listeye Geri Dön</a>
+<a style="margin-bottom:100px;" asp-action="Emanetler" class="btn btn-outline-secondary btn-sm mx-2">Listeye Geri
+    Dön</a>
 
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        $("#editEmanetlerForm").submit(function () {
+            let data = $("#editEmanetlerForm").serializeArray();
+            $.ajax({
+                url: "/Emanet/EditEmanetler",
+                method: "POST",
+                data: data,
+                success: function () {
+                    showSuccessAlert("Kaydetme Başarılı!\nEmanetler'e yönlendiriliyorsunuz");
+                    setTimeout(() => {
+                        window.location.href = "/Emanet/Emanetler";
+                    }, 2500)
+                },
+                error: function () {
+                    showErrorAlert("Kaydetme Başarısız!");
+                }
+            })
+            return false;
+        })
+    })
+</script>
+}
