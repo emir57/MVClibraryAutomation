@@ -30,7 +30,7 @@ namespace libraryMVC.Controllers
         }
         public async Task<IActionResult> DeleteUyeler(int id)
         {
-            var uye = _context.Uyeler.SingleOrDefault(x => x.UyeNo == id);
+            var uye = await _context.Uyeler.SingleOrDefaultAsync(x => x.UyeNo == id);
             _context.Uyeler.Remove(uye);
             await _context.SaveChangesAsync();
             return RedirectToAction("Uyeler");
