@@ -15619,6 +15619,11 @@
   "RootNamespace": "site",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Emanet\\CreateEmanetler.cshtml",
+      "TargetPath": "Views\\Emanet\\CreateEmanetler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -15664,8 +15669,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\DeleteEmanetler.cshtml",
-      "TargetPath": "Views\\Home\\DeleteEmanetler.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Emanet\\EmanetlerSearch.cshtml",
+      "TargetPath": "Views\\Emanet\\EmanetlerSearch.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15674,8 +15679,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\CreateEmanetler.cshtml",
-      "TargetPath": "Views\\Home\\CreateEmanetler.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Emanet\\Emanetler.cshtml",
+      "TargetPath": "Views\\Emanet\\Emanetler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Emanet\\DeleteEmanetler.cshtml",
+      "TargetPath": "Views\\Emanet\\DeleteEmanetler.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15694,13 +15704,13 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\EditEmanetler.cshtml",
-      "TargetPath": "Views\\Home\\EditEmanetler.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Kitap\\DeleteKitaplar.cshtml",
+      "TargetPath": "Views\\Kitap\\DeleteKitaplar.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Kitap\\DeleteKitaplar.cshtml",
-      "TargetPath": "Views\\Kitap\\DeleteKitaplar.cshtml",
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Emanet\\EditEmanetler.cshtml",
+      "TargetPath": "Views\\Emanet\\EditEmanetler.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15709,18 +15719,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\EmanetlerSearch.cshtml",
-      "TargetPath": "Views\\Home\\EmanetlerSearch.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\Emanetler.cshtml",
-      "TargetPath": "Views\\Home\\Emanetler.cshtml",
       "FileKind": "mvc"
     },
     {
