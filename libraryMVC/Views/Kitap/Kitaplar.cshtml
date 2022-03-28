@@ -1,14 +1,24 @@
 @model IEnumerable<libraryMVC.Models.Kitap>
 
+@section Css{
+<style>
+    .searchSection {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 50px;
+    }
+</style>
+}
+
 <div class="jumbotron mt-5">
     <h2 style="float:left;" class="text-info">Kitap Listesi</h2>
-<div>
-    <form asp-action="KitaplarSearch">
-        <input style="width:80px; margin-left:550px;" placeholder="ID"name="id"type="number"/>
-        <input style="margin-right:0px;" placeholder="Ara"name="searchString"type="text"/>
-        <button style="float:right; margin-top:-4px;"class="btn btn-primary" type="submit">Ara</button>
-    </form>
-</div>
+    <div>
+        <div class="searchSection">
+            <input class="form-control" style="max-width: 100px;" placeholder="ID" id="id" type="number" />
+            <input class="form-control" style="max-width: 200px;" placeholder="Ara" id="searchString" type="text" />
+        </div>
+    </div>
     <table class="table table-hover mt-3">
         <thead>
             <th>Kitap No</th>
@@ -26,50 +36,73 @@
             <tr>
                 <td>@item.KitapNo</td>
                 <td>
-                    @if(@item.KitapAd.Contains("^")==true){
+                    @if (@item.KitapAd.Contains("^") == true)
+                    {
                         <p>-</p>
                     }
-                    else{@item.KitapAd}
+                    else
+                    {
+                        @item.KitapAd
+                    }
                 </td>
                 <td>
-                    @if(@item.KitapYazari.Contains("^")==true){
+                    @if (@item.KitapYazari.Contains("^") == true)
+                    {
                         <p>-</p>
                     }
-                    else{@item.KitapYazari}
+                    else
+                    {
+                        @item.KitapYazari
+                    }
                 </td>
                 <td>@item.KitapBaskiYil</td>
                 <td>@item.KitapSayfaSayi</td>
                 <td>
-                    @if(@item.KitapDil.Contains("^")==true){
+                    @if (@item.KitapDil.Contains("^") == true)
+                    {
                         <p>-</p>
                     }
-                    else{@item.KitapDil}
+                    else
+                    {
+                        @item.KitapDil
+                    }
                 </td>
                 <td>
-                    @if(@item.KitapYayinEvi.Contains("^")==true){
+                    @if (@item.KitapYayinEvi.Contains("^") == true)
+                    {
                         <p>-</p>
                     }
-                    else{@item.KitapYayinEvi}
+                    else
+                    {
+                        @item.KitapYayinEvi
+                    }
                 </td>
                 <td>
-                    @if(@item.KitapAciklama.Contains("^")==true){
+                    @if (@item.KitapAciklama.Contains("^") == true)
+                    {
                         <p>-</p>
                     }
-                    else{@item.KitapAciklama}
+                    else
+                    {
+                        @item.KitapAciklama
+                    }
                 </td>
                 <td>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal@(item.KitapNo)">
-                    Sil
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal@(item.KitapNo)">
+                        Sil
                     </button>
-                    <a class="btn btn-primary text text-white"asp-action="EditKitaplar" asp-route-id="@item.KitapNo" role="button">Düzenle</a>
+                    <a class="btn btn-primary text text-white" asp-action="EditKitaplar" asp-route-id="@item.KitapNo"
+                    role="button">Düzenle</a>
                     <!-- Modal -->
-                    <div class="modal fade" id="modal@(item.KitapNo)" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="modal@(item.KitapNo)" role="dialog" tabindex="-1"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
-                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
+                                    <button type="button" class="btn-close" data-dismiss="modal"
+                                    aria-label="Close">X</button>
                                 </div>
                                 <div class="modal-body">
                                     <span class="text-danger">@item.KitapNo - @item.KitapAd</span>
@@ -78,18 +111,19 @@
                                 </div>
                                 <div class="modal-footer">
                                     <a class="btn btn-secondary text text-white" data-dismiss="modal">İptal</a>
-                                    <a class="btn btn-danger text text-white"asp-action="DeleteKitaplar" asp-route-id="@item.KitapNo">Sil</a>
+                                    <a class="btn btn-danger text text-white" asp-action="DeleteKitaplar"
+                                    asp-route-id="@item.KitapNo">Sil</a>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </td>
             </tr>
-            
+
         }
-        
+
     </table>
 </div>
-<a style="float:left; margin-bottom:100px;"asp-action="CreateKitaplar" class="btn btn-outline-secondary btn-sm mx-2">Yeni Kitap Oluştur</a>
-
+<a style="float:left; margin-bottom:100px;" asp-action="CreateKitaplar"
+    class="btn btn-outline-secondary btn-sm mx-2">Yeni Kitap Oluştur</a>
