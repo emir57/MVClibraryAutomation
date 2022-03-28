@@ -41,8 +41,6 @@ namespace site.Controllers
             
             return View(arama);
         }
-        
-        
         public async Task<IActionResult> DeleteEmanetler(int id)
         {
             var emanet = _context.Emanetler.SingleOrDefault(x => x.EmanetNo==id);
