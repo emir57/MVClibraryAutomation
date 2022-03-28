@@ -1079,19 +1079,21 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lolem\\Desktop\\libraryMVC\\site.csproj",
+      "projectUniqueName": "C:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\site.csproj",
       "projectName": "site",
-      "projectPath": "C:\\Users\\lolem\\Desktop\\libraryMVC\\site.csproj",
+      "projectPath": "C:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\site.csproj",
       "packagesPath": "C:\\Users\\lolem\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lolem\\Desktop\\libraryMVC\\obj\\",
+      "outputPath": "C:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lolem\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\lolem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1135,6 +1137,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[5.0.14, 5.0.14]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -1143,7 +1151,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-rc.2.20479.15\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

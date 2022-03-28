@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z5ba2L7YR9e5k4B+79J0BHfFxIfYURENGvidi/xDLPpFRtH+KwtC6va4urT047LwBJ7Lxy0mHx2BBzL0OMI36A==",
+  "dgSpecHash": "4xYtbhDmwCd61X64kk3T3/Lb6vzgu1Lr+bhtCNmVzwAb28+jBoo6Ex01CidhGK212ibs2M/VEpLMYa4/emTofw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\lolem\\Desktop\\libraryMVC\\site.csproj",
+  "projectFilePath": "C:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\site.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lolem\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\lolem\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -32,7 +32,8 @@
     "C:\\Users\\lolem\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\lolem\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\lolem\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
-    "C:\\Users\\lolem\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+    "C:\\Users\\lolem\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\lolem\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512"
   ],
   "logs": []
 }
