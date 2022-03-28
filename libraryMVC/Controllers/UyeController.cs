@@ -62,7 +62,7 @@ namespace libraryMVC.Controllers
             return View(uye);
         }
         [HttpPost]
-        public async Task<IActionResult> EditUyeler(int id, [Bind("UyeNo,UyeAd,UyeSoyad,UyeTelefon,UyeEposta,UyeAdres")] Uye uye)
+        public async Task<IActionResult> EditUyeler(int id,Uye uye)
         {
             if (id != uye.UyeNo)
             {
