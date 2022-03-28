@@ -52,13 +52,13 @@ namespace libraryMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Kitaplar");
         }
-        public IActionResult EditKitaplar(int? id)
+        public async Task<IActionResult> EditKitaplar(int? id)
         {
 
-            var kitap = _context.Kitaplar.Where(x => x.KitapNo == id).SingleOrDefault();
+            var kitap = await _context.Kitaplar.Where(x => x.KitapNo == id).SingleOrDefaultAsync();
             if (kitap == null)
             {
-
+                return RedirectToAction(nameof(Kitaplar));
             }
             return View(kitap);
         }
