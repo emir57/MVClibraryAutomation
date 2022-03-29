@@ -24,10 +24,12 @@
         </thead>
         @foreach (var item in Model)
         {
-
+            string userUrl = Url.Action("Uyeler","Uye")+"#"+item.Uye.UyeNo;
             <tr>
                 <td>@item.EmanetNo</td>
-                <td>@item.Uye.UyeAd @item.Uye.UyeSoyad</td>
+                <td>
+                    <a href="@userUrl">@item.Uye.UyeAd @item.Uye.UyeSoyad</a>
+                </td>
                 <td>@item.Kitap.KitapAd</td>
                 <td>@item.EmanetVermeTarih</td>
                 <td>@item.EmanetGeriAlmaTarih</td>
