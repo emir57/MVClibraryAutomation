@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using libraryMVC.Dtos;
 using libraryMVC.Models;
 using libraryMVC_.Data;
 using Microsoft.AspNetCore.Mvc;
@@ -15,9 +17,20 @@ namespace libraryMVC.Controllers
         {
             _context = context;
         }
-        public IActionResult Emanetler(string searchString, int id)
+        public async Task<IActionResult> Emanetler(string searchString, int id)
         {
-            return View(_context.Emanetler);
+            List<EmanetDto> emanetler = await (from e in _context.Emanetler
+                                        select new EmanetDto{
+                                            EmanetNo = e.EmanetNo,
+                                            EmanetVermeTarih = e.EmanetVermeTarih,
+                                            EmanetGeriAlmaTarih = e.EmanetGeriAlmaTarih,
+                                            EmanetIslemTarih = e.EmanetIslemTarih,
+                                            EmanetNot = e.EmanetNot,
+                                            EmanetTeslimEdildi = e.EmanetTeslimEdildi,
+                                            Uye = _context.Uyeler.FirstOrDefault(uye=>uye.UyeNo == e.UyeNo),
+                                            Kitap = _context.Kitaplar.FirstOrDefault(kitap=>kitap.KitapNo == e.KitapNo)
+                                        }).ToListAsync();
+            return View(emanetler);
         }
         [HttpPost]
         public async Task<IActionResult> EmanetlerSearch(string searchString, int id)

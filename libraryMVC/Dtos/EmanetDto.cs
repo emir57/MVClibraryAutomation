@@ -1,10 +1,12 @@
+using libraryMVC.Models;
+
 namespace libraryMVC.Dtos
 {
     public class EmanetDto
     {
         public int EmanetNo {get; set;}
-        public string Uye {get; set;}
-        public string Kitap {get; set;}
+        public Uye Uye {get; set;}
+        public Kitap Kitap {get; set;}
         public string EmanetVermeTarih {get; set;}
         public string EmanetGeriAlmaTarih {get; set;}
         public string EmanetIslemTarih {get; set;}
