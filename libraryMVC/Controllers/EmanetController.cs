@@ -34,6 +34,30 @@ namespace libraryMVC.Controllers
             return View(emanetler);
         }
         [HttpGet]
+        public async Task<IActionResult> EmanetlerSearchBySearchString(string searchString = null)
+        {
+            List<EmanetDto> emanetler = await (from e in _context.Emanetler
+                                               select new EmanetDto
+                                               {
+                                                   EmanetNo = e.EmanetNo,
+                                                   EmanetVermeTarih = e.EmanetVermeTarih,
+                                                   EmanetGeriAlmaTarih = e.EmanetGeriAlmaTarih,
+                                                   EmanetIslemTarih = e.EmanetIslemTarih,
+                                                   EmanetNot = e.EmanetNot,
+                                                   EmanetTeslimEdildi = e.EmanetTeslimEdildi,
+                                                   Uye = _context.Uyeler.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
+                                                   Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
+                                               }).ToListAsync();
+            if (searchString != null)
+            {
+                searchString = searchString.ToLower();
+                emanetler = emanetler.Where(x => x.Kitap.KitapAd.ToLower().Contains(searchString) ||
+                                x.Uye.UyeAd.ToLower().Contains(searchString) ||
+                                x.Uye.UyeSoyad.ToLower().Contains(searchString)).ToList();
+            }
+            return Ok(emanetler);
+        }
+        [HttpGet]
         public async Task<IActionResult> EmanetlerSearchById(int id)
         {
             EmanetDto emanet = await (from e in _context.Emanetler
@@ -48,7 +72,8 @@ namespace libraryMVC.Controllers
                                           Uye = _context.Uyeler.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
                                           Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
                                       }).FirstOrDefaultAsync(e => e.EmanetNo == id);
-            if(emanet == null){
+            if (emanet == null)
+            {
                 return NotFound("Not Found");
             }
             return Ok(emanet);
