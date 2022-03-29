@@ -81,9 +81,11 @@
 
 @section Scripts{
 <script>
+    //GetAll
     $(document).ready(function () {
         getAll();
     })
+    //GetById
     $(document).ready(function () {
         let emanetler = $("#emanetler");
         $("#id").keyup(function () {
@@ -94,7 +96,6 @@
                     success: function (data) {
                         let html = getData(data);
                         emanetler.empty().append(html);
-                        console.log(data)
                     },
                     error: function (error) {
                         if (error.responseText === "Not Found") {
@@ -104,7 +105,26 @@
                 })
             } else {
                 getAll();
-            }   
+            }
+        })
+    })
+
+    //GetBySearchString
+    $(document).ready(function () {
+        let emanetler = $("#emanetler");
+        $("#searchString").keyup(function () {
+            if ($(this).val()) {
+                $.ajax({
+                    url: "/Emanet/EmanetlerSearchBySearchString?searchString=" + $(this).val(),
+                    method: "GET",
+                    success: function (datas) {
+                        let html = getDatas(datas);
+                        emanetler.empty().append(html);
+                    }
+                })
+            } else {
+                getAll();
+            }
         })
     })
 
