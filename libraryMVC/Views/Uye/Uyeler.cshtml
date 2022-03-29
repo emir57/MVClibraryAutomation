@@ -19,7 +19,7 @@
         </thead>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr id="@item.UyeNo" style="transition:all .5s">
                 <td>@item.UyeNo</td>
                 <td>
                     @if (@item.UyeAd.Contains("^") == true)
@@ -78,20 +78,29 @@
                                 </div>
                                 <div class="modal-footer">
                                     <!-- Button trigger modal -->
-                                <a class="btn btn-secondary text text-white" data-dismiss="modal"
-                                    role="button">İptal</a>
-                                    <a class="btn btn-danger text text-white" asp-action="DeleteUyeler"
-                                    asp-route-id="@item.UyeNo" role="button">Sil</a>
+                                    <a class="btn btn-secondary text text-white" data-dismiss="modal"
+                                        role="button">İptal</a>
+                                        <a class="btn btn-danger text text-white" asp-action="DeleteUyeler"
+                                        asp-route-id="@item.UyeNo" role="button">Sil</a>
                                 </div>
                             </div>
                         </div>
                 </td>
             </tr>
-
         }
-
-
     </table>
 </div>
 <a style="float:left; margin-bottom:100px;" asp-action="CreateUyeler" class="btn btn-outline-secondary btn-sm mx-2">Yeni
     Üye Oluştur</a>
+
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        let getid = window.location.href.split("#")[1];
+        $("tr#"+getid).addClass("bg-warning");
+        setTimeout(()=>{
+            $("tr#"+getid).removeClass("bg-warning");
+        },1000)
+    })
+</script>
+}
