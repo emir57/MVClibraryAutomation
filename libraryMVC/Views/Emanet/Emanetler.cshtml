@@ -83,12 +83,12 @@
 <script>
     $(document).ready(function () {
         $.ajax({
-            url: "/Emanet/EmanetlerSearchById?id=" + $(this).val(),
+            url: "/Emanet/EmanetlerSearchBySearchString?searchString=" + $("#searchString").val(),
             method: "GET",
-            success: function (data) {
-                let html = getData(data);
+            success: function (datas) {
+                let html = getDatas(datas);
                 emanetler.empty().append(html);
-                console.log(data)
+                console.log(datas)
             },
             error: function (error) {
                 if (error.responseText === "Not Found") {
