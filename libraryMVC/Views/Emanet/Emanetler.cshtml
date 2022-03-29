@@ -82,44 +82,35 @@
 @section Scripts{
 <script>
     $(document).ready(function () {
-        $.ajax({
-            url: "/Emanet/EmanetlerSearchBySearchString?searchString=" + $("#searchString").val(),
-            method: "GET",
-            success: function (datas) {
-                let html = getDatas(datas);
-                emanetler.empty().append(html);
-                console.log(datas)
-            },
-            error: function (error) {
-                if (error.responseText === "Not Found") {
-                    showErrorAlert("Böyle bir emanet yok");
-                }
-            }
-        })
+        getAll();
     })
     $(document).ready(function () {
         let emanetler = $("#emanetler");
         $("#id").keyup(function () {
-            $.ajax({
-                url: "/Emanet/EmanetlerSearchById?id=" + $(this).val(),
-                method: "GET",
-                success: function (data) {
-                    let html = getData(data);
-                    emanetler.empty().append(html);
-                    console.log(data)
-                },
-                error: function (error) {
-                    if (error.responseText === "Not Found") {
-                        showErrorAlert("Böyle bir emanet yok");
+            if ($(this).val()) {
+                $.ajax({
+                    url: "/Emanet/EmanetlerSearchById?id=" + $(this).val(),
+                    method: "GET",
+                    success: function (data) {
+                        let html = getData(data);
+                        emanetler.empty().append(html);
+                        console.log(data)
+                    },
+                    error: function (error) {
+                        if (error.responseText === "Not Found") {
+                            showErrorAlert("Böyle bir emanet yok");
+                        }
                     }
-                }
-            })
+                })
+            } else {
+                getAll();
+            }   
         })
     })
 
-    function getDatas(datas){
+    function getDatas(datas) {
         let html = "";
-        datas.forEach(data=>{
+        datas.forEach(data => {
             html += `
                 <tr id="${data.emanetNo}">
                     <td>${data.emanetNo}</td>
@@ -221,6 +212,23 @@
                 </tr>
             `;
         return html;
+    }
+
+    function getAll() {
+        let emanetler = $("#emanetler");
+        $.ajax({
+            url: "/Emanet/EmanetlerSearchBySearchString?searchString=" + $("#searchString").val(),
+            method: "GET",
+            success: function (datas) {
+                let html = getDatas(datas);
+                emanetler.empty().append(html);
+            },
+            error: function (error) {
+                if (error.responseText === "Not Found") {
+                    showErrorAlert("Böyle bir emanet yok");
+                }
+            }
+        })
     }
 </script>
 }
