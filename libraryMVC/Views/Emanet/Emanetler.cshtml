@@ -82,6 +82,22 @@
 @section Scripts{
 <script>
     $(document).ready(function () {
+        $.ajax({
+            url: "/Emanet/EmanetlerSearchById?id=" + $(this).val(),
+            method: "GET",
+            success: function (data) {
+                let html = getData(data);
+                emanetler.empty().append(html);
+                console.log(data)
+            },
+            error: function (error) {
+                if (error.responseText === "Not Found") {
+                    showErrorAlert("Böyle bir emanet yok");
+                }
+            }
+        })
+    })
+    $(document).ready(function () {
         let emanetler = $("#emanetler");
         $("#id").keyup(function () {
             $.ajax({
@@ -100,6 +116,61 @@
             })
         })
     })
+
+    function getDatas(datas){
+        let html = "";
+        datas.forEach(data=>{
+            html += `
+                <tr id="${data.emanetNo}">
+                    <td>${data.emanetNo}</td>
+                    <td>
+                        <a href="/Uye/Uyeler#${data.uye.uyeNo}">${data.uye.uyeAd} ${data.uye.uyeSoyad}</a>
+                    </td>
+                    <td>
+                        <a href="/Kitap/Kitaplar#${data.kitap.kitapNo}">${data.kitap.kitapAd}</a>
+                    </td>
+                    <td>${data.emanetVermeTarih}</td>
+                    <td>${data.emanetGeriAlmaTarih}</td>
+                    <td>${data.emanetIslemTarih}</td>
+                    <td>${data.emanetNot}</td>
+                    <td>${data.emanetTeslimEdildi}</td>
+                    <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.emanetNo}">
+                            Sil
+                        </button>
+                        <a class="btn btn-primary text text-white" href="/Emanet/EditEmanetler/${data.emanetNo}"
+                        role="button">Düzenle</a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal${data.emanetNo}" role="dialog" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
+                                        <button type="button" class="btn-close" data-dismiss="modal"
+                                        aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="text-danger">${data.emanetNo} - ${data.emanetTeslimEdildi}</span>
+                                        <br>
+                                        Bu Kaydı Silmek İstediğinizden Emin misiniz?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a class="btn  btn-secondary text text-white" data-dismiss="modal"
+                                        role="button">İptal</a>
+                                        <a class="btn btn-danger text text-white" asp-action="DeleteEmanetler"
+                                        asp-route-id="${data.emanetNo}" role="button">Sil</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        })
+        return html;
+    }
     function getData(data) {
         let html = `
                 <tr id="${data.emanetNo}">
