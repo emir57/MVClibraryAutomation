@@ -1,4 +1,4 @@
-@model IEnumerable<libraryMVC.Models.Emanet>
+@model IEnumerable<libraryMVC.Dtos.EmanetDto>
 @using System;
 @using System.Collections.Generic;
 @using System.Diagnostics;
@@ -13,8 +13,8 @@
     <table class="table table-responsive table-hover mt-3 table-striped">
         <thead>
             <th>Emanet No</th>
-            <th>Üye No</th>
-            <th>Kitap No</th>
+            <th>Üye Ad Soyad</th>
+            <th>Kitap Ad</th>
             <th>Emanet Verme Tarihi</th>
             <th>Emanet Geri Alma Tarihi</th>
             <th>Emanet İşlem Tarihi </th>
@@ -27,8 +27,8 @@
 
             <tr>
                 <td>@item.EmanetNo</td>
-                <td>@item.UyeNo</td>
-                <td>@item.KitapNo</td>
+                <td>@item.Uye.UyeAd @item.Uye.UyeSoyad</td>
+                <td>@item.Kitap.KitapAd</td>
                 <td>@item.EmanetVermeTarih</td>
                 <td>@item.EmanetGeriAlmaTarih</td>
                 <td>@item.EmanetIslemTarih</td>
