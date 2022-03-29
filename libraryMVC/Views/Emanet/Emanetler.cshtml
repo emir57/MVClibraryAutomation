@@ -131,6 +131,13 @@
     function getDatas(datas) {
         let html = "";
         datas.forEach(data => {
+            let emanetClass = "";
+            if(data.emanetTeslimEdildi==="Sürüyor")
+                {emanetClass = "text-primary";}
+            else if(data.emanetTeslimEdildi==="Teslim Edildi")
+                {emanetClass = "text-success";}
+            else if(data.emanetTeslimEdildi==="Teslim Edilmedi")
+                {emanetClass = "text-danger";}
             html += `
                 <tr id="${data.emanetNo}">
                     <td>${data.emanetNo}</td>
@@ -144,7 +151,9 @@
                     <td>${data.emanetGeriAlmaTarih}</td>
                     <td>${data.emanetIslemTarih}</td>
                     <td>${data.emanetNot}</td>
-                    <td>${data.emanetTeslimEdildi}</td>
+                    <td>
+                        <p class="${emanetClass}">${data.emanetTeslimEdildi}</p>
+                    </td>
                     <td>
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.emanetNo}">
