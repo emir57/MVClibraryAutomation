@@ -48,7 +48,10 @@ namespace libraryMVC.Controllers
                                           Uye = _context.Uyeler.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
                                           Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
                                       }).FirstOrDefaultAsync(e => e.EmanetNo == id);
-            return View(emanet);
+            if(emanet == null){
+                return NotFound("Not Found");
+            }
+            return Ok(emanet);
         }
         [HttpPost]
         public async Task<IActionResult> EmanetlerSearch(string searchString, int id)

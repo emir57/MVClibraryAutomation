@@ -22,82 +22,56 @@
             <th>Emanet Teslim Edildi</th>
             <th width="155px">İşlemler</th>
         </thead>
-        @foreach (var item in Model)
-        {
-            string userUrl = Url.Action("Uyeler","Uye")+"#"+item.Uye.UyeNo;
-            string kitapUrl = Url.Action("Kitaplar","Kitap")+"#"+item.Kitap.KitapNo;
+        <tbody id="emanetler">
+
+        </tbody>
+        @* @foreach (var item in Model)
+            {
+            string userUrl = Url.Action("Uyeler", "Uye") + "#" + item.Uye.UyeNo;
+            string kitapUrl = Url.Action("Kitaplar", "Kitap") + "#" + item.Kitap.KitapNo;
             <tr>
-                <td>@item.EmanetNo</td>
-                <td>
-                    <a href="@userUrl">@item.Uye.UyeAd @item.Uye.UyeSoyad</a>
-                </td>
-                <td>
-                    <a href="@kitapUrl">@item.Kitap.KitapAd</a>
-                </td>
-                <td>@item.EmanetVermeTarih</td>
-                <td>@item.EmanetGeriAlmaTarih</td>
-                <td>@item.EmanetIslemTarih</td>
-                <td>
-                    @if (@item.EmanetNot.Contains("^") == true)
-                    {
-                        <p>-</p>
-                    }
-                    else
-                    {
-                        @item.EmanetNot
-                    }
+            <td>@item.EmanetNo</td>
+            <td>
+            <a href="@userUrl">@item.Uye.UyeAd @item.Uye.UyeSoyad</a>
+            </td>
+            <td>
+            <a href="@kitapUrl">@item.Kitap.KitapAd</a>
+            </td>
+            <td>@item.EmanetVermeTarih</td>
+            <td>@item.EmanetGeriAlmaTarih</td>
+            <td>@item.EmanetIslemTarih</td>
+            <td>
+            @if (@item.EmanetNot.Contains("^") == true)
+            {
+            <p>-</p>
+            }
+            else
+            {
+            @item.EmanetNot
+            }
 
-                </td>
-                <td>
+            </td>
+            <td>
 
-                    @if (@item.EmanetTeslimEdildi == "Sürüyor")
-                    {
-                        <p class="text-primary">Sürüyor.</p>
-                    }
-                    else if (@item.EmanetTeslimEdildi == "Teslim Edildi")
-                    {
-                        <p class="text-success">Teslim Edildi.</p>
-                    }
-                    else
-                    {
-                        <p class="text-danger">Teslim Edilmedi.</p>
-                    }
-                </td>
-                <td>
-                    <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal@(item.EmanetNo)">
-                        Sil
-                    </button>
-                    <a class="btn btn-primary text text-white" asp-action="EditEmanetler" asp-route-id="@item.EmanetNo"
-                    role="button">Düzenle</a>
-                    <!-- Modal -->
-                <div class="modal fade" id="modal@(item.EmanetNo)" role="dialog" tabindex="-1"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
-                                    <button type="button" class="btn-close" data-dismiss="modal"
-                                    aria-label="Close">X</button>
-                                </div>
-                                <div class="modal-body">
-                                    <span class="text-danger">@item.EmanetNo - @item.EmanetTeslimEdildi</span>
-                                    <br>
-                                    Bu Kaydı Silmek İstediğinizden Emin misiniz?
-                                </div>
-                                <div class="modal-footer">
-                                    <a class="btn  btn-secondary text text-white" data-dismiss="modal"
-                                    role="button">İptal</a>
-                                    <a class="btn btn-danger text text-white" asp-action="DeleteEmanetler"
-                                    asp-route-id="@item.EmanetNo" role="button">Sil</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </td>
+            @if (@item.EmanetTeslimEdildi == "Sürüyor")
+            {
+            <p class="text-primary">Sürüyor.</p>
+            }
+            else if (@item.EmanetTeslimEdildi == "Teslim Edildi")
+            {
+            <p class="text-success">Teslim Edildi.</p>
+            }
+            else
+            {
+            <p class="text-danger">Teslim Edilmedi.</p>
+            }
+            </td>
+            <td>
+
+            </td>
             </tr>
 
-        }
+            } *@
 
     </table>
 
@@ -106,20 +80,72 @@
     class="btn btn-outline-secondary btn-sm mx-2">Yeni Emanet Oluştur</a>
 
 @section Scripts{
-    <script>
-        $(document).ready(function(){
-            $("#id").keyup(function(){
-                $.ajax({
-                    url:"/Emanet/EmanetSearchById?id="+$(this).val(),
-                    method:"GET",
-                    success:function(datas){
-
-                    },
-                    error:function(){
-                        
+<script>
+    $(document).ready(function () {
+        let emanetler = $("#emanetler");
+        $("#id").keyup(function () {
+            $.ajax({
+                url: "/Emanet/EmanetlerSearchById?id=" + $(this).val(),
+                method: "GET",
+                success: function (data) {
+                    let html = getData(data);
+                    emanetler.empty().append(html);
+                    console.log(data)
+                },
+                error: function (error) {
+                    if (error.responseText === "Not Found") {
+                        showErrorAlert("Böyle bir emanet yok");
                     }
-                })
+                }
             })
         })
-    </script>
+    })
+    function getData(data) {
+        let html = `
+                <tr id="${data.emanetNo}">
+                    <td>${data.emanetNo}</td>
+                    <td>${data.uye.uyeAd} ${data.uye.uyeSoyad}</td>
+                    <td>${data.kitap.kitapAd}</td>
+                    <td>${data.emanetVermeTarih}</td>
+                    <td>${data.emanetGeriAlmaTarih}</td>
+                    <td>${data.emanetIslemTarih}</td>
+                    <td>${data.emanetNot}</td>
+                    <td>${data.emanetTeslimEdildi}</td>
+                    <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.emanetNo}">
+                            Sil
+                        </button>
+                        <a class="btn btn-primary text text-white" href="/Emanet/EditEmanetler/${data.emanetNo}"
+                        role="button">Düzenle</a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal${data.emanetNo}" role="dialog" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
+                                        <button type="button" class="btn-close" data-dismiss="modal"
+                                        aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="text-danger">${data.emanetNo} - ${data.emanetTeslimEdildi}</span>
+                                        <br>
+                                        Bu Kaydı Silmek İstediğinizden Emin misiniz?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a class="btn  btn-secondary text text-white" data-dismiss="modal"
+                                        role="button">İptal</a>
+                                        <a class="btn btn-danger text text-white" asp-action="DeleteEmanetler"
+                                        asp-route-id="${data.emanetNo}" role="button">Sil</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        return html;
+    }
+</script>
 }
