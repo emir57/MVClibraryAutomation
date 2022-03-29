@@ -53,7 +53,8 @@ namespace libraryMVC.Controllers
                 searchString = searchString.ToLower();
                 emanetler = emanetler.Where(x => x.Kitap.KitapAd.ToLower().Contains(searchString) ||
                                 x.Uye.UyeAd.ToLower().Contains(searchString) ||
-                                x.Uye.UyeSoyad.ToLower().Contains(searchString)).ToList();
+                                x.Uye.UyeSoyad.ToLower().Contains(searchString) ||
+                                x.EmanetNot.ToLower().Contains(searchString)).ToList();
             }
             return Ok(emanetler);
         }
