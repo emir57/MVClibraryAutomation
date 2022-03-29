@@ -104,8 +104,12 @@
         let html = `
                 <tr id="${data.emanetNo}">
                     <td>${data.emanetNo}</td>
-                    <td>${data.uye.uyeAd} ${data.uye.uyeSoyad}</td>
-                    <td>${data.kitap.kitapAd}</td>
+                    <td>
+                        <a href="/Uye/Uyeler#${data.uye.uyeNo}">${data.uye.uyeAd} ${data.uye.uyeSoyad}</a>
+                    </td>
+                    <td>
+                        <a href="/Kitap/Kitaplar#${data.kitap.kitapNo}">${data.kitap.kitapAd}</a>
+                    </td>
                     <td>${data.emanetVermeTarih}</td>
                     <td>${data.emanetGeriAlmaTarih}</td>
                     <td>${data.emanetIslemTarih}</td>
