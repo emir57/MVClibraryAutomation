@@ -20,17 +20,35 @@ namespace libraryMVC.Controllers
         public async Task<IActionResult> Emanetler(string searchString, int id)
         {
             List<EmanetDto> emanetler = await (from e in _context.Emanetler
-                                        select new EmanetDto{
-                                            EmanetNo = e.EmanetNo,
-                                            EmanetVermeTarih = e.EmanetVermeTarih,
-                                            EmanetGeriAlmaTarih = e.EmanetGeriAlmaTarih,
-                                            EmanetIslemTarih = e.EmanetIslemTarih,
-                                            EmanetNot = e.EmanetNot,
-                                            EmanetTeslimEdildi = e.EmanetTeslimEdildi,
-                                            Uye = _context.Uyeler.FirstOrDefault(uye=>uye.UyeNo == e.UyeNo),
-                                            Kitap = _context.Kitaplar.FirstOrDefault(kitap=>kitap.KitapNo == e.KitapNo)
-                                        }).ToListAsync();
+                                               select new EmanetDto
+                                               {
+                                                   EmanetNo = e.EmanetNo,
+                                                   EmanetVermeTarih = e.EmanetVermeTarih,
+                                                   EmanetGeriAlmaTarih = e.EmanetGeriAlmaTarih,
+                                                   EmanetIslemTarih = e.EmanetIslemTarih,
+                                                   EmanetNot = e.EmanetNot,
+                                                   EmanetTeslimEdildi = e.EmanetTeslimEdildi,
+                                                   Uye = _context.Uyeler.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
+                                                   Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
+                                               }).ToListAsync();
             return View(emanetler);
+        }
+        [HttpGet]
+        public async Task<IActionResult> EmanetlerSearchById(int id)
+        {
+            EmanetDto emanet = await (from e in _context.Emanetler
+                                      select new EmanetDto
+                                      {
+                                          EmanetNo = e.EmanetNo,
+                                          EmanetVermeTarih = e.EmanetVermeTarih,
+                                          EmanetGeriAlmaTarih = e.EmanetGeriAlmaTarih,
+                                          EmanetIslemTarih = e.EmanetIslemTarih,
+                                          EmanetNot = e.EmanetNot,
+                                          EmanetTeslimEdildi = e.EmanetTeslimEdildi,
+                                          Uye = _context.Uyeler.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
+                                          Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
+                                      }).FirstOrDefaultAsync(e => e.EmanetNo == id);
+            return View(emanet);
         }
         [HttpPost]
         public async Task<IActionResult> EmanetlerSearch(string searchString, int id)
@@ -90,7 +108,7 @@ namespace libraryMVC.Controllers
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
-                {}
+                { }
                 return RedirectToAction("Emanetler");
             }
             return View(emanet);
