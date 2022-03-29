@@ -10,7 +10,7 @@
         <input class="form-control" style="max-width: 100px;" placeholder="ID" id="id" type="number" />&nbsp;
         <input class="form-control" style="max-width: 200px;" placeholder="Ara" id="searchString" type="text" />
     </div>
-    <table class="table table-responsive table-hover mt-3 table-striped">
+    <table class="table table-hover mt-3 table-striped">
         <thead>
             <th>Emanet No</th>
             <th>Üye Ad Soyad</th>
@@ -104,3 +104,22 @@
 </div>
 <a style="float:left; margin-bottom:100px;" asp-action="CreateEmanetler"
     class="btn btn-outline-secondary btn-sm mx-2">Yeni Emanet Oluştur</a>
+
+@section Scripts{
+    <script>
+        $(document).ready(function(){
+            $("#id").keyup(function(){
+                $.ajax({
+                    url:"/Emanet/EmanetSearchById?id="+$(this).val(),
+                    method:"GET",
+                    success:function(datas){
+
+                    },
+                    error:function(){
+                        
+                    }
+                })
+            })
+        })
+    </script>
+}
