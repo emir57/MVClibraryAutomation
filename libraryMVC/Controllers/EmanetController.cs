@@ -90,7 +90,7 @@ namespace libraryMVC.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateEmanetler(CreateEmanetlerViewModel model)
+        public async Task<IActionResult> CreateEmanetler(Emanet emanet)
         {
             if (!ModelState.IsValid)
             {
@@ -98,12 +98,12 @@ namespace libraryMVC.Controllers
                 return BadRequest(ModelState);
             }
             DateTime now = DateTime.Now;
-            if (model.Emanet.EmanetNot == null) model.Emanet.EmanetNot = "-";
-            if (model.Emanet.EmanetNot.Contains("^") == true) model.Emanet.EmanetNot = "-";
-            if (model.Emanet.EmanetTeslimEdildi.Contains("^") == true) model.Emanet.EmanetTeslimEdildi = "Sürüyor";
-            model.Emanet.EmanetIslemTarih = now.ToString("yyyy/MM/dd");
-            model.Emanet.EmanetIslemTarih = model.Emanet.EmanetIslemTarih.Replace(".", "-");
-            await _context.Emanetler.AddAsync(model.Emanet);
+            if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
+            if (emanet.EmanetNot.Contains("^") == true) emanet.EmanetNot = "-";
+            if (emanet.EmanetTeslimEdildi.Contains("^") == true) emanet.EmanetTeslimEdildi = "Sürüyor";
+            emanet.EmanetIslemTarih = now.ToString("yyyy/MM/dd");
+            emanet.EmanetIslemTarih = emanet.EmanetIslemTarih.Replace(".", "-");
+            await _context.Emanetler.AddAsync(emanet);
             await _context.SaveChangesAsync();
             return RedirectToAction("Emanetler");
         }
