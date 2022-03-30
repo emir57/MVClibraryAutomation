@@ -12,7 +12,7 @@
                         <option selected value="0">Üye Seçiniz</option>
                         @foreach (var uye in Model.Uyeler)
                         {
-                            <option>@uye.UyeAd @uye.UyeSoyad</option>
+                            <option value="@uye.UyeNo">@uye.UyeAd @uye.UyeSoyad</option>
                         }
                     </select>
                 </div>
