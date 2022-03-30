@@ -35,7 +35,7 @@ namespace libraryMVC.Controllers
         }
         public async Task<IActionResult> Emanetler(string searchString, int id)
         {
-
+            List<EmanetDto> emanetler = await GetEmanetDtoAsync();
             return View(emanetler);
         }
         [HttpGet]
