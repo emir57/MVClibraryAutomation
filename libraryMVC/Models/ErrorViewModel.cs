@@ -4,8 +4,7 @@ namespace site.Models
 {
     public class ErrorViewModel
     {
-        public string RequestId { get; set; }
-
-        public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+        public string Key { get; set; }
+        public string Value { get; set; }
     }
 }
