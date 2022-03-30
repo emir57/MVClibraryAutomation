@@ -74,7 +74,7 @@
     $(document).ready(function () {
         $("#createEmanetForm").submit(function () {
             let data = $("#createEmanetForm").serializeArray();
-            @* $.ajax({
+            $.ajax({
                 url: "/Emanet/CreateEmanetler",
                 method: "POST",
                 data: data,
@@ -84,11 +84,13 @@
                         window.location.href = "/Emanet/Emanetler";
                     }, 2500)
                 },
-                error: function () {
+                error: function (error) {
+                    let errorObject = Object.assign({},JSON.parse(error.responseText))
+                    console.log(errorObject)
                     showErrorAlert("Ekleme Başarısız!");
                 }
-            }) *@
-            @* return false; *@
+            })
+            return false;
         })
     })
 </script>

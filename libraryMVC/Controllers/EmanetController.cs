@@ -94,10 +94,8 @@ namespace libraryMVC.Controllers
         {
             if (!ModelState.IsValid)
             {
-                model.Kitaplar = await _context.Kitaplar.ToListAsync();
-                model.Uyeler = await _context.Uyeler.ToListAsync();
                 ModelState.AddModelError("", "");
-                return View(model);
+                return BadRequest(ModelState);
             }
             DateTime now = DateTime.Now;
             if (model.Emanet.EmanetNot == null) model.Emanet.EmanetNot = "-";
