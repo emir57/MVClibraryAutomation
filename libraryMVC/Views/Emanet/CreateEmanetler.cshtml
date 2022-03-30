@@ -17,9 +17,14 @@
                     </select>
                 </div>
                 <div class="mb-3">
-                    <label for="KitapNo" class="form-label">Kitap Numarası</label>
-                    <input required asp-for="@Model.Emanet.KitapNo" type="number" class="form-control" id="KitapNo"
-                        aria-describedby="emailHelp">
+                    <label for="KitapNo" class="form-label">Kitap</label>
+                    <select asp-for="@Model.Emanet.KitapNo" class="form-control">
+                        <option selected value="0">Kitap Seçiniz</option>
+                        @foreach (var kitap in Model.Kitaplar)
+                        {
+                            <option value="@kitap.KitapNo">@kitap.KitapAd</option>
+                        }
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="EmanetVerme" class="form-label">Emanet Verme Tarihi</label>
