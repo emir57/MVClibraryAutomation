@@ -8,10 +8,16 @@
             @* <h5>Lütfen <span class="text text-danger">"^"</span> karakterini kullanmayınız. </h5> *@
             <form asp-action="CreateEmanetler" id="createEmanetForm">
                 <div class="mb-3">
-                    <label for="uyeNo" class="form-label">Üye Numarası</label>
-                    <input required asp-for="@Model.Emanet.UyeNo" type="number" class="form-control" id="uyeNo"
-                        aria-describedby="emailHelp">
-                    <div id="uyeNo" class="form-text"></div>
+                    <label for="uyeNo" class="form-label">Üye</label>
+                    <select asp-for="@Model.Emanet.UyeNo" class="form-control">
+                        <option selected value="0">Üye Seçiniz</option>
+                        @foreach (var uye in Model.Uyeler)
+                        {
+                            <option>@uye.UyeAd @uye.UyeSoyad</option>
+                        }
+                    </select>
+                    @* <input required asp-for="@Model.Emanet.UyeNo" type="number" class="form-control" id="uyeNo"
+                        aria-describedby="emailHelp"> *@
                 </div>
                 <div class="mb-3">
                     <label for="KitapNo" class="form-label">Kitap Numarası</label>
