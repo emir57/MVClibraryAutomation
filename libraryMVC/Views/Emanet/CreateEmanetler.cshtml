@@ -85,12 +85,10 @@
                     }, 2500)
                 },
                 error: function (error) {
-                    let errorObject = Object.assign({},JSON.parse(error.responseText))
+                    let errorObject = error.responseText.replace(".","_");
                     console.log(errorObject)
                     if(errorObject){
-                        for(let i = 0;i<errorObject.Emanet.UyeNo.length;i++){
-                            showErrorAlert(errorObject[i])
-                        }
+                        
                     }
                     showErrorAlert("Ekleme Başarısız!");
                 }

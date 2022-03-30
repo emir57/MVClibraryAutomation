@@ -6,6 +6,7 @@ using libraryMVC.Dtos;
 using libraryMVC.Models;
 using libraryMVC_.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 
 namespace libraryMVC.Controllers
@@ -95,7 +96,7 @@ namespace libraryMVC.Controllers
             if (!ModelState.IsValid)
             {
                 ModelState.AddModelError("", "");
-                return BadRequest(ModelState);
+                return BadRequest(ModelState.Select(x=>x.Value.Errors));
             }
             DateTime now = DateTime.Now;
             if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
