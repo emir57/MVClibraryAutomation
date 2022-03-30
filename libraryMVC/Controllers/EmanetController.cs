@@ -41,18 +41,7 @@ namespace libraryMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> EmanetlerSearchBySearchString(string searchString = null)
         {
-            List<EmanetDto> emanetler = await (from e in _context.Emanetler
-                                               select new EmanetDto
-                                               {
-                                                   EmanetNo = e.EmanetNo,
-                                                   EmanetVermeTarih = e.EmanetVermeTarih,
-                                                   EmanetGeriAlmaTarih = e.EmanetGeriAlmaTarih,
-                                                   EmanetIslemTarih = e.EmanetIslemTarih,
-                                                   EmanetNot = e.EmanetNot,
-                                                   EmanetTeslimEdildi = e.EmanetTeslimEdildi,
-                                                   Uye = _context.Uyeler.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
-                                                   Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
-                                               }).ToListAsync();
+            List<EmanetDto> emanetler = await GetEmanetDtoAsync();
             if (searchString != null)
             {
                 searchString = searchString.ToLower();
