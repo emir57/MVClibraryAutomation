@@ -100,7 +100,7 @@ namespace libraryMVC.Controllers
                 foreach (var item in ModelState)
                 {
                     errors.Add(new ErrorViewModel{
-                        Key = item.Key,
+                        Key = item.Key.Replace("emanet.",""),
                         Value = item.Value.AttemptedValue
                     });
                 }
