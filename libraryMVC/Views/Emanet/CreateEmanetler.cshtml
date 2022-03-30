@@ -6,10 +6,11 @@
     <div class="row ml-4">
         <div class="col-4">
             <form asp-action="CreateEmanetler" id="createEmanetForm">
+                <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="mb-3">
                     <label for="uyeNo" class="form-label">Üye</label>
                     <select asp-for="@Model.Emanet.UyeNo" class="form-control">
-                        <option selected value="0">Üye Seçiniz</option>
+                        <option selected >Üye Seçiniz</option>
                         @foreach (var uye in Model.Uyeler)
                         {
                             <option value="@uye.UyeNo">@uye.UyeAd @uye.UyeSoyad</option>
@@ -19,7 +20,7 @@
                 <div class="mb-3">
                     <label for="KitapNo" class="form-label">Kitap</label>
                     <select asp-for="@Model.Emanet.KitapNo" class="form-control">
-                        <option selected value="0">Kitap Seçiniz</option>
+                        <option selected>Kitap Seçiniz</option>
                         @foreach (var kitap in Model.Kitaplar)
                         {
                             <option value="@kitap.KitapNo">@kitap.KitapAd</option>
@@ -28,17 +29,17 @@
                 </div>
                 <div class="mb-3">
                     <label for="EmanetVerme" class="form-label">Emanet Verme Tarihi</label>
-                    <input required asp-for="@Model.Emanet.EmanetVermeTarih" type="date" class="form-control"
+                    <input asp-for="@Model.Emanet.EmanetVermeTarih" type="date" class="form-control"
                         id="EmanetVerme" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="EmanetAlma" class="form-label">Emanet Geri Alma Tarihi</label>
-                    <input required asp-for="@Model.Emanet.EmanetGeriAlmaTarih" type="date" class="form-control"
+                    <input asp-for="@Model.Emanet.EmanetGeriAlmaTarih" type="date" class="form-control"
                         id="EmanetAlma" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
                     <label for="EmanetIslem" class="form-label">Emanet İşlem Tarihi</label>
-                    <input disabled required asp-for="@Model.Emanet.EmanetIslemTarih" type="date" class="form-control"
+                    <input disabled asp-for="@Model.Emanet.EmanetIslemTarih" type="date" class="form-control"
                         id="EmanetIslem" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
@@ -73,7 +74,7 @@
     $(document).ready(function () {
         $("#createEmanetForm").submit(function () {
             let data = $("#createEmanetForm").serializeArray();
-            $.ajax({
+            @* $.ajax({
                 url: "/Emanet/CreateEmanetler",
                 method: "POST",
                 data: data,
@@ -86,8 +87,8 @@
                 error: function () {
                     showErrorAlert("Ekleme Başarısız!");
                 }
-            })
-            return false;
+            }) *@
+            @* return false; *@
         })
     })
 </script>
