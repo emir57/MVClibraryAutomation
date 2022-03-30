@@ -86,14 +86,16 @@
                 },
                 error: function (error) {
                     let errorObject = JSON.parse(error.responseText)
-                    console.log(errorObject)
-                    for (let i = 0; i < errorObject.length;i++) {
-                        console.log(errorObject[i])
-                        if (errorObject[i][0].errorMessage) {
-                            $("#errors").html($("#errors").html()+errorObject[i][0].errorMessage);
+                    let html = "";
+                    for (let i = 0; i < errorObject.length; i++) {
+                        if (errorObject[i].value === "") {
+                            continue;
                         }
+                        html += `
+                        <div>${errorObject[i].key} : ${errorObject[i].value}</div>
+                        `
                     }
-
+                    $("#errors").empty().append(html);
                     showErrorAlert("Ekleme Başarısız!");
                 }
             })
