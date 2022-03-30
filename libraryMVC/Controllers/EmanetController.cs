@@ -80,9 +80,12 @@ namespace libraryMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Emanetler");
         }
-        public IActionResult CreateEmanetler()
+        public async Task<IActionResult> CreateEmanetler()
         {
-            return View();
+            CreateEmanetlerViewModel model = new CreateEmanetlerViewModel{
+                Uyeler = await _context.Uyeler.ToListAsync()
+            };
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> CreateEmanetler(Emanet emanet)
