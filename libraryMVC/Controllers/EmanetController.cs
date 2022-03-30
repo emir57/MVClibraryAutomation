@@ -95,8 +95,13 @@ namespace libraryMVC.Controllers
         {
             if (!ModelState.IsValid)
             {
+                List<string> errors = new List<string>();
                 ModelState.AddModelError("", "");
-                return BadRequest(ModelState.Select(x=>x.Value.Errors));
+                foreach (var item in ModelState)
+                {
+                    errors.Add(item.Value.AttemptedValue);
+                }
+                return BadRequest(errors);
             }
             DateTime now = DateTime.Now;
             if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
