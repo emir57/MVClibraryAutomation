@@ -1,7 +1,9 @@
 @model IEnumerable<libraryMVC.Models.Uye>
 
 
-<div class="jumbotron mt-5">
+<a asp-action="CreateUyeler" class="btn btn-outline-primary btn-sm mt-2">Yeni
+    Üye Oluştur</a>
+<div class="jumbotron mt-2">
     <h2 style="float:left;" class="text-info">Üye Listesi</h2>
     <div class="searchSection">
         <input class="form-control" style="max-width: 100px;" placeholder="ID" id="id" type="number" />&nbsp;
@@ -90,7 +92,7 @@
         }
     </table>
 </div>
-<a style="float:left; margin-bottom:100px;" asp-action="CreateUyeler" class="btn btn-outline-secondary btn-sm mx-2">Yeni
+<a style="float:left; margin-bottom:100px;" asp-action="CreateUyeler" class="btn btn-outline-primary btn-sm mx-2">Yeni
     Üye Oluştur</a>
 
 @section Scripts{
