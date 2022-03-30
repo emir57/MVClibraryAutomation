@@ -17,20 +17,25 @@ namespace libraryMVC.Controllers
         {
             _context = context;
         }
+        private async Task<List<EmanetDto>> GetEmanetDtoAsync()
+        {
+            List<EmanetDto> emanetler = await(from e in _context.Emanetler
+                                              select new EmanetDto
+                                              {
+                                                  EmanetNo = e.EmanetNo,
+                                                  EmanetVermeTarih = e.EmanetVermeTarih,
+                                                  EmanetGeriAlmaTarih = e.EmanetGeriAlmaTarih,
+                                                  EmanetIslemTarih = e.EmanetIslemTarih,
+                                                  EmanetNot = e.EmanetNot,
+                                                  EmanetTeslimEdildi = e.EmanetTeslimEdildi,
+                                                  Uye = _context.Uyeler.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
+                                                  Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
+                                              }).ToListAsync();
+            return emanetler;
+        }
         public async Task<IActionResult> Emanetler(string searchString, int id)
         {
-            List<EmanetDto> emanetler = await (from e in _context.Emanetler
-                                               select new EmanetDto
-                                               {
-                                                   EmanetNo = e.EmanetNo,
-                                                   EmanetVermeTarih = e.EmanetVermeTarih,
-                                                   EmanetGeriAlmaTarih = e.EmanetGeriAlmaTarih,
-                                                   EmanetIslemTarih = e.EmanetIslemTarih,
-                                                   EmanetNot = e.EmanetNot,
-                                                   EmanetTeslimEdildi = e.EmanetTeslimEdildi,
-                                                   Uye = _context.Uyeler.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
-                                                   Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
-                                               }).ToListAsync();
+
             return View(emanetler);
         }
         [HttpGet]
