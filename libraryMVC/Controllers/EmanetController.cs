@@ -55,18 +55,7 @@ namespace libraryMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> EmanetlerSearchById(int id)
         {
-            EmanetDto emanet = await (from e in _context.Emanetler
-                                      select new EmanetDto
-                                      {
-                                          EmanetNo = e.EmanetNo,
-                                          EmanetVermeTarih = e.EmanetVermeTarih,
-                                          EmanetGeriAlmaTarih = e.EmanetGeriAlmaTarih,
-                                          EmanetIslemTarih = e.EmanetIslemTarih,
-                                          EmanetNot = e.EmanetNot,
-                                          EmanetTeslimEdildi = e.EmanetTeslimEdildi,
-                                          Uye = _context.Uyeler.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
-                                          Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
-                                      }).FirstOrDefaultAsync(e => e.EmanetNo == id);
+            EmanetDto emanet = (await GetEmanetDtoAsync()).FirstOrDefault(e => e.EmanetNo == id);
             if (emanet == null)
             {
                 return NotFound("Not Found");
