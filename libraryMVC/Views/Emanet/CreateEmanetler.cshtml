@@ -5,7 +5,6 @@
 <div class="jumbotron mt-5">
     <div class="row ml-4">
         <div class="col-4">
-            @* <h5>Lütfen <span class="text text-danger">"^"</span> karakterini kullanmayınız. </h5> *@
             <form asp-action="CreateEmanetler" id="createEmanetForm">
                 <div class="mb-3">
                     <label for="uyeNo" class="form-label">Üye</label>
@@ -16,8 +15,6 @@
                             <option>@uye.UyeAd @uye.UyeSoyad</option>
                         }
                     </select>
-                    @* <input required asp-for="@Model.Emanet.UyeNo" type="number" class="form-control" id="uyeNo"
-                        aria-describedby="emailHelp"> *@
                 </div>
                 <div class="mb-3">
                     <label for="KitapNo" class="form-label">Kitap Numarası</label>
