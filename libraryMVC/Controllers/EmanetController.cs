@@ -8,6 +8,7 @@ using libraryMVC_.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
+using site.Models;
 
 namespace libraryMVC.Controllers
 {
@@ -95,11 +96,13 @@ namespace libraryMVC.Controllers
         {
             if (!ModelState.IsValid)
             {
-                List<string> errors = new List<string>();
-                ModelState.AddModelError("", "");
+                List<ErrorViewModel> errors = new List<ErrorViewModel>();
                 foreach (var item in ModelState)
                 {
-                    errors.Add(item.Value.AttemptedValue);
+                    errors.Add(new ErrorViewModel{
+                        Key = item.Key,
+                        Value = item.Value.AttemptedValue
+                    });
                 }
                 return BadRequest(errors);
             }
