@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using libraryMVC_.Data;
+using libraryMVC.Profiles;
 
 namespace site
 {
@@ -27,7 +28,7 @@ namespace site
         {
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(options=> options.UseSqlite(Configuration.GetConnectionString("AppDbContext")));
-
+            services.AddAutoMapper(typeof(LibraryProfile));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
