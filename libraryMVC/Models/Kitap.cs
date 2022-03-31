@@ -37,7 +37,7 @@ namespace libraryMVC.Models
 
         [Display(Name = "Kitap Açıklaması")]
         [Required(ErrorMessage = "Kitap açıklaması boş olamaz")]
-        [MaxLength(150, ErrorMessage = "Kitap açıklaması maksimum 150 karakter olabilir")]
+        [MaxLength(250, ErrorMessage = "Kitap açıklaması maksimum 250 karakter olabilir")]
         public string KitapAciklama { get; set; }
 
     }
