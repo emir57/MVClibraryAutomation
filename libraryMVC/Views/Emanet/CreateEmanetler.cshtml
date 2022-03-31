@@ -1,5 +1,4 @@
 @model libraryMVC.Models.CreateEmanetlerViewModel
-
 <a style="margin-bottom:10px;" asp-action="Emanetler" class="btn btn-outline-secondary btn-sm mx-2">Listeye Geri
     Dön</a>
 <hr>
@@ -56,8 +55,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(e=>e.Emanet.EmanetNot)
-                        <input asp-for="@Model.Emanet.EmanetNot" type="text" class="form-control" id="EmanetNot"
-                            aria-describedby="emailHelp">
+                        @Html.TextBoxFor(e=>e.Emanet.EmanetNot,new{@class="form-control"})
                         <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetNot"></span>
                     </div>
                     <div class="col-md-12 mb-3">
