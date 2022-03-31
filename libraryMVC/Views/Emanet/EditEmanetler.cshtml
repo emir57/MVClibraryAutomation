@@ -44,8 +44,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(e=>e.EmanetNot)
-                        <input asp-for="EmanetNot" type="text" class="form-control" id="EmanetNot"
-                            aria-describedby="emailHelp" maxlength="30">
+                        @Html.TextBoxFor(e=>e.EmanetNot,new{@class="form-control"})
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(e=>e.EmanetTeslimEdildi)
