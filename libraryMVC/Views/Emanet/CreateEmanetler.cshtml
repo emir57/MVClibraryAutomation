@@ -6,7 +6,7 @@
     <div class="row ml-4">
         <div class="col-4">
             <form asp-action="CreateEmanetler" id="createEmanetForm">
-                <div id="errors" asp-validation-summary="All" class="text-danger"></div>
+                <div id="errors" asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="mb-3">
                     @Html.LabelFor(e=>e.Emanet.UyeNo)
                     <select asp-for="@Model.Emanet.UyeNo" class="form-control">
