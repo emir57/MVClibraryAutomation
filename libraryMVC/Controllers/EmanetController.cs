@@ -96,15 +96,7 @@ namespace libraryMVC.Controllers
         {
             if (!ModelState.IsValid)
             {
-                List<ErrorViewModel> errors = new List<ErrorViewModel>();
-                foreach (var item in ModelState)
-                {
-                    errors.Add(new ErrorViewModel{
-                        Key = item.Key.Replace("emanet.",""),
-                        Value = item.Value.AttemptedValue
-                    });
-                }
-                return BadRequest(errors);
+                return View(emanet);
             }
             DateTime now = DateTime.Now;
             if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
