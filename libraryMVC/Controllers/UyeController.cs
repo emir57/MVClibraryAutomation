@@ -20,7 +20,7 @@ namespace libraryMVC.Controllers
             return View(_context.Uyeler);
         }
         [HttpGet]
-        public async Task<IActionResult> UyelerSearchBySearchString(string searchString, int id)
+        public async Task<IActionResult> UyelerSearchBySearchString(string searchString=null)
         {
             List<Uye> uyeler;
             if (searchString == null)
@@ -33,6 +33,18 @@ namespace libraryMVC.Controllers
                     x.UyeSoyad.ToLower().Contains(searchString) ||
                     x.UyeEposta.ToLower().Contains(searchString) ||
                     x.UyeTelefon.Contains(searchString)).ToListAsync();
+            return Ok(uyeler);
+        }
+        [HttpGet]
+        public async Task<IActionResult> UyelerSearchById(int? id=null)
+        {
+            List<Uye> uyeler;
+            if (id == null)
+            {
+                uyeler = await _context.Uyeler.ToListAsync();
+                return Ok(uyeler);
+            }
+            uyeler = await _context.Uyeler.Where(x => x.UyeNo == id).ToListAsync();
             return Ok(uyeler);
         }
         public async Task<IActionResult> DeleteUyeler(int id)
