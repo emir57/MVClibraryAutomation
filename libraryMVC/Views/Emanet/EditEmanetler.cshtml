@@ -25,7 +25,7 @@
                                 <option value="@uye.UyeNo">@uye.UyeAd @uye.UyeSoyad</option>
                             }
                         </select>
-                        <span asp-validation-for="@Model.Emanet.UyeNo"></span>
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.UyeNo"></span>
                     </div>
                     <div class="col-md-6 mb-3">
                         @Html.LabelFor(e=>e.Emanet.KitapNo)
@@ -36,30 +36,30 @@
                                 <option value="@kitap.KitapNo">@kitap.KitapAd</option>
                             }
                         </select>
-                        <span asp-validation-for="@Model.Emanet.KitapNo"></span>
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.KitapNo"></span>
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(e=>e.Emanet.EmanetVermeTarih)
                         <input required asp-for="@Model.Emanet.EmanetVermeTarih" type="date" class="form-control"
                             id="EmanetVerme" aria-describedby="emailHelp">
-                        <span asp-validation-for="@Model.Emanet.EmanetVermeTarih"></span>
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetVermeTarih"></span>
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(e=>e.Emanet.EmanetGeriAlmaTarih)
                         <input required asp-for="@Model.Emanet.EmanetGeriAlmaTarih" type="date" class="form-control"
                             id="EmanetAlma" aria-describedby="emailHelp">
-                        <span asp-validation-for="@Model.Emanet.EmanetGeriAlmaTarih"></span>
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetGeriAlmaTarih"></span>
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(e=>e.Emanet.EmanetIslemTarih)
                         <input required asp-for="@Model.Emanet.EmanetIslemTarih" type="date" class="form-control"
                             id="EmanetIslem" aria-describedby="emailHelp">
-                        <span asp-validation-for="@Model.Emanet.EmanetIslemTarih"></span>
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetIslemTarih"></span>
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(e=>e.Emanet.EmanetNot)
                         @Html.TextBoxFor(e=>e.Emanet.EmanetNot,new{@class="form-control"})
-                        <span asp-validation-for="@Model.Emanet.EmanetNot"></span>
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetNot"></span>
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(e=>e.Emanet.EmanetTeslimEdildi)
@@ -70,7 +70,7 @@
                             <option value="Teslim Edildi">Teslim Edildi</option>
                             <option value="Sürüyor">Sürüyor</option>
                         </select>
-                        <span asp-validation-for="@Model.Emanet.EmanetTeslimEdildi"></span>
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetTeslimEdildi"></span>
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary">Kaydet</button>
