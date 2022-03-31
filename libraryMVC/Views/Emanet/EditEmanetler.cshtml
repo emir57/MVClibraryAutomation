@@ -64,24 +64,26 @@
 @section Scripts{
 <script>
     $(document).ready(function () {
-        $("#editEmanetlerForm").submit(function () {
-            let data = $("#editEmanetlerForm").serializeArray();
-            $.ajax({
+        @* $("#editEmanetlerForm").submit(function () {
+                let data = $("#editEmanetlerForm").serializeArray();
+                $.ajax({
                 url: "/Emanet/EditEmanetler",
                 method: "POST",
                 data: data,
                 success: function () {
-                    showSuccessAlert("Kaydetme Başarılı!\nEmanetler'e yönlendiriliyorsunuz");
-                    setTimeout(() => {
-                        window.location.href = "/Emanet/Emanetler";
-                    }, 2500)
+                showSuccessAlert("Kaydetme Başarılı!\nEmanetler'e yönlendiriliyorsunuz");
+                setTimeout(() => {
+                window.location.href = "/Emanet/Emanetler";
+                }, 2500)
                 },
                 error: function () {
-                    showErrorAlert("Kaydetme Başarısız!");
+                showErrorAlert("Kaydetme Başarısız!");
                 }
-            })
-            return false;
-        })
+                })
+                return false;
+                }) *@
     })
 </script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
