@@ -1,13 +1,16 @@
 @model libraryMVC.Models.Kitap
 
-<h2 class="text-primary">Yeni Kitap Oluştur</h2>
+<a style="float:left; margin-bottom:10px;" asp-action="Kitaplar" class="btn btn-outline-secondary btn-sm mx-2">Listeye
+    Geri Dön</a>
 <hr>
 <div class="jumbotron mt-5">
     <div class="row ml-4">
-        <div class="col-4">
-
-            @* <h5>Lütfen <span class="text text-danger">"^"</span> karakterini kullanmayınız. </h5> *@
+        <div class="col-6">
             <form asp-action="CreateKitaplar" id="createKitaplarForm">
+                <div class="row">
+                    
+                </div>
+                <h2 class="display-4 text-primary">Yeni Kitap Oluştur</h2>
                 <div class="mb-3">
                     <label for="kitapAd" class="form-label">Kitap Adı</label>
                     <input required asp-for="KitapAd" type="text" class="form-control" id="kitapAd"
