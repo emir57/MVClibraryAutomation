@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using libraryMVC.Models;
@@ -18,18 +19,21 @@ namespace libraryMVC.Controllers
         {
             return View(_context.Uyeler);
         }
-        [HttpPost]
-        public async Task<IActionResult> UyelerSearch(string searchString, int id)
+        [HttpGet]
+        public async Task<IActionResult> UyelerSearchBySearchString(string searchString, int id)
         {
-            if (searchString == null) searchString = "^";
+            List<Uye> uyeler;
+            if (searchString == null)
+            {
+                uyeler = await _context.Uyeler.ToListAsync();
+                return Ok(uyeler);
+            }
             searchString = searchString.ToLower();
-            //searchString = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(searchString);
-            var arama = await _context.Uyeler.Where(x => x.UyeAd.ToLower().Contains(searchString) ||
+            uyeler = await _context.Uyeler.Where(x => x.UyeAd.ToLower().Contains(searchString) ||
                     x.UyeSoyad.ToLower().Contains(searchString) ||
                     x.UyeEposta.ToLower().Contains(searchString) ||
-                    x.UyeTelefon.Contains(searchString) ||
-                    x.UyeAdres.ToLower().Contains(searchString) || x.UyeNo == id).ToListAsync();
-            return View(arama);
+                    x.UyeTelefon.Contains(searchString)).ToListAsync();
+            return Ok(uyeler);
         }
         public async Task<IActionResult> DeleteUyeler(int id)
         {
@@ -79,7 +83,7 @@ namespace libraryMVC.Controllers
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
-                {}
+                { }
                 return RedirectToAction("Uyeler");
             }
             return View(uye);
