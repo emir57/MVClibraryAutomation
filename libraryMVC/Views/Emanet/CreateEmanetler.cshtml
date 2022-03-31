@@ -10,7 +10,7 @@
                 <div class="mb-3">
                     @Html.LabelFor(e=>e.Emanet.UyeNo)
                     <select asp-for="@Model.Emanet.UyeNo" class="form-control">
-                        <option selected>Üye Seçiniz</option>
+                        <option selected value="">Üye Seçiniz</option>
                         @foreach (var uye in Model.Uyeler)
                         {
                             <option value="@uye.UyeNo">@uye.UyeAd @uye.UyeSoyad</option>
@@ -21,7 +21,7 @@
                 <div class="mb-3">
                     @Html.LabelFor(e=>e.Emanet.KitapNo)
                     <select asp-for="@Model.Emanet.KitapNo" class="form-control">
-                        <option selected>Kitap Seçiniz</option>
+                        <option selected value="">Kitap Seçiniz</option>
                         @foreach (var kitap in Model.Kitaplar)
                         {
                             <option value="@kitap.KitapNo">@kitap.KitapAd</option>
