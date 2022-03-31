@@ -29,8 +29,13 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         @Html.LabelFor(e=>e.Emanet.KitapNo)
-                        <input required asp-for="@Model.Emanet.KitapNo" type="number" class="form-control" id="KitapNo"
-                            aria-describedby="emailHelp">
+                        <select asp-for="@Model.Emanet.KitapNo" class="form-control">
+                            <option selected value="">Kitap Seçiniz</option>
+                            @foreach (var kitap in Model.Kitaplar)
+                            {
+                                <option value="@kitap.KitapNo">@kitap.KitapAd</option>
+                            }
+                        </select>
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(e=>e.Emanet.EmanetVermeTarih)
