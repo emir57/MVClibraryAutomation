@@ -20,9 +20,10 @@ namespace libraryMVC.Controllers
             return View(_context.Kitaplar);
         }
         [HttpGet]
-        public async Task<IActionResult> KitaplarSearchBySearchString(string searchString=null)
+        public async Task<IActionResult> KitaplarSearchBySearchString(string searchString = null)
         {
-            if (searchString == null){
+            if (searchString == null)
+            {
                 var kitaplar = await _context.Kitaplar.ToListAsync();
                 return Ok(kitaplar);
             }
@@ -35,9 +36,10 @@ namespace libraryMVC.Controllers
             return Ok(arama);
         }
         [HttpGet]
-        public async Task<IActionResult> KitaplarSearchById(int id=0)
+        public async Task<IActionResult> KitaplarSearchById(int id = 0)
         {
-            if (id == 0){
+            if (id == 0)
+            {
                 var kitaplar = await _context.Kitaplar.ToListAsync();
                 return Ok(kitaplar);
             }
@@ -58,6 +60,10 @@ namespace libraryMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateKitaplar(Kitap kitap)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(kitap);
+            }
             if (kitap.KitapAciklama == null) kitap.KitapAciklama = "-";
             if (kitap.KitapAd.Contains("^") == true) kitap.KitapAd = "-";
             if (kitap.KitapAciklama.Contains("^") == true) kitap.KitapAciklama = "-";
