@@ -123,8 +123,11 @@ namespace libraryMVC.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> EditEmanetler(int id, Emanet emanet)
+        public async Task<IActionResult> EditEmanetler(Emanet emanet)
         {
+            if(!ModelState.IsValid){
+                return View(emanet);
+            }
             if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
             if (emanet.EmanetNot.Contains("^") == true) emanet.EmanetNot = "-";
             if (emanet.EmanetTeslimEdildi.Contains("^") == true) emanet.EmanetTeslimEdildi = "Sürüyor";
