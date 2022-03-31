@@ -117,6 +117,24 @@
         })
     })
     $(document).ready(function () {
+        $("#id").keyup(function () {
+            if ($(this).val().length > 1) {
+                $.ajax({
+                    url: "/Uye/UyelerSearchById?id=" + $(this).val(),
+                    method: "GET",
+                    success: function (data) {
+                        console.log(data)
+                        let html = getData(data);
+                        $("#uyeler").empty().append(html);
+                    }
+                })
+            } else {
+                getUyeler();
+            }
+        })
+    })
+
+    $(document).ready(function () {
         let getid = window.location.href.split("#")[1];
         $("tr#" + getid).addClass("bg-warning");
         setTimeout(() => {
@@ -142,8 +160,20 @@
         })
         return html;
     }
-    function getData() {
-
+    function getData(data) {
+        let html = `
+        <tr>
+                <td>${data.uyeNo}</td>
+                <td>${data.uyeAd}</td>
+                <td>${data.uyeSoyad}</td>
+                <td>${data.uyeTelefon}</td>
+                <td>${data.uyeEposta}</td>
+                <td>${data.uyeAdres}</td>
+                <td>
+                </td>
+            </tr>
+        `;
+        return html;
     }
     function getUyeler() {
         $.ajax({
