@@ -38,14 +38,13 @@ namespace libraryMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> UyelerSearchById(int? id=null)
         {
-            List<Uye> uyeler;
+            Uye uye;
             if (id == null)
             {
-                uyeler = await _context.Uyeler.ToListAsync();
-                return Ok(uyeler);
+                
             }
-            uyeler = await _context.Uyeler.Where(x => x.UyeNo == id).ToListAsync();
-            return Ok(uyeler);
+            uye = await _context.Uyeler.FirstOrDefaultAsync(x => x.UyeNo == id);
+            return Ok(uye);
         }
         public async Task<IActionResult> DeleteUyeler(int id)
         {
