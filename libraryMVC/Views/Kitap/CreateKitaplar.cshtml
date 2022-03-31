@@ -46,7 +46,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(k=>k.KitapAciklama)
-                        @Html.TextAreaFor(k=>k.KitapAciklama,new{@class="form-control",style="max-height:250px;"})
+                        @Html.TextAreaFor(k=>k.KitapAciklama,new{@class="form-control",style="min-height:140px;max-height:150px;"})
                         <span class="text-danger" asp-validation-for="@Model.KitapAciklama"></span>
                     </div>
                     <div class="col-md-12">
