@@ -115,7 +115,12 @@ namespace libraryMVC.Controllers
             {
                 return RedirectToAction(nameof(Emanetler));
             }
-            return View(emanet);
+            EmanetlerViewModel model = new EmanetlerViewModel{
+                Emanet = emanet,
+                Kitaplar = await _context.Kitaplar.ToListAsync(),
+                Uyeler = await _context.Uyeler.ToListAsync()
+            };
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> EditEmanetler(int id, Emanet emanet)
