@@ -1,5 +1,12 @@
 @model IEnumerable<libraryMVC.Models.Uye>
 
+@section Css{
+    <style>
+        tr{
+            transition: all .5s;
+        }
+    </style>
+}
 
 <a asp-action="CreateUyeler" class="btn btn-outline-primary btn-sm mt-2">Yeni
     Üye Oluştur</a>
@@ -40,6 +47,7 @@
                         console.log(datas)
                         let html = getDatas(datas);
                         $("#uyeler").empty().append(html);
+                        idAnimation();
                     }
                 })
             } else {
@@ -57,6 +65,7 @@
                         console.log(data)
                         let html = getData(data);
                         $("#uyeler").empty().append(html);
+                        idAnimation();
                     }
                 })
             } else {
@@ -64,20 +73,11 @@
             }
         })
     })
-
-    $(document).ready(function () {
-        let getid = window.location.href.split("#")[1];
-        $("tr#" + getid).addClass("bg-warning");
-        setTimeout(() => {
-            $("tr#" + getid).removeClass("bg-warning");
-        }, 1000)
-    })
-
     function getDatas(datas) {
         let html = "";
         datas.forEach(data => {
             html += `
-            <tr>
+            <tr id="${data.uyeNo}">
                 <td>${data.uyeNo}</td>
                 <td>${data.uyeAd}</td>
                 <td>${data.uyeSoyad}</td>
@@ -121,7 +121,7 @@
     }
     function getData(data) {
         let html = `
-        <tr>
+        <tr id="${data.uyeNo}">
                 <td>${data.uyeNo}</td>
                 <td>${data.uyeAd}</td>
                 <td>${data.uyeSoyad}</td>
@@ -170,8 +170,16 @@
                 console.log(datas)
                 let html = getDatas(datas);
                 $("#uyeler").empty().append(html);
+                idAnimation();
             }
         })
+    }
+    function idAnimation() {
+        let getid = window.location.href.split("#")[1];
+        $("tr#" + getid).addClass("bg-warning");
+        setTimeout(() => {
+            $("tr#" + getid).removeClass("bg-warning");
+        }, 1000)
     }
 </script>
 }
