@@ -84,7 +84,7 @@ namespace libraryMVC.Controllers
         }
         public async Task<IActionResult> CreateEmanetler()
         {
-            CreateEmanetlerViewModel model = new CreateEmanetlerViewModel
+            EmanetlerViewModel model = new EmanetlerViewModel
             {
                 Uyeler = await _context.Uyeler.ToListAsync(),
                 Kitaplar = await _context.Kitaplar.ToListAsync()
