@@ -17,30 +17,37 @@
                     <div class="col-md-6 mb-3">
                         @Html.LabelFor(k=>k.KitapAd)
                         @Html.TextBoxFor(k=>k.KitapAd,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="@Model.KitapAd"></span>
                     </div>
                     <div class="col-md-6 mb-3">
                         @Html.LabelFor(k=>k.KitapYazari)
                         @Html.TextBoxFor(k=>k.KitapYazari,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="@Model.KitapYazari"></span>
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(k=>k.KitapBaskiYil)
                         @Html.TextBoxFor(k=>k.KitapBaskiYil,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="@Model.KitapBaskiYil"></span>
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(k=>k.KitapSayfaSayi)
                         @Html.TextBoxFor(k=>k.KitapSayfaSayi,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="@Model.KitapSayfaSayi"></span>
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(k=>k.KitapDil)
                         @Html.TextBoxFor(k=>k.KitapDil,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="@Model.KitapDil"></span>
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(k=>k.KitapYayinEvi)
                         @Html.TextBoxFor(k=>k.KitapYayinEvi,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="@Model.KitapYayinEvi"></span>
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(k=>k.KitapAciklama)
                         @Html.TextAreaFor(k=>k.KitapAciklama,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="@Model.KitapAciklama"></span>
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary">Ekle</button>
