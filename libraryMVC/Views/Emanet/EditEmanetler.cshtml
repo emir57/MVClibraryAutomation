@@ -4,18 +4,18 @@
 <a style="margin-bottom:10px;" asp-action="Emanetler" class="btn btn-outline-secondary btn-sm mx-2">Listeye Geri
     Dön</a>
 <hr>
-<div class="jumbotron mt-5">
+<div class="jumbotron mt-5" style="">
     <div class="row">
         <div class="col-6">
             <form asp-action="EditEmanetler" id="editEmanetlerForm">
-                <div class="col-md-12 mb-3">
-                    <h2 class="display-4 text-primary">Emaneti Düzenle</h2>
-                </div>
-                <div class="col-md-12a">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                </div>
                 <input type="hidden" asp-for="EmanetNo" />
                 <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <h2 class="display-4 text-primary">Emaneti Düzenle</h2>
+                    </div>
+                    <div class="col-md-12a">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    </div>
                     <div class="col-md-6 mb-3">
                         @Html.LabelFor(e=>e.UyeNo)
                         <input required asp-for="UyeNo" type="number" class="form-control" id="uyeNo"
