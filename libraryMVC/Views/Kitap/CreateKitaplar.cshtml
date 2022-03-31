@@ -16,39 +16,31 @@
                     </div>
                     <div class="col-md-6 mb-3">
                         @Html.LabelFor(k=>k.KitapAd)
-                        <input required asp-for="KitapAd" type="text" class="form-control" id="kitapAd"
-                            aria-describedby="emailHelp">
-                        <div id="kitapAd" class="form-text"></div>
+                        @Html.TextBoxFor(k=>k.KitapAd)
                     </div>
                     <div class="col-md-6 mb-3">
                         @Html.LabelFor(k=>k.KitapYazari)
-                        <input required asp-for="KitapYazari" type="text" class="form-control" id="KitapYazar"
-                            aria-describedby="emailHelp">
+                        @Html.TextBoxFor(k=>k.KitapYazari)
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(k=>k.KitapBaskiYil)
-                        <input required asp-for="KitapBaskiYil" type="number" class="form-control" id="KitapBaski"
-                            aria-describedby="emailHelp">
+                        @Html.TextBoxFor(k=>k.KitapBaskiYil)
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(k=>k.KitapSayfaSayi)
-                        <input required asp-for="KitapSayfaSayi" type="number" class="form-control" id="KitapSayfa"
-                            aria-describedby="emailHelp">
+                        @Html.TextBoxFor(k=>k.KitapSayfaSayi)
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(k=>k.KitapDil)
-                        <input required asp-for="KitapDil" type="text" class="form-control" id="KitapDil"
-                            aria-describedby="emailHelp">
+                        @Html.TextBoxFor(k=>k.KitapDil)
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(k=>k.KitapYayinEvi)
-                        <input required asp-for="KitapYayinEvi" type="text" class="form-control" id="KitapYayin"
-                            aria-describedby="emailHelp">
+                        @Html.TextBoxFor(k=>k.KitapYayinEvi)
                     </div>
                     <div class="col-md-12 mb-3">
                         @Html.LabelFor(k=>k.KitapAciklama)
-                        <input asp-for="KitapAciklama" type="text" class="form-control" id="KitapAciklama"
-                            aria-describedby="emailHelp" value="-" maxlength="30">
+                        @Html.TextAreaFor(k=>k.KitapAciklama)
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary">Ekle</button>
