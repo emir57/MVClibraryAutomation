@@ -6,71 +6,74 @@
 <hr>
 <div class="jumbotron mt-5">
     <div class="row ml-4">
-        <div class="col-4">
+        <div class="col-6">
             <form asp-action="CreateEmanetler" id="createEmanetForm">
-                <div id="errors" asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="mb-3">
-                    @Html.LabelFor(e=>e.Emanet.UyeNo)
-                    <select asp-for="@Model.Emanet.UyeNo" class="form-control">
-                        <option selected value="">Üye Seçiniz</option>
-                        @foreach (var uye in Model.Uyeler)
-                        {
-                            <option value="@uye.UyeNo">@uye.UyeAd @uye.UyeSoyad</option>
-                        }
-                    </select>
-                    <span class="text-danger" asp-validation-for="@Model.Emanet.UyeNo"></span>
+                <div class="row">
+                    <div id="errors" asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(e=>e.Emanet.UyeNo)
+                        <select asp-for="@Model.Emanet.UyeNo" class="form-control">
+                            <option selected value="">Üye Seçiniz</option>
+                            @foreach (var uye in Model.Uyeler)
+                            {
+                                <option value="@uye.UyeNo">@uye.UyeAd @uye.UyeSoyad</option>
+                            }
+                        </select>
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.UyeNo"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(e=>e.Emanet.KitapNo)
+                        <select asp-for="@Model.Emanet.KitapNo" class="form-control">
+                            <option selected value="">Kitap Seçiniz</option>
+                            @foreach (var kitap in Model.Kitaplar)
+                            {
+                                <option value="@kitap.KitapNo">@kitap.KitapAd</option>
+                            }
+                        </select>
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.KitapNo"></span>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        @Html.LabelFor(e=>e.Emanet.EmanetVermeTarih)
+                        <input asp-for="@Model.Emanet.EmanetVermeTarih" type="date" class="form-control"
+                            id="EmanetVerme" aria-describedby="emailHelp">
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetVermeTarih"></span>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        @Html.LabelFor(e=>e.Emanet.EmanetGeriAlmaTarih)
+                        <input asp-for="@Model.Emanet.EmanetGeriAlmaTarih" type="date" class="form-control"
+                            id="EmanetAlma" aria-describedby="emailHelp">
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetGeriAlmaTarih"></span>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        @Html.LabelFor(e=>e.Emanet.EmanetIslemTarih)
+                        <input disabled asp-for="@Model.Emanet.EmanetIslemTarih" type="date" class="form-control"
+                            id="EmanetIslem" aria-describedby="emailHelp">
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetIslemTarih"></span>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        @Html.LabelFor(e=>e.Emanet.EmanetNot)
+                        <input asp-for="@Model.Emanet.EmanetNot" type="text" class="form-control" id="EmanetNot"
+                            aria-describedby="emailHelp">
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetNot"></span>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        @Html.LabelFor(e=>e.Emanet.EmanetTeslimEdildi)
+                        @*<input required title="^ karakerini kullanmayın." asp-for="@Model.Emanet.EmanetTeslimEdildi"
+                            type="text"
+                            class="form-control" id="EmanetTeslim" aria-describedby="emailHelp">*@
+                        <select class="form-control" asp-for="@Model.Emanet.EmanetTeslimEdildi" id="EmanetTeslim"
+                            aria-label="Floating label select example">
+                            <option selected value="">Lütfen Birini seçiniz.</option>
+                            <option value="Teslim Edilmedi">Teslim Edilmedi</option>
+                            <option value="Teslim Edildi">Teslim Edildi</option>
+                            <option value="Sürüyor">Sürüyor</option>
+                        </select>
+                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetTeslimEdildi"></span>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-primary">Oluştur</button>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    @Html.LabelFor(e=>e.Emanet.KitapNo)
-                    <select asp-for="@Model.Emanet.KitapNo" class="form-control">
-                        <option selected value="">Kitap Seçiniz</option>
-                        @foreach (var kitap in Model.Kitaplar)
-                        {
-                            <option value="@kitap.KitapNo">@kitap.KitapAd</option>
-                        }
-                    </select>
-                    <span class="text-danger" asp-validation-for="@Model.Emanet.KitapNo"></span>
-                </div>
-                <div class="mb-3">
-                    @Html.LabelFor(e=>e.Emanet.EmanetVermeTarih)
-                    <input asp-for="@Model.Emanet.EmanetVermeTarih" type="date" class="form-control" id="EmanetVerme"
-                        aria-describedby="emailHelp">
-                    <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetVermeTarih"></span>
-                </div>
-                <div class="mb-3">
-                    @Html.LabelFor(e=>e.Emanet.EmanetGeriAlmaTarih)
-                    <input asp-for="@Model.Emanet.EmanetGeriAlmaTarih" type="date" class="form-control" id="EmanetAlma"
-                        aria-describedby="emailHelp">
-                    <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetGeriAlmaTarih"></span>
-                </div>
-                <div class="mb-3">
-                    @Html.LabelFor(e=>e.Emanet.EmanetIslemTarih)
-                    <input disabled asp-for="@Model.Emanet.EmanetIslemTarih" type="date" class="form-control"
-                        id="EmanetIslem" aria-describedby="emailHelp">
-                    <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetIslemTarih"></span>
-                </div>
-                <div class="mb-3">
-                    @Html.LabelFor(e=>e.Emanet.EmanetNot)
-                    <input asp-for="@Model.Emanet.EmanetNot" type="text" class="form-control" id="EmanetNot"
-                        aria-describedby="emailHelp">
-                    <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetNot"></span>
-                </div>
-                <div class="mb-3">
-                    @Html.LabelFor(e=>e.Emanet.EmanetTeslimEdildi)
-                    @*<input required title="^ karakerini kullanmayın." asp-for="@Model.Emanet.EmanetTeslimEdildi"
-                        type="text"
-                        class="form-control" id="EmanetTeslim" aria-describedby="emailHelp">*@
-                    <select class="form-control" asp-for="@Model.Emanet.EmanetTeslimEdildi" id="EmanetTeslim"
-                        aria-label="Floating label select example">
-                        <option selected value="">Lütfen Birini seçiniz.</option>
-                        <option value="Teslim Edilmedi">Teslim Edilmedi</option>
-                        <option value="Teslim Edildi">Teslim Edildi</option>
-                        <option value="Sürüyor">Sürüyor</option>
-                    </select>
-                    <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetTeslimEdildi"></span>
-                </div>
-
-                <button type="submit" class="btn btn-primary">Oluştur</button>
             </form>
         </div>
     </div>
@@ -84,31 +87,31 @@
         $("#createEmanetForm").submit(function () {
             let data = $("#createEmanetForm").serializeArray();
             @* $.ajax({
-                url: "/Emanet/CreateEmanetler",
-                method: "POST",
-                data: data,
-                success: function () {
+                    url: "/Emanet/CreateEmanetler",
+                    method: "POST",
+                    data: data,
+                    success: function () {
                     showSuccessAlert("Ekleme Başarılı!\nEmanetler'e yönlendiriliyorsunuz");
                     setTimeout(() => {
-                        window.location.href = "/Emanet/Emanetler";
+                    window.location.href = "/Emanet/Emanetler";
                     }, 2500)
-                },
-                error: function (error) {
+                    },
+                    error: function (error) {
                     let errorObject = JSON.parse(error.responseText)
                     let html = "";
                     for (let i = 0; i < errorObject.length; i++) {
-                        if (errorObject[i].value === "") {
-                            continue;
-                        }
-                        html += `
-                        <div>${errorObject[i].key} : ${errorObject[i].value}</div>
-                        `
+                    if (errorObject[i].value === "") {
+                    continue;
+                    }
+                    html += `
+                    <div>${errorObject[i].key} : ${errorObject[i].value}</div>
+                    `
                     }
                     $("#errors").empty().append(html);
                     showErrorAlert("Ekleme Başarısız!");
-                }
-            })
-            return false; *@
+                    }
+                    })
+                    return false; *@
         })
     })
 </script>
