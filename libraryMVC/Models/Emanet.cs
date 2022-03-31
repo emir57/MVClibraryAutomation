@@ -4,18 +4,36 @@ namespace libraryMVC.Models
     public class Emanet
     {
         [Key]
-        public int EmanetNo {get; set;}
+        public int EmanetNo { get; set; }
+
+
+        [Display(Name = "Üye")]
         [Required(ErrorMessage = "UyeNo boş olamaz")]
-        public int UyeNo {get; set;}
+        public int UyeNo { get; set; }
+
+
+        [Display(Name = "Kitap")]
         [Required(ErrorMessage = "KitapNo boş olamaz")]
-        public int KitapNo {get; set;}
+        public int KitapNo { get; set; }
+
+
         [Required(ErrorMessage = "Emanet verme tarihi boş olamaz")]
-        public string EmanetVermeTarih {get; set;}
+        [Display(Name = "Emanet Verme Tarihi")]
+        public string EmanetVermeTarih { get; set; }
+
+
         [Required(ErrorMessage = "Emanet geri alma tarihi boş olamaz")]
-        public string EmanetGeriAlmaTarih {get; set;}
-        public string EmanetIslemTarih {get; set;}
-        public string EmanetNot {get; set;}
+        [Display(Name = "Emanet Geri Alma Tarihi")]
+        public string EmanetGeriAlmaTarih { get; set; }
+
+        [Display(Name = "Emanet İşlem Tarihi")]
+        public string EmanetIslemTarih { get; set; }
+        [Display(Name = "Emanet Not")]
+        public string EmanetNot { get; set; }
+
+
         [Required(ErrorMessage = "Emanet teslim edildi boş olamaz")]
-        public string EmanetTeslimEdildi {get; set;}
+        [Display(Name = "Emanet Teslim Durumu")]
+        public string EmanetTeslimEdildi { get; set; }
     }
 }

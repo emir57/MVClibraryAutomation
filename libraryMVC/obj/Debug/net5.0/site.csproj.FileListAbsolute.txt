@@ -174,3 +174,9 @@ C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Vi
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Emanet\EditEmanetler.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Emanet\Emanetler.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Emanet\EmanetlerSearch.cshtml.g.cs
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
