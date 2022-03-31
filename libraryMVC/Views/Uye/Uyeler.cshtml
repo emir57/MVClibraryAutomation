@@ -21,75 +21,75 @@
         </thead>
         <tbody id="uyeler">
             @* @foreach (var item in Model)
-            {
+                {
                 <tr id="@item.UyeNo" style="transition:all .5s">
-                    <td>@item.UyeNo</td>
-                    <td>
-                        @if (@item.UyeAd.Contains("^") == true)
-                        {
-                            <p>-</p>
-                        }
-                        else
-                        {
-                            @item.UyeAd
-                        }
-                    </td>
-                    <td>
-                        @if (@item.UyeSoyad.Contains("^") == true)
-                        {
-                            <p>-</p>
-                        }
-                        else
-                        {
-                            @item.UyeSoyad
-                        }
-                    </td>
-                    <td>@item.UyeTelefon</td>
-                    <td>@item.UyeEposta</td>
-                    <td>
-                        @if (@item.UyeAdres.Contains("^") == true)
-                        {
-                            <p>-</p>
-                        }
-                        else
-                        {
-                            @item.UyeAdres
-                        }
-                    </td>
-                    <td>
-                        <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal@(item.UyeNo)">
-                            Sil
-                        </button>
-                        <a class="btn btn-primary text text-white" asp-action="EditUyeler" asp-route-id="@item.UyeNo"
-                        role="button">Düzenle</a>
-                        <!-- Modal -->
-                    <div class="modal fade" id="modal@(item.UyeNo)" role="dialog" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
-                                        <button type="button" class="btn-close" data-dismiss="modal"
-                                        aria-label="Close">X</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="text-danger">@item.UyeAd - @item.UyeSoyad - @item.UyeEposta</span>
-                                        <br>
-                                        Bu Kaydı Silmek İstediğinizden Emin misiniz?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <!-- Button trigger modal -->
-                                    <a class="btn btn-secondary text text-white" data-dismiss="modal"
-                                        role="button">İptal</a>
-                                        <a class="btn btn-danger text text-white" asp-action="DeleteUyeler"
-                                        asp-route-id="@item.UyeNo" role="button">Sil</a>
-                                    </div>
-                                </div>
-                            </div>
-                    </td>
+                <td>@item.UyeNo</td>
+                <td>
+                @if (@item.UyeAd.Contains("^") == true)
+                {
+                <p>-</p>
+                }
+                else
+                {
+                @item.UyeAd
+                }
+                </td>
+                <td>
+                @if (@item.UyeSoyad.Contains("^") == true)
+                {
+                <p>-</p>
+                }
+                else
+                {
+                @item.UyeSoyad
+                }
+                </td>
+                <td>@item.UyeTelefon</td>
+                <td>@item.UyeEposta</td>
+                <td>
+                @if (@item.UyeAdres.Contains("^") == true)
+                {
+                <p>-</p>
+                }
+                else
+                {
+                @item.UyeAdres
+                }
+                </td>
+                <td>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal@(item.UyeNo)">
+                Sil
+                </button>
+                <a class="btn btn-primary text text-white" asp-action="EditUyeler" asp-route-id="@item.UyeNo"
+                role="button">Düzenle</a>
+                <!-- Modal -->
+                <div class="modal fade" id="modal@(item.UyeNo)" role="dialog" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
+                <button type="button" class="btn-close" data-dismiss="modal"
+                aria-label="Close">X</button>
+                </div>
+                <div class="modal-body">
+                <span class="text-danger">@item.UyeAd - @item.UyeSoyad - @item.UyeEposta</span>
+                <br>
+                Bu Kaydı Silmek İstediğinizden Emin misiniz?
+                </div>
+                <div class="modal-footer">
+                <!-- Button trigger modal -->
+                <a class="btn btn-secondary text text-white" data-dismiss="modal"
+                role="button">İptal</a>
+                <a class="btn btn-danger text text-white" asp-action="DeleteUyeler"
+                asp-route-id="@item.UyeNo" role="button">Sil</a>
+                </div>
+                </div>
+                </div>
+                </td>
                 </tr>
-            } *@
+                } *@
         </tbody>
     </table>
 </div>
@@ -98,6 +98,37 @@
 
 @section Scripts{
 <script>
+    $.ajax({
+        url: "/Uye/UyelerSearchBySearchString",
+        method: "GET",
+        success: function (datas) {
+            console.log(datas)
+            let html = getDatas(datas);
+            $("#uyeler").empty().append(html);
+        },
+        error: function () {
+
+        }
+    })
+    $(document).ready(function () {
+        $("#searchString").keyup(function () {
+            if ($(this).val().length > 1) {
+                $.ajax({
+                    url: "/Uye/UyelerSearchBySearchString?searchString=" + $(this).val(),
+                    method: "GET",
+                    success: function (datas) {
+                        let html = getDatas(datas);
+                        $("#uyeler").empty().append(html);
+                    },
+                    error: function () {
+
+                    }
+                })
+            } else {
+
+            }
+        })
+    })
     $(document).ready(function () {
         let getid = window.location.href.split("#")[1];
         $("tr#" + getid).addClass("bg-warning");
@@ -105,5 +136,27 @@
             $("tr#" + getid).removeClass("bg-warning");
         }, 1000)
     })
+
+    function getDatas(datas) {
+        let html = "";
+        datas.forEach(data => {
+            html += `
+            <tr>
+                <td>${data.uyeNo}</td>
+                <td>${data.uyeAd}</td>
+                <td>${data.uyeSoyad}</td>
+                <td>${data.uyeTelefon}</td>
+                <td>${data.uyeEposta}</td>
+                <td>${data.uyeAdres}</td>
+                <td>
+                </td>
+            </tr>
+            `
+        })
+        return html;
+    }
+    function getData() {
+
+    }
 </script>
 }
