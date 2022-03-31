@@ -56,7 +56,7 @@
 @section Scripts{
 <script>
     $(document).ready(function () {
-        $("#createKitaplarForm").submit(function () {
+        @* $("#createKitaplarForm").submit(function () {
             let data = $("#createKitaplarForm").serializeArray();
             $.ajax({
                 url: "/Kitap/CreateKitaplar",
@@ -73,7 +73,10 @@
                 }
             })
             return false;
-        })
+        }) *@
     })
 </script>
+
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
