@@ -98,15 +98,7 @@
 
 @section Scripts{
 <script>
-    $.ajax({
-        url: "/Uye/UyelerSearchBySearchString",
-        method: "GET",
-        success: function (datas) {
-            console.log(datas)
-            let html = getDatas(datas);
-            $("#uyeler").empty().append(html);
-        }
-    })
+    getUyeler();
     $(document).ready(function () {
         $("#searchString").keyup(function () {
             if ($(this).val().length > 1) {
@@ -117,13 +109,10 @@
                         console.log(datas)
                         let html = getDatas(datas);
                         $("#uyeler").empty().append(html);
-                    },
-                    error: function () {
-
                     }
                 })
             } else {
-
+                getUyeler();
             }
         })
     })
@@ -155,6 +144,17 @@
     }
     function getData() {
 
+    }
+    function getUyeler() {
+        $.ajax({
+            url: "/Uye/UyelerSearchBySearchString",
+            method: "GET",
+            success: function (datas) {
+                console.log(datas)
+                let html = getDatas(datas);
+                $("#uyeler").empty().append(html);
+            }
+        })
     }
 </script>
 }
