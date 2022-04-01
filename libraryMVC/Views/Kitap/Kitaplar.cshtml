@@ -200,7 +200,7 @@
         html = `
                 <tr id="${data.kitapNo}">
                     <td>${data.kitapNo}</td>
-                    <td>${data.kitapAd}</td>
+                    <td></td>
                     <td>${data.kitapYazari}</td>
                     <td>${data.kitapBaskiYil}</td>
                     <td>${data.kitapSayfaSayi}</td>
@@ -212,7 +212,9 @@
                             Sil
                         </button>
                         <a style="cursor:pointer;" class="btn btn-primary text text-white" onClick="window.location.href='/Kitap/EditKitaplar/${data.kitapNo}'"
-                        role="button">Düzenle</a>
+                        role="button" title="${data.kitapAd} Düzenle">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
                         <!-- Modal -->
                         <div class="modal fade" id="modal${data.kitapNo}" role="dialog" tabindex="-1"
                             aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -258,7 +260,9 @@
                                     Sil
                                 </button>
                                 <a style="cursor:pointer;" class="btn btn-primary text text-white" onClick="window.location.href='/Kitap/EditKitaplar/${data.kitapNo}'"
-                                role="button">Düzenle</a>
+                                role="button" title="${data.kitapAd} Düzenle">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
                                 <!-- Modal -->
                                 <div class="modal fade" id="modal${data.kitapNo}" role="dialog" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
