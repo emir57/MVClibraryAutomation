@@ -90,7 +90,6 @@
             url: "/Uye/UyelerSearchBySearchString",
             method: "GET",
             success: function (datas) {
-                console.log(datas)
                 let html = getDatas(datas);
                 $("#uyeler").empty().append(html);
                 idAnimation();
