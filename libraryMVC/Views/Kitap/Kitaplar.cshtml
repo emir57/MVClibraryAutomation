@@ -196,56 +196,24 @@
         })
     })
     function getData(data) {
-        let html = "";
-        html = `
-                <tr id="${data.kitapNo}">
-                    <td>${data.kitapNo}</td>
-                    <td></td>
-                    <td>${data.kitapYazari}</td>
-                    <td>${data.kitapBaskiYil}</td>
-                    <td>${data.kitapSayfaSayi}</td>
-                    <td>${data.kitapDil}</td>
-                    <td>${data.kitapYayinEvi}</td>
-                    <td>${data.kitapAciklama}</td>
-                    <td>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.kitapNo}" title="${data.kitapAd} Sil">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <a style="cursor:pointer;" class="btn btn-primary text text-white" onClick="window.location.href='/Kitap/EditKitaplar/${data.kitapNo}'"
-                        role="button" title="${data.kitapAd} Düzenle">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </a>
-                        <!-- Modal -->
-                        <div class="modal fade" id="modal${data.kitapNo}" role="dialog" tabindex="-1"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
-                                        <button type="button" class="btn-close" data-dismiss="modal"
-                                        aria-label="Close">X</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="text-danger">${data.kitapNo} - ${data.kitapAd}</span>
-                                        <br>
-                                        Bu Kaydı Silmek İstediğinizden Emin misiniz?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a class="btn btn-secondary text text-white" data-dismiss="modal">İptal</a>
-                                        <a class="btn btn-danger text text-white" href="/Kitap/DeleteKitaplar/${data.kitapNo}">Sil</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                    `
-        return html;
+        return generatorHtml(data);
     }
     function getDatas(datas) {
         let html = "";
         datas.forEach(data => {
-            html += `
+            html += generatorHtml(data);
+        })
+        return html;
+    }
+    function idAnimation() {
+        let getid = window.location.href.split("#")[1];
+        $("tr#" + getid).addClass("bg-warning");
+        setTimeout(() => {
+            $("tr#" + getid).removeClass("bg-warning");
+        }, 1000)
+    }
+    function generatorHtml(data) {
+        return `
                         <tr id="${data.kitapNo}">
                             <td>${data.kitapNo}</td>
                             <td>${data.kitapAd}</td>
@@ -288,16 +256,6 @@
                             </td>
                         </tr>
                     `
-        })
-        return html;
-    }
-
-    function idAnimation() {
-        let getid = window.location.href.split("#")[1];
-        $("tr#" + getid).addClass("bg-warning");
-        setTimeout(() => {
-            $("tr#" + getid).removeClass("bg-warning");
-        }, 1000)
     }
 </script>
 }
