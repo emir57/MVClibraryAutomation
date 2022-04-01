@@ -5,6 +5,7 @@ using System.Linq;
 using libraryMVC_.Data;
 using Microsoft.EntityFrameworkCore;
 using libraryMVC.Models;
+using System.Collections.Generic;
 
 namespace libraryMVC.Controllers
 {
@@ -38,13 +39,18 @@ namespace libraryMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> KitaplarSearchById(int id = 0)
         {
+            Kitap kitap;
             if (id == 0)
             {
-                var kitaplar = await _context.Kitaplar.ToListAsync();
+                List<Kitap> kitaplar = await _context.Kitaplar.ToListAsync();
                 return Ok(kitaplar);
             }
-            var arama = await _context.Kitaplar.SingleOrDefaultAsync(x => x.KitapNo == id);
-            return Ok(arama);
+            kitap = await _context.Kitaplar.SingleOrDefaultAsync(x => x.KitapNo == id);
+            if (kitap == null)
+            {
+                return BadRequest("Kitap Bulunamadı");
+            }
+            return Ok(kitap);
         }
         public async Task<IActionResult> DeleteKitaplar(int id)
         {
