@@ -20,7 +20,7 @@ namespace libraryMVC.Controllers
             return View(_context.Uyeler);
         }
         [HttpGet]
-        public async Task<IActionResult> UyelerSearchBySearchString(string searchString=null)
+        public async Task<IActionResult> UyelerSearchBySearchString(string searchString = null)
         {
             List<Uye> uyeler;
             if (searchString == null)
@@ -36,14 +36,16 @@ namespace libraryMVC.Controllers
             return Ok(uyeler);
         }
         [HttpGet]
-        public async Task<IActionResult> UyelerSearchById(int? id=null)
+        public async Task<IActionResult> UyelerSearchById(int? id = null)
         {
             Uye uye;
             if (id == null)
-            {
-                
-            }
+            { }
             uye = await _context.Uyeler.FirstOrDefaultAsync(x => x.UyeNo == id);
+            if (uye == null)
+            {
+                return BadRequest("Üye bulunamadı");
+            }
             return Ok(uye);
         }
         public async Task<IActionResult> DeleteUyeler(int id)
