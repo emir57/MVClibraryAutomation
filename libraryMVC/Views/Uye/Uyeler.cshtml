@@ -44,7 +44,6 @@
                     url: "/Uye/UyelerSearchBySearchString?searchString=" + $(this).val(),
                     method: "GET",
                     success: function (datas) {
-                        console.log(datas)
                         let html = getDatas(datas);
                         $("#uyeler").empty().append(html);
                         idAnimation();
@@ -62,10 +61,12 @@
                     url: "/Uye/UyelerSearchById?id=" + $(this).val(),
                     method: "GET",
                     success: function (data) {
-                        console.log(data)
                         let html = getData(data);
                         $("#uyeler").empty().append(html);
                         idAnimation();
+                    },
+                    error: function () {
+                        showErrorAlert("Üye bulunamadı")
                     }
                 })
             } else {
@@ -76,7 +77,36 @@
     function getDatas(datas) {
         let html = "";
         datas.forEach(data => {
-            html += `
+            html += generatorHtml(data);
+        })
+        return html;
+    }
+    function getData(data) {
+        let html = generatorHtml(data);
+        return html;
+    }
+    function getUyeler() {
+        $.ajax({
+            url: "/Uye/UyelerSearchBySearchString",
+            method: "GET",
+            success: function (datas) {
+                console.log(datas)
+                let html = getDatas(datas);
+                $("#uyeler").empty().append(html);
+                idAnimation();
+            }
+        })
+    }
+    function idAnimation() {
+        let getid = window.location.href.split("#")[1];
+        $("tr#" + getid).addClass("bg-warning");
+        setTimeout(() => {
+            $("tr#" + getid).removeClass("bg-warning");
+        }, 1000)
+    }
+
+    function generatorHtml(data) {
+        return `
             <tr id="${data.uyeNo}">
                 <td>${data.uyeNo}</td>
                 <td>${data.uyeAd}</td>
@@ -118,72 +148,6 @@
                 </td>
             </tr>
             `
-        })
-        return html;
-    }
-    function getData(data) {
-        let html = `
-        <tr id="${data.uyeNo}">
-                <td>${data.uyeNo}</td>
-                <td>${data.uyeAd}</td>
-                <td>${data.uyeSoyad}</td>
-                <td>${data.uyeTelefon}</td>
-                <td>${data.uyeEposta}</td>
-                <td>${data.uyeAdres}</td>
-                <td>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.uyeNo}" title="${data.uyeAd} ${data.uyeSoyad} Sil">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                    <a class="btn btn-primary text text-white" href="/Uye/EditUyeler/${data.uyeNo}"
-                    role="button" title="${data.uyeAd} ${data.uyeSoyad} Düzenle">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </a>
-                    <!-- Modal -->
-                    <div class="modal fade" id="modal${data.uyeNo}" role="dialog" tabindex="-1"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
-                                <button type="button" class="btn-close" data-dismiss="modal"
-                                aria-label="Close">X</button>
-                            </div>
-                            <div class="modal-body">
-                                <span class="text-danger">${data.uyeAd} - ${data.uyeSoyad} - ${data.uyeEposta}</span>
-                                <br>
-                                Bu Kaydı Silmek İstediğinizden Emin misiniz?
-                            </div>
-                            <div class="modal-footer">
-                                <!-- Button trigger modal -->
-                            <a class="btn btn-secondary text text-white" data-dismiss="modal"
-                                role="button">İptal</a>
-                                <a class="btn btn-danger text text-white" href="/Uye/DeleteUyeler/${data.uyeNo}" role="button">Sil</a>
-                            </div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        `;
-        return html;
-    }
-    function getUyeler() {
-        $.ajax({
-            url: "/Uye/UyelerSearchBySearchString",
-            method: "GET",
-            success: function (datas) {
-                console.log(datas)
-                let html = getDatas(datas);
-                $("#uyeler").empty().append(html);
-                idAnimation();
-            }
-        })
-    }
-    function idAnimation() {
-        let getid = window.location.href.split("#")[1];
-        $("tr#" + getid).addClass("bg-warning");
-        setTimeout(() => {
-            $("tr#" + getid).removeClass("bg-warning");
-        }, 1000)
     }
 </script>
 }
