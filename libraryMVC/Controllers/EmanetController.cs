@@ -50,7 +50,8 @@ namespace libraryMVC.Controllers
                 emanetler = emanetler.Where(x => x.Kitap.KitapAd.ToLower().Contains(searchString) ||
                                 x.Uye.UyeAd.ToLower().Contains(searchString) ||
                                 x.Uye.UyeSoyad.ToLower().Contains(searchString) ||
-                                x.EmanetNot.ToLower().Contains(searchString)).ToList();
+                                x.EmanetNot.ToLower().Contains(searchString) ||
+                                x.EmanetTeslimEdildi.ToLower().Contains(searchString)).ToList();
             }
             return Ok(emanetler);
         }
@@ -104,7 +105,8 @@ namespace libraryMVC.Controllers
             {
                 return RedirectToAction(nameof(Emanetler));
             }
-            EmanetlerViewModel model = new EmanetlerViewModel{
+            EmanetlerViewModel model = new EmanetlerViewModel
+            {
                 Emanet = emanet,
                 Kitaplar = await _context.Kitaplar.ToListAsync(),
                 Uyeler = await _context.Uyeler.ToListAsync()
@@ -114,7 +116,8 @@ namespace libraryMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> EditEmanetler(Emanet emanet)
         {
-            if(!ModelState.IsValid){
+            if (!ModelState.IsValid)
+            {
                 return View(emanet);
             }
             if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
