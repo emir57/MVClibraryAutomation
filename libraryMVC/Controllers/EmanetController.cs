@@ -40,6 +40,7 @@ namespace libraryMVC.Controllers
             List<EmanetDto> emanetler = await GetEmanetDtoAsync();
             return View(emanetler);
         }
+        //TODO: add date search
         [HttpGet]
         public async Task<IActionResult> EmanetlerSearchBySearchString(string searchString = null)
         {
