@@ -64,17 +64,6 @@ namespace libraryMVC.Controllers
             }
             return Ok(emanet);
         }
-        [HttpPost]
-        public async Task<IActionResult> EmanetlerSearch(string searchString, int id)
-        {
-            if (searchString == null) searchString = "^";
-            searchString = searchString.ToLower();
-            //searchString = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(searchString);
-            var arama = await _context.Emanetler.Where(x =>
-                    x.EmanetTeslimEdildi.ToLower().Contains(searchString) || x.EmanetNo == id)
-            .ToListAsync();
-            return View(arama);
-        }
         public async Task<IActionResult> DeleteEmanetler(int id)
         {
             var emanet = await _context.Emanetler.SingleOrDefaultAsync(x => x.EmanetNo == id);
