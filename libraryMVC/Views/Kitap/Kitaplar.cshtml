@@ -208,8 +208,8 @@
                     <td>${data.kitapYayinEvi}</td>
                     <td>${data.kitapAciklama}</td>
                     <td>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.kitapNo}">
-                            Sil
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.kitapNo}" title="${data.kitapAd} Sil">
+                            <i class="fa-solid fa-trash"></i>
                         </button>
                         <a style="cursor:pointer;" class="btn btn-primary text text-white" onClick="window.location.href='/Kitap/EditKitaplar/${data.kitapNo}'"
                         role="button" title="${data.kitapAd} Düzenle">
@@ -256,8 +256,8 @@
                             <td>${data.kitapYayinEvi}</td>
                             <td>${data.kitapAciklama}</td>
                             <td>
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.kitapNo}">
-                                    Sil
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.kitapNo}" title="${data.kitapAd} Sil">
+                                    <i class="fa-solid fa-trash"></i>
                                 </button>
                                 <a style="cursor:pointer;" class="btn btn-primary text text-white" onClick="window.location.href='/Kitap/EditKitaplar/${data.kitapNo}'"
                                 role="button" title="${data.kitapAd} Düzenle">
