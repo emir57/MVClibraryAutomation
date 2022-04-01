@@ -1,11 +1,11 @@
 @model IEnumerable<libraryMVC.Models.Uye>
 
 @section Css{
-    <style>
-        tr{
-            transition: all .5s;
-        }
-    </style>
+<style>
+    tr {
+        transition: all .5s;
+    }
+</style>
 }
 
 <a asp-action="CreateUyeler" class="btn btn-outline-primary btn-sm mt-2">Yeni
@@ -89,7 +89,9 @@
                         <i class="fa-solid fa-trash"></i>
                     </button>
                     <a class="btn btn-primary text text-white" href="/Uye/EditUyeler/${data.uyeNo}"
-                    role="button">Düzenle</a>
+                    role="button" title="${data.uyeAd} ${data.uyeSoyad} Düzenle>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
                     <!-- Modal -->
                     <div class="modal fade" id="modal${data.uyeNo}" role="dialog" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -133,7 +135,9 @@
                         <i class="fa-solid fa-trash"></i>
                     </button>
                     <a class="btn btn-primary text text-white" href="/Uye/EditUyeler/${data.uyeNo}"
-                    role="button">Düzenle</a>
+                    role="button" title="${data.uyeAd} ${data.uyeSoyad} Düzenle>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
                     <!-- Modal -->
                     <div class="modal fade" id="modal${data.uyeNo}" role="dialog" tabindex="-1"
                     aria-labelledby="exampleModalLabel" aria-hidden="true">
