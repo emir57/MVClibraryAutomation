@@ -34,10 +34,8 @@
 
 @section Scripts{
 <script>
-    //GetAll
-    $(document).ready(function () {
-        getAll();
-    })
+    getAll();
+
     //GetById
     $(document).ready(function () {
         let emanetler = $("#emanetler");
@@ -84,121 +82,12 @@
     function getDatas(datas) {
         let html = "";
         datas.forEach(data => {
-            let emanetClass = "";
-            if (data.emanetTeslimEdildi === "Sürüyor") { emanetClass = "text-primary"; }
-            else if (data.emanetTeslimEdildi === "Teslim Edildi") { emanetClass = "text-success"; }
-            else if (data.emanetTeslimEdildi === "Teslim Edilmedi") { emanetClass = "text-danger"; }
-            html += `
-                <tr id="${data.emanetNo}">
-                    <td>${data.emanetNo}</td>
-                    <td>
-                        <a href="/Uye/Uyeler#${data.uye.uyeNo}">${data.uye.uyeAd} ${data.uye.uyeSoyad}</a>
-                    </td>
-                    <td>
-                        <a href="/Kitap/Kitaplar#${data.kitap.kitapNo}">${data.kitap.kitapAd}</a>
-                    </td>
-                    <td>${data.emanetVermeTarih}</td>
-                    <td>${data.emanetGeriAlmaTarih}</td>
-                    <td>${data.emanetIslemTarih}</td>
-                    <td>${data.emanetNot}</td>
-                    <td>
-                        <p class="${emanetClass}">${data.emanetTeslimEdildi}</p>
-                    </td>
-                    <td>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.emanetNo}" title="Emaneti Sil">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <a class="btn btn-primary text text-white" href="/Emanet/EditEmanetler/${data.emanetNo}"
-                        role="button" title="Emaneti Düzenle">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </a>
-                        <!-- Modal -->
-                        <div class="modal fade" id="modal${data.emanetNo}" role="dialog" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
-                                        <button type="button" class="btn-close" data-dismiss="modal"
-                                        aria-label="Close">X</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="text-danger">${data.emanetNo} - ${data.emanetTeslimEdildi}</span>
-                                        <br>
-                                        Bu Kaydı Silmek İstediğinizden Emin misiniz?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a class="btn  btn-secondary text text-white" data-dismiss="modal"
-                                        role="button">İptal</a>
-                                        <a class="btn btn-danger text text-white" href="/Emanet/DeleteEmanetler/${data.emanetNo}" role="button">Sil</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            `;
+            html += generatorHtml(data);
         })
         return html;
     }
     function getData(data) {
-        let emanetClass = "";
-        if (data.emanetTeslimEdildi === "Sürüyor") { emanetClass = "text-primary"; }
-        else if (data.emanetTeslimEdildi === "Teslim Edildi") { emanetClass = "text-success"; }
-        else if (data.emanetTeslimEdildi === "Teslim Edilmedi") { emanetClass = "text-danger"; }
-        let html = `
-                <tr id="${data.emanetNo}">
-                    <td>${data.emanetNo}</td>
-                    <td>
-                        <a href="/Uye/Uyeler#${data.uye.uyeNo}">${data.uye.uyeAd} ${data.uye.uyeSoyad}</a>
-                    </td>
-                    <td>
-                        <a href="/Kitap/Kitaplar#${data.kitap.kitapNo}">${data.kitap.kitapAd}</a>
-                    </td>
-                    <td>${data.emanetVermeTarih}</td>
-                    <td>${data.emanetGeriAlmaTarih}</td>
-                    <td>${data.emanetIslemTarih}</td>
-                    <td>${data.emanetNot}</td>
-                    <td>
-                        <p class="${emanetClass}">${data.emanetTeslimEdildi}</p>
-                    </td>
-                    <td>
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.emanetNo}" title="Emaneti Sil">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                        <a class="btn btn-primary text text-white" href="/Emanet/EditEmanetler/${data.emanetNo}"
-                        role="button" title="Emaneti Düzenle">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </a>
-                        <!-- Modal -->
-                        <div class="modal fade" id="modal${data.emanetNo}" role="dialog" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
-                                        <button type="button" class="btn-close" data-dismiss="modal"
-                                        aria-label="Close">X</button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <span class="text-danger">${data.emanetNo} - ${data.emanetTeslimEdildi}</span>
-                                        <br>
-                                        Bu Kaydı Silmek İstediğinizden Emin misiniz?
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a class="btn  btn-secondary text text-white" data-dismiss="modal"
-                                        role="button">İptal</a>
-                                        <a class="btn btn-danger text text-white" href="/Emanet/DeleteEmanetler/${data.emanetNo}" role="button">Sil</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            `;
-        return html;
+        return generatorHtml(data);
     }
 
     function getAll() {
@@ -216,6 +105,64 @@
                 }
             }
         })
+    }
+
+    function generatorHtml(data) {
+        let emanetClass = "";
+        if (data.emanetTeslimEdildi === "Sürüyor") { emanetClass = "text-primary"; }
+        else if (data.emanetTeslimEdildi === "Teslim Edildi") { emanetClass = "text-success"; }
+        else if (data.emanetTeslimEdildi === "Teslim Edilmedi") { emanetClass = "text-danger"; }
+        return `
+                <tr id="${data.emanetNo}">
+                    <td>${data.emanetNo}</td>
+                    <td>
+                        <a href="/Uye/Uyeler#${data.uye.uyeNo}">${data.uye.uyeAd} ${data.uye.uyeSoyad}</a>
+                    </td>
+                    <td>
+                        <a href="/Kitap/Kitaplar#${data.kitap.kitapNo}">${data.kitap.kitapAd}</a>
+                    </td>
+                    <td>${data.emanetVermeTarih}</td>
+                    <td>${data.emanetGeriAlmaTarih}</td>
+                    <td>${data.emanetIslemTarih}</td>
+                    <td>${data.emanetNot}</td>
+                    <td>
+                        <p class="${emanetClass}">${data.emanetTeslimEdildi}</p>
+                    </td>
+                    <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.emanetNo}" title="Emaneti Sil">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <a class="btn btn-primary text text-white" href="/Emanet/EditEmanetler/${data.emanetNo}"
+                        role="button" title="Emaneti Düzenle">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="modal${data.emanetNo}" role="dialog" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
+                                        <button type="button" class="btn-close" data-dismiss="modal"
+                                        aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="text-danger">${data.emanetNo} - ${data.emanetTeslimEdildi}</span>
+                                        <br>
+                                        Bu Kaydı Silmek İstediğinizden Emin misiniz?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a class="btn  btn-secondary text text-white" data-dismiss="modal"
+                                        role="button">İptal</a>
+                                        <a class="btn btn-danger text text-white" href="/Emanet/DeleteEmanetler/${data.emanetNo}" role="button">Sil</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            `;
     }
 </script>
 }
