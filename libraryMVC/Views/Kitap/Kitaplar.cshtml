@@ -179,7 +179,9 @@
                         let html = getData(data)
                         kitaplarTable.empty();
                         kitaplarTable.append(html);
-
+                    },
+                    error: function () {
+                        showErrorAlert("Kitap Bulunamadı");
                     }
                 })
             } else {
