@@ -24,8 +24,7 @@
             <th>Emanet Teslim Edildi</th>
             <th width="155px">İşlemler</th>
         </thead>
-        <tbody id="emanetler">
-        </tbody>
+        <tbody id="emanetler"></tbody>
     </table>
 
 </div>
@@ -101,7 +100,7 @@
             },
             error: function (error) {
                 if (error.responseText === "Not Found") {
-                    showErrorAlert("Böyle bir emanet yok");
+                    showErrorAlert("Emanet bulunamadı");
                 }
             }
         })
