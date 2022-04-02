@@ -1,13 +1,20 @@
 @model libraryMVC.Models.Uye
 
-<h2 class="text-primary">Yeni Üye Oluştur</h2>
+
 <hr>
 <div class="jumbotron mt-5">
     <div class="row ml-4">
-        <div class="col-4">
-
-            @* <h5>Lütfen <span class="text text-danger">"^"</span> karakterini kullanmayınız. </h5> *@
+        <div class="col-6">
             <form asp-action="CreateUyeler" id="createUyelerForm">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="text-primary">Yeni Üye Oluştur</h2>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    </div>
+                </div>
+
                 <div class="mb-3">
                     <label for="UyeAd" class="form-label">Üye Adı</label>
                     <input required title="^ karakerini kullanmayın." asp-for="UyeAd" type="text" class="form-control"
@@ -45,7 +52,7 @@
 @section Scripts{
 <script>
     $(document).ready(function () {
-        
+
     })
 </script>
 }
