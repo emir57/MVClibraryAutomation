@@ -35,8 +35,12 @@ namespace libraryMVC.Controllers
                                                }).ToListAsync();
             return emanetler;
         }
-        public async Task<IActionResult> Emanetler(string searchString, int id)
+        public async Task<IActionResult> Emanetler(string message = null)
         {
+            if (message != null)
+            {
+                ViewBag.Message = message;
+            }
             List<EmanetDto> emanetler = await GetEmanetDtoAsync();
             return View(emanetler);
         }
