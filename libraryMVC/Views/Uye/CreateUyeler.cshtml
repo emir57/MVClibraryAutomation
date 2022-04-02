@@ -7,42 +7,41 @@
         <div class="col-6">
             <form asp-action="CreateUyeler" id="createUyelerForm">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-3">
                         <h2 class="text-primary">Yeni Üye Oluştur</h2>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-12 mb-3">
                         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                     </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="UyeAd" class="form-label">Üye Adı</label>
+                        <input required title="^ karakerini kullanmayın." asp-for="UyeAd" type="text"
+                            class="form-control" id="UyeAd" aria-describedby="emailHelp" maxlength="20">
+                        <div id="UyeAd" class="form-text"></div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="UyeSoyad" class="form-label">Üye Soyadı</label>
+                        <input required title="^ karakerini kullanmayın." asp-for="UyeSoyad" type="text"
+                            class="form-control" id="UyeSoyad" aria-describedby="emailHelp" maxlength="20">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="UyeTel" class="form-label">Üye Telefon Numarası</label>
+                        <input required title="^ karakerini kullanmayın." asp-for="UyeTelefon" type="tel"
+                            class="form-control" id="UyeTel" aria-describedby="emailHelp">
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6 mb-3">
+                        <label for="UyeEposta" class="form-label">Üye E-postası</label>
+                        <input required title="^ karakerini kullanmayın." asp-for="UyeEposta" type="email"
+                            class="form-control" id="UyeEposta" aria-describedby="emailHelp">
+                    </div>
+                    <div class="col-md-12">
+                        <label for="UyeAdres" class="form-label">Üye Adresi</label>
+                        <input required title="^ karakerini kullanmayın." asp-for="UyeAdres" type="text"
+                            class="form-control" id="UyeAdres" aria-describedby="emailHelp">
+                    </div>
                 </div>
-
-                <div class="mb-3">
-                    <label for="UyeAd" class="form-label">Üye Adı</label>
-                    <input required title="^ karakerini kullanmayın." asp-for="UyeAd" type="text" class="form-control"
-                        id="UyeAd" aria-describedby="emailHelp" maxlength="20">
-                    <div id="UyeAd" class="form-text"></div>
-                </div>
-                <div class="mb-3">
-                    <label for="UyeSoyad" class="form-label">Üye Soyadı</label>
-                    <input required title="^ karakerini kullanmayın." asp-for="UyeSoyad" type="text"
-                        class="form-control" id="UyeSoyad" aria-describedby="emailHelp" maxlength="20">
-                </div>
-                <div class="mb-3">
-                    <label for="UyeTel" class="form-label">Üye Telefon Numarası</label>
-                    <input required title="^ karakerini kullanmayın." asp-for="UyeTelefon" type="tel"
-                        class="form-control" id="UyeTel" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="UyeEposta" class="form-label">Üye E-postası</label>
-                    <input required title="^ karakerini kullanmayın." asp-for="UyeEposta" type="email"
-                        class="form-control" id="UyeEposta" aria-describedby="emailHelp">
-                </div>
-                <div class="mb-3">
-                    <label for="UyeAdres" class="form-label">Üye Adresi</label>
-                    <input required title="^ karakerini kullanmayın." asp-for="UyeAdres" type="text"
-                        class="form-control" id="UyeAdres" aria-describedby="emailHelp">
-                </div>
-
-                <button type="submit" class="btn btn-primary">Oluştur</button>
+                <button type="submit" class="btn btn-primary">Üye Ekle</button>
             </form>
         </div>
     </div>
