@@ -13,16 +13,17 @@
                     <div class="col-md-12 mb-3">
                         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="kitapAd" class="form-label">Kitap Adı</label>
-                    <input required asp-for="KitapAd" class="form-control" id="kitapAd" aria-describedby="emailHelp">
-                    <div id="kitapAd" class="form-text"></div>
-                </div>
-                <div class="mb-3">
-                    <label for="KitapYazar" class="form-label">Kitap Yazarı</label>
-                    <input required asp-for="KitapYazari" class="form-control" id="KitapYazar"
-                        aria-describedby="emailHelp">
+                    <div class="col-md-6">
+                        <label for="kitapAd" class="form-label">Kitap Adı</label>
+                        <input required asp-for="KitapAd" class="form-control" id="kitapAd"
+                            aria-describedby="emailHelp">
+                        <div id="kitapAd" class="form-text"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="KitapYazar" class="form-label">Kitap Yazarı</label>
+                        <input required asp-for="KitapYazari" class="form-control" id="KitapYazar"
+                            aria-describedby="emailHelp">
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="KitapBaski" class="form-label">Kitap Baskı Yılı</label>
