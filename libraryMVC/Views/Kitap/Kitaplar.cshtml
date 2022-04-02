@@ -165,5 +165,35 @@
                         </tr>
                     `
     }
+    function showSuccessAlert(message) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: message
+        })
+    }
 </script>
+@if (ViewBag.Message.EndsWith("başarıyla güncellendi"))
+{
+<script>
+    showSuccessAlert("@ViewBag.Message")
+</script>
+}
+else if(ViewBag.Message.EndsWith("başarıyla eklendi"))
+{
+<script>
+    showSuccessAlert("@ViewBag.Message")
+</script>
+}
 }
