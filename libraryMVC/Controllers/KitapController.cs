@@ -16,8 +16,12 @@ namespace libraryMVC.Controllers
         {
             _context = context;
         }
-        public IActionResult Kitaplar(string searchString, int id)
+        public IActionResult Kitaplar(string message = null)
         {
+            if (message != null)
+            {
+                ViewBag.Message = message;
+            }
             return View(_context.Kitaplar);
         }
         [HttpGet]
