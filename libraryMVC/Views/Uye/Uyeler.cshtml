@@ -147,11 +147,6 @@
 </tr>
 `
     }
-</script>
-@if (ViewBag.Message.EndsWith("başarıyla güncellendi"))
-{
-<script>
-    showSuccessAlert("@ViewBag.Message")
     function showSuccessAlert(message) {
         const Toast = Swal.mixin({
             toast: true,
@@ -170,6 +165,17 @@
             title: message
         })
     }
+</script>
+@if (ViewBag.Message.EndsWith("başarıyla güncellendi"))
+{
+<script>
+    showSuccessAlert("@ViewBag.Message")
+</script>
+}
+else if(ViewBag.Message.EndsWith("başarıyla eklendi"))
+{
+<script>
+    showSuccessAlert("@ViewBag.Message")
 </script>
 }
 }
