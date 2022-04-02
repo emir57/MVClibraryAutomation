@@ -1,14 +1,19 @@
 @model libraryMVC.Models.Kitap
 
-<h2 class="text-primary">Kitabı Düzenle</h2>
 <hr>
 <div class="jumbotron mt-5">
     <div class="row ml-4">
         <div class="col-md-6">
-
-            @* <h5>Lütfen <span class="text text-danger">"^"</span> karakterini kullanmayınız. </h5> *@
             <form asp-action="EditKitaplar" id="editKitaplarForm">
                 <input type="hidden" asp-for="KitapNo" />
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <h2 class="display-4 text-primary">Kitabı Düzenle</h2>
+                    </div>
+                    <div class="col-md-12 mb-3">
+
+                    </div>
+                </div>
                 <div class="mb-3">
                     <label for="kitapAd" class="form-label">Kitap Adı</label>
                     <input required asp-for="KitapAd" class="form-control" id="kitapAd" aria-describedby="emailHelp">
