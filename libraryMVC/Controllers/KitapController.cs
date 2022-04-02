@@ -74,13 +74,9 @@ namespace libraryMVC.Controllers
             {
                 return View(kitap);
             }
-            if (kitap.KitapAciklama == null) kitap.KitapAciklama = "-";
-            if (kitap.KitapAd.Contains("^") == true) kitap.KitapAd = "-";
-            if (kitap.KitapAciklama.Contains("^") == true) kitap.KitapAciklama = "-";
-            if (kitap.KitapDil.Contains("^") == true) kitap.KitapDil = "Türkçe";
             await _context.Kitaplar.AddAsync(kitap);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Kitaplar");
+            return RedirectToAction(nameof(Kitaplar), new { @message = $"{kitap.KitapAd} başarıyla eklendi" });
         }
         public async Task<IActionResult> EditKitaplar(int? id)
         {
