@@ -35,9 +35,9 @@
                         <span class="text-danger" asp-validation-for="UyeEposta"></span>
                     </div>
                     <div class="col-md-12 mb-3">
-                        <label for="UyeAdres" class="form-label">Üye Adresi</label>
-                        <input required title="^ karakerini kullanmayın." asp-for="UyeAdres" type="text"
-                            class="form-control" id="UyeAdres" aria-describedby="emailHelp">
+                        @Html.LabelFor(u=>u.UyeAdres)
+                        @Html.TextAreaFor(u=>u.UyeAdres,new{@class="form-control",style="min-height:130px;max-height:140px"})
+                        <span class="text-danger" asp-validation-for="UyeAdres"></span>
                     </div>
                     <button type="submit" class="btn btn-primary">Kaydet</button>
                 </div>
