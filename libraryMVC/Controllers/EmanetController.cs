@@ -101,7 +101,7 @@ namespace libraryMVC.Controllers
             emanet.EmanetIslemTarih = emanet.EmanetIslemTarih.Replace(".", "-");
             await _context.Emanetler.AddAsync(emanet);
             await _context.SaveChangesAsync();
-            return RedirectToAction("Emanetler");
+            return RedirectToAction(nameof(Emanetler), new { @message = "Emanet başarıyla eklendi"});
         }
         public async Task<IActionResult> EditEmanetler(int? id)
         {
