@@ -24,9 +24,9 @@
                         <span class="text-danger" asp-validation-for="@Model.KitapYazari"></span>
                     </div>
                     <div class="col-md-12">
-                        <label for="KitapBaski" class="form-label">Kitap Baskı Yılı</label>
-                        <input required asp-for="KitapBaskiYil" class="form-control" id="KitapBaski"
-                            aria-describedby="emailHelp">
+                        @Html.LabelFor(k=>k.KitapBaskiYil)
+                        @Html.TextBoxFor(k=>k.KitapBaskiYil,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="@Model.KitapBaskiYil"></span>
                     </div>
                     <div class="col-md-12">
                         <label for="KitapSayfa" class="form-label">Kitabın Sayfa Sayısı</label>
