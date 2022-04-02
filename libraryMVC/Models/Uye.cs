@@ -32,6 +32,8 @@ namespace libraryMVC.Models
         public string UyeEposta { get; set; }
 
         [Display(Name = "Üye Adresi")]
+        [Required(ErrorMessage = " Üye adresi zorunlu")]
+        [MaxLength(250, ErrorMessage = "Üye adresi maksimum 250 karakter olabilir")]
         public string UyeAdres { get; set; }
 
     }
