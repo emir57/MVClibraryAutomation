@@ -9,13 +9,13 @@ namespace libraryMVC.Models
         [Display(Name = "Üye Adı")]
         [Required(ErrorMessage = " Üye adı zorunlu")]
         [MaxLength(20, ErrorMessage = "Üye adı maksimum 20 karakter olabilir")]
-        [RegularExpression("([A-Z][a-zA-Z]*)", ErrorMessage = "Geçersiz üye adı")]
+        [RegularExpression("(?i:^[a-züığçşö][a-züığçşö]*)", ErrorMessage = "Geçersiz üye adı")]
         public string UyeAd { get; set; }
 
         [Display(Name = "Üye Soyadı")]
         [Required(ErrorMessage = " Üye soyadı zorunlu")]
         [MaxLength(20, ErrorMessage = "Üye soyadı maksimum 20 karakter olabilir")]
-        [RegularExpression("([A-Z][a-zA-Z]*)", ErrorMessage = "Geçersiz üye soyadı")]
+        [RegularExpression("(?i:^[a-züığçşö][a-züığçşö]*)", ErrorMessage = "Geçersiz üye soyadı")]
         public string UyeSoyad { get; set; }
 
         [Display(Name = "Üye Telefonu")]
