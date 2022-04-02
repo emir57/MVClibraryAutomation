@@ -46,24 +46,7 @@
 @section Scripts{
 <script>
     $(document).ready(function () {
-        $("#editUyeForm").submit(function () {
-            let data = $("#editUyeForm").serializeArray();
-            $.ajax({
-                url: "/Uye/EditUyeler",
-                method: "POST",
-                data: data,
-                success: function () {
-                    showSuccessAlert("Kaydetme Başarılı!\nUyeler'e yönlendiriliyorsunuz");
-                    setTimeout(() => {
-                        window.location.href = "/Uye/Uyeler";
-                    }, 2500)
-
-                }, error: function () {
-                    showErrorAlert("Kaydetme Başarısız!");
-                }
-            })
-            return false;
-        })
+        
     })
 </script>
 }
