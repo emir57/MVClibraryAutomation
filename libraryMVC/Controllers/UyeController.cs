@@ -62,6 +62,10 @@ namespace libraryMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUyeler(Uye uye)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(uye);
+            }
             if (uye.UyeAd.Contains("^") == true) uye.UyeAd = "-";
             if (uye.UyeSoyad.Contains("^") == true) uye.UyeSoyad = "-";
             if (uye.UyeTelefon.Contains("^") == true) uye.UyeTelefon = "000 000 00 00";
