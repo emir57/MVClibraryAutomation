@@ -19,6 +19,10 @@ namespace libraryMVC.Models
         public string UyeSoyad { get; set; }
 
         [Display(Name = "Üye Telefonu")]
+        [Required(ErrorMessage = " Üye telefonu zorunlu")]
+        [MaxLength(14, ErrorMessage = "Üye telefonu maksimum 14 karakter olabilir")]
+        [MinLength(14, ErrorMessage = "Üye telefonu minimum 14 karakter olabilir")]
+        [RegularExpression(@"^\(\d{3}\)\s\d{3}-\d{4}", ErrorMessage = "Geçersiz üye telefonu (555) 555-5555")]
         public string UyeTelefon { get; set; }
 
         [Display(Name = "Üye Epostası")]
