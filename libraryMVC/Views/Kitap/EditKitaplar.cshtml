@@ -14,10 +14,9 @@
                         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                     </div>
                     <div class="col-md-6">
-                        <label for="kitapAd" class="form-label">Kitap Adı</label>
-                        <input required asp-for="KitapAd" class="form-control" id="kitapAd"
-                            aria-describedby="emailHelp">
-                        <div id="kitapAd" class="form-text"></div>
+                        @Html.LabelFor(k=>k.KitapAd)
+                        @Html.TextBoxFor(k=>k.KitapAd,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="@Model.KitapAd"></span>
                     </div>
                     <div class="col-md-6">
                         <label for="KitapYazar" class="form-label">Kitap Yazarı</label>
