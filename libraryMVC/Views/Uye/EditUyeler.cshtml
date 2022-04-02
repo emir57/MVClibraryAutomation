@@ -14,10 +14,9 @@
                         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="UyeAd" class="form-label">Üye Adı</label>
-                        <input required title="^ karakerini kullanmayın." asp-for="UyeAd" type="text"
-                            class="form-control" id="UyeAd" aria-describedby="emailHelp" maxlength="20">
-                        <div id="UyeAd" class="form-text"></div>
+                        @Html.LabelFor(u=>u.UyeAd)
+                        @Html.TextBoxFor(u=>u.UyeAd,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="UyeAd"></span>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="UyeSoyad" class="form-label">Üye Soyadı</label>
