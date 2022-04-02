@@ -55,23 +55,7 @@
 @section Scripts{
 <script>
     $(document).ready(function () {
-        $("#editKitaplarForm").submit(function () {
-            let data = $("#editKitaplarForm").serializeArray();
-            $.ajax({
-                url: "/Kitap/EditKitaplar",
-                method: "POST",
-                data: data,
-                success: function () {
-                    showSuccessAlert("Kaydetme Başarılı\nKitaplar'a yönlendiriliyorsunuz");
-                    setTimeout(() => {
-                        window.location.href = "/Kitap/Kitaplar";
-                    }, 2500)
-                }, error: function () {
-                    showErrorAlert("Kaydetme Başarısız");
-                }
-            })
-            return false;
-        })
+        
     })
 </script>
 }
