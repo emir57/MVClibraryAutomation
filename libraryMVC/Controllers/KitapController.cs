@@ -90,24 +90,13 @@ namespace libraryMVC.Controllers
         [HttpPost]
         public async Task<IActionResult> EditKitaplar(int id, Kitap kitap)
         {
-            if (kitap.KitapAciklama == null) kitap.KitapAciklama = "-";
-            if (kitap.KitapAd.Contains("^") == true) kitap.KitapAd = "-";
-            if (kitap.KitapYazari.Contains("^") == true) kitap.KitapYazari = "-";
-            if (kitap.KitapDil.Contains("^") == true) kitap.KitapDil = "Türkçe";
-            if (kitap.KitapYayinEvi.Contains("^") == true) kitap.KitapYayinEvi = "-";
-            if (kitap.KitapAciklama.Contains("^") == true) kitap.KitapAciklama = "-";
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(kitap);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                { }
-                return RedirectToAction("Kitaplar");
+                return View(kitap);
             }
-            return View(kitap);
+            _context.Kitaplar.Update(kitap);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Kitaplar), new { @message = $"{kitap.KitapAd} başarıyla güncellendi" });
         }
     }
 }
