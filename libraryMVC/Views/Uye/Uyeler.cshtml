@@ -166,13 +166,13 @@
         })
     }
 </script>
-@if (ViewBag.Message.EndsWith("başarıyla güncellendi"))
+@if (ViewBag.Message != null && ViewBag.Message.EndsWith("başarıyla güncellendi"))
 {
 <script>
     showSuccessAlert("@ViewBag.Message")
 </script>
 }
-else if(ViewBag.Message.EndsWith("başarıyla eklendi"))
+else if(ViewBag.Message != null && ViewBag.Message.EndsWith("başarıyla eklendi"))
 {
 <script>
     showSuccessAlert("@ViewBag.Message")
