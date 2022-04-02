@@ -94,7 +94,7 @@ namespace libraryMVC.Controllers
                 return View(emanet);
             }
             emanet.EmanetIslemTarih = DateTime.Now.ToString("yyyy/MM/dd");
-            // emanet.EmanetIslemTarih = emanet.EmanetIslemTarih.Replace(".", "-");
+            emanet.EmanetIslemTarih = emanet.EmanetIslemTarih.Replace(".", "-");
             await _context.Emanetler.AddAsync(emanet);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Emanetler), new { @message = "Emanet başarıyla eklendi" });
