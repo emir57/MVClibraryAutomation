@@ -30,9 +30,9 @@
                     </div>
                     <div class="col-md-6"></div>
                     <div class="col-md-6 mb-3">
-                        <label for="UyeEposta" class="form-label">Üye E-postası</label>
-                        <input required title="^ karakerini kullanmayın." asp-for="UyeEposta" type="email"
-                            class="form-control" id="UyeEposta" aria-describedby="emailHelp">
+                        @Html.LabelFor(u=>u.UyeEposta)
+                        @Html.TextBoxFor(u=>u.UyeEposta,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="UyeEposta"></span>
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="UyeAdres" class="form-label">Üye Adresi</label>
