@@ -101,7 +101,7 @@ namespace libraryMVC.Controllers
             emanet.EmanetIslemTarih = emanet.EmanetIslemTarih.Replace(".", "-");
             await _context.Emanetler.AddAsync(emanet);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Emanetler), new { @message = "Emanet başarıyla eklendi"});
+            return RedirectToAction(nameof(Emanetler), new { @message = "Emanet başarıyla eklendi" });
         }
         public async Task<IActionResult> EditEmanetler(int? id)
         {
@@ -125,21 +125,9 @@ namespace libraryMVC.Controllers
             {
                 return View(emanet);
             }
-            if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
-            if (emanet.EmanetNot.Contains("^") == true) emanet.EmanetNot = "-";
-            if (emanet.EmanetTeslimEdildi.Contains("^") == true) emanet.EmanetTeslimEdildi = "Sürüyor";
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(emanet);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                { }
-                return RedirectToAction("Emanetler");
-            }
-            return View(emanet);
+            _context.Update(emanet);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Emanetler), new { @message = "Emanet başarıyla güncellendi" });
         }
     }
 }
