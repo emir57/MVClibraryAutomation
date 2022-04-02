@@ -7,6 +7,9 @@ namespace libraryMVC.Models
         public int UyeNo { get; set; }
 
         [Display(Name = "Üye Adı")]
+        [Required(ErrorMessage = " Üye adı zorunlu")]
+        [MaxLength(20, ErrorMessage = "Üye adı maksimum 20 karakter olabilir")]
+        [RegularExpression("/^[a-z ,.'-]+$/i", ErrorMessage = "Geçersiz üye adı")]
         public string UyeAd { get; set; }
 
         [Display(Name = "Üye Soyadı")]
