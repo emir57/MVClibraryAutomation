@@ -83,35 +83,7 @@
 @section Scripts{
 <script>
     $(document).ready(function () {
-        $("#createEmanetForm").submit(function () {
-            let data = $("#createEmanetForm").serializeArray();
-            @* $.ajax({
-                    url: "/Emanet/CreateEmanetler",
-                    method: "POST",
-                    data: data,
-                    success: function () {
-                    showSuccessAlert("Ekleme Başarılı!\nEmanetler'e yönlendiriliyorsunuz");
-                    setTimeout(() => {
-                    window.location.href = "/Emanet/Emanetler";
-                    }, 2500)
-                    },
-                    error: function (error) {
-                    let errorObject = JSON.parse(error.responseText)
-                    let html = "";
-                    for (let i = 0; i < errorObject.length; i++) {
-                    if (errorObject[i].value === "") {
-                    continue;
-                    }
-                    html += `
-                    <div>${errorObject[i].key} : ${errorObject[i].value}</div>
-                    `
-                    }
-                    $("#errors").empty().append(html);
-                    showErrorAlert("Ekleme Başarısız!");
-                    }
-                    })
-                    return false; *@
-        })
+
     })
 </script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
