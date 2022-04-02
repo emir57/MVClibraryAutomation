@@ -26,6 +26,9 @@ namespace libraryMVC.Models
         public string UyeTelefon { get; set; }
 
         [Display(Name = "Üye Epostası")]
+        [Required(ErrorMessage = " Üye epostası zorunlu")]
+        [MaxLength(30, ErrorMessage = "Üye epostası maksimum 30 karakter olabilir")]
+        [EmailAddress(ErrorMessage = "Geçersiz üye eposta adresi")]
         public string UyeEposta { get; set; }
 
         [Display(Name = "Üye Adresi")]
