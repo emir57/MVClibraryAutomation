@@ -45,24 +45,7 @@
 @section Scripts{
 <script>
     $(document).ready(function () {
-        $("#createUyelerForm").submit(function () {
-            let data = $("#createUyelerForm").serializeArray();
-            $.ajax({
-                url: "/Uye/CreateUyeler",
-                method: "POST",
-                data: data,
-                success: function () {
-                    showSuccessAlert("Ekleme Başarılı!\nÜyeler'e yönlendiriliyorsunuz");
-                    setTimeout(() => {
-                        window.location.href = "/Uye/Uyeler";
-                    }, 2500)
-                },
-                error: function () {
-                    showErrorAlert("Ekleme Başarısız!");
-                }
-            })
-            return false;
-        })
+        
     })
 </script>
 }
