@@ -93,12 +93,8 @@ namespace libraryMVC.Controllers
             {
                 return View(emanet);
             }
-            DateTime now = DateTime.Now;
-            if (emanet.EmanetNot == null) emanet.EmanetNot = "-";
-            if (emanet.EmanetNot.Contains("^") == true) emanet.EmanetNot = "-";
-            if (emanet.EmanetTeslimEdildi.Contains("^") == true) emanet.EmanetTeslimEdildi = "Sürüyor";
-            emanet.EmanetIslemTarih = now.ToString("yyyy/MM/dd");
-            emanet.EmanetIslemTarih = emanet.EmanetIslemTarih.Replace(".", "-");
+            emanet.EmanetIslemTarih = DateTime.Now.ToString("yyyy/MM/dd");
+            // emanet.EmanetIslemTarih = emanet.EmanetIslemTarih.Replace(".", "-");
             await _context.Emanetler.AddAsync(emanet);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Emanetler), new { @message = "Emanet başarıyla eklendi" });
