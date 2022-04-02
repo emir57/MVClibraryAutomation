@@ -44,9 +44,9 @@
                         <span class="text-danger" asp-validation-for="@Model.KitapYayinEvi"></span>
                     </div>
                     <div class="col-md-12">
-                        <label for="KitapAciklama" class="form-label">Kitap Açıklaması</label>
-                        <input asp-for="KitapAciklama" class="form-control" id="KitapAciklama"
-                            aria-describedby="emailHelp" maxlength="30">
+                        @Html.LabelFor(k=>k.KitapAciklama)
+                        @Html.TextAreaFor(k=>k.KitapAciklama,new{@class="form-control",style="min-height:140px;max-height:150px;"})
+                        <span class="text-danger" asp-validation-for="@Model.KitapAciklama"></span>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Kaydet</button>
