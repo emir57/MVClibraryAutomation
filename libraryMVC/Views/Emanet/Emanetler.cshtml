@@ -94,7 +94,13 @@
             let emanetler = $("#emanetler");
             let startDate = $("#startDate").val();
             let finishDate = $("#finishDate").val();
-            if ($("#emanetverme:checked").length === 1) {
+            if (new Date(startDate) > new Date(finishDate)) {
+                showErrorAlert("Başlangıç tarihi bitiş tarihinden fazla olamaz")
+            }
+            else if(startDate==="" || finishDate===""){
+                showErrorAlert("Lütfen tarih aralığı seçiniz")
+            }
+            else if ($("#emanetverme:checked").length === 1) {
                 $.ajax({
                     url: "/Emanet/EmanetSearchByEmanetVerme",
                     method: "POST",
