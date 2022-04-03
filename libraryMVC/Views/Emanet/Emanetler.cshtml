@@ -98,7 +98,14 @@
                 console.log("emanetverme")
             }
             else if ($("#emanetgerialma:checked").length === 1) {
-                console.log("emanet geri alma")
+                $.ajax({
+                    url: "/Emanet/EmanetSearchByEmanetGeriAlma",
+                    method: "POST",
+                    data: { startDate, finishDate },
+                    success: function (datas) {
+                        emanetler.empty().append(getDatas(datas))
+                    }
+                })
             }
             else if ($("#emanetislem:checked").length === 1) {
                 $.ajax({
