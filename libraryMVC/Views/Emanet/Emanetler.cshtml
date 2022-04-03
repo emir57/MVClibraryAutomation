@@ -39,7 +39,7 @@
             class="form-control" name="" id="startDate">&nbsp;
         <span class="text-primary">Bitiş:</span>&nbsp;<input type="date" style="max-width: 200px;" class="form-control"
             name="" id="finishDate">&nbsp;
-        <button class="btn btn-info">Sıfırla</button>&nbsp;
+        <button id="searchByDateResetButton" class="btn btn-info">Sıfırla</button>&nbsp;
         <button id="searchByDateButton" class="btn btn-primary">Ara</button>
     </div>
     <table class="table table-hover mt-3 table-striped">
@@ -100,6 +100,9 @@
             else if ($("#emanetislem:checked").length === 1) {
                 console.log("emanet işlem")
             }
+        })
+        $("#searchByDateResetButton").click(function () {
+            getAll();
         })
     })
 
