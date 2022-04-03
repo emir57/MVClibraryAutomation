@@ -36,7 +36,8 @@ namespace libraryMVC.Controllers
             uyeler = await _context.Uyeler.Where(x => x.UyeAd.ToLower().Contains(searchString) ||
                     x.UyeSoyad.ToLower().Contains(searchString) ||
                     x.UyeEposta.ToLower().Contains(searchString) ||
-                    x.UyeTelefon.Contains(searchString)).ToListAsync();
+                    x.UyeTelefon.Contains(searchString) ||
+                    x.UyeAdres.ToLower().Contains(searchString)).ToListAsync();
             return Ok(uyeler);
         }
         [HttpGet]
