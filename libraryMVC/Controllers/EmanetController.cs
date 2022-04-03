@@ -46,9 +46,11 @@ namespace libraryMVC.Controllers
         }
         //TODO: add date search
         [HttpPost]
-        public async Task<IActionResult> EmanetSearchByEmanetIslem(DateTime startDate,DateTime finishDate)
+        public async Task<IActionResult> EmanetSearchByEmanetIslem(DateTime startDate, DateTime finishDate)
         {
-            return Ok();
+            List<EmanetDto> emanetler = await GetEmanetDtoAsync();
+            emanetler = emanetler.Where(e => Convert.ToDateTime(e.EmanetIslemTarih) > startDate && Convert.ToDateTime(e.EmanetIslemTarih) < finishDate).ToList();
+            return Ok(emanetler);
         }
         [HttpGet]
         public async Task<IActionResult> EmanetlerSearchBySearchString(string searchString = null)
