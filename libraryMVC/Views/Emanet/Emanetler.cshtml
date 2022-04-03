@@ -97,7 +97,7 @@
             if (new Date(startDate) > new Date(finishDate)) {
                 showErrorAlert("Başlangıç tarihi bitiş tarihinden fazla olamaz")
             }
-            else if(startDate==="" || finishDate===""){
+            else if (startDate === "" || finishDate === "") {
                 showErrorAlert("Lütfen tarih aralığı seçiniz")
             }
             else if ($("#emanetverme:checked").length === 1) {
@@ -138,6 +138,9 @@
                         showErrorAlert(err.responseText);
                     }
                 })
+            }
+            else {
+                showErrorAlert("Lütfen yukardan alan seçiniz")
             }
         })
         $("#searchByDateResetButton").click(function () {
