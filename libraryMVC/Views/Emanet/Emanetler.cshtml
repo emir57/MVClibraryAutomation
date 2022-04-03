@@ -13,8 +13,32 @@
         <input class="form-control" style="max-width: 200px;" placeholder="Ara" id="searchString" type="text" />
     </div>
     <div class="searchSection">
-        <span class="text-primary">Başlangıç:</span>&nbsp;<input type="date" style="max-width: 200px;" class="form-control" name="" id="startDate">&nbsp;
-        <span class="text-primary">Bitiş:</span>&nbsp;<input type="date" style="max-width: 200px;" class="form-control" name="" id="finishDate">&nbsp;
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="type" id="emanetverme">
+            <label class="form-check-label" for="emanetverme">
+                Emanet Verme
+            </label>
+        </div>
+        &nbsp;
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="type" id="emanetgerialma">
+            <label class="form-check-label" for="emanetgerialma">
+                Emanet Geri Alma
+            </label>
+        </div>
+        &nbsp;
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="type" id="emanetislem">
+            <label class="form-check-label" for="emanetislem">
+                Emanet İşlem
+            </label>
+        </div>
+    </div>
+    <div class="searchSection">
+        <span class="text-primary">Başlangıç:</span>&nbsp;<input type="date" style="max-width: 200px;"
+            class="form-control" name="" id="startDate">&nbsp;
+        <span class="text-primary">Bitiş:</span>&nbsp;<input type="date" style="max-width: 200px;" class="form-control"
+            name="" id="finishDate">&nbsp;
         <button class="btn btn-info">Sıfırla</button>&nbsp;
         <button class="btn btn-primary">Ara</button>
     </div>
