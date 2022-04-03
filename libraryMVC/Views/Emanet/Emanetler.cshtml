@@ -91,6 +91,7 @@
 
     $(document).ready(function () {
         $("#searchByDateButton").click(function () {
+            let emanetler = $("#emanetler");
             let startDate = $("#startDate").val();
             let finishDate = $("#finishDate").val();
             if ($("#emanetverme:checked").length === 1) {
@@ -105,7 +106,7 @@
                     method: "POST",
                     data: { startDate, finishDate },
                     success: function (datas) {
-                        console.log(datas);
+                        emanetler.empty().append(getDatas(datas))
                     }
                 })
             }
