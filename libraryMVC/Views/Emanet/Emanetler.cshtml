@@ -100,7 +100,14 @@
                 console.log("emanet geri alma")
             }
             else if ($("#emanetislem:checked").length === 1) {
-                console.log("emanet işlem")
+                $.ajax({
+                    url: "/Emanet/EmanetSearchByEmanetIslem",
+                    method: "POST",
+                    data: { startDate, finishDate },
+                    success: function (datas) {
+                        console.log(datas);
+                    }
+                })
             }
         })
         $("#searchByDateResetButton").click(function () {

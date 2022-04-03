@@ -45,7 +45,7 @@ namespace libraryMVC.Controllers
             return View(emanetler);
         }
         //TODO: add date search
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> EmanetSearchByEmanetIslem(DateTime startDate,DateTime finishDate)
         {
             return Ok();
