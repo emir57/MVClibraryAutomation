@@ -7,32 +7,32 @@ namespace libraryMVC.Models
         public int UyeNo { get; set; }
 
         [Display(Name = "Üye Adı")]
-        [Required(ErrorMessage = " Üye adı zorunlu")]
-        [MaxLength(20, ErrorMessage = "Üye adı maksimum 20 karakter olabilir")]
+        [Required(ErrorMessage = "{0} zorunlu")]
+        [MaxLength(20, ErrorMessage = "{0} maksimum 20 karakter olabilir")]
         [RegularExpression("(?i:^[a-züığçşö][a-züığçşö]*)", ErrorMessage = "Geçersiz üye adı")]
         public string UyeAd { get; set; }
 
         [Display(Name = "Üye Soyadı")]
-        [Required(ErrorMessage = " Üye soyadı zorunlu")]
-        [MaxLength(20, ErrorMessage = "Üye soyadı maksimum 20 karakter olabilir")]
+        [Required(ErrorMessage = "{0} zorunlu")]
+        [MaxLength(20, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         [RegularExpression("(?i:^[a-züığçşö][a-züığçşö]*)", ErrorMessage = "Geçersiz üye soyadı")]
         public string UyeSoyad { get; set; }
 
         [Display(Name = "Üye Telefonu")]
-        [Required(ErrorMessage = " Üye telefonu zorunlu")]
-        [MaxLength(14, ErrorMessage = "Üye telefonu maksimum 14 karakter olabilir")]
+        [Required(ErrorMessage = "{0} zorunlu")]
+        [MaxLength(14, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         [RegularExpression(@"^\(\d{3}\)\s\d{3}-\d{4}", ErrorMessage = "Geçersiz üye telefonu (555) 555-5555")]
         public string UyeTelefon { get; set; }
 
         [Display(Name = "Üye Epostası")]
-        [Required(ErrorMessage = " Üye epostası zorunlu")]
-        [MaxLength(30, ErrorMessage = "Üye epostası maksimum 30 karakter olabilir")]
+        [Required(ErrorMessage = "{0} zorunlu")]
+        [MaxLength(30, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         [EmailAddress(ErrorMessage = "Geçersiz üye eposta adresi")]
         public string UyeEposta { get; set; }
 
         [Display(Name = "Üye Adresi")]
-        [Required(ErrorMessage = " Üye adresi zorunlu")]
-        [MaxLength(250, ErrorMessage = "Üye adresi maksimum 250 karakter olabilir")]
+        [Required(ErrorMessage = "{0} zorunlu")]
+        [MaxLength(250, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         public string UyeAdres { get; set; }
 
     }
