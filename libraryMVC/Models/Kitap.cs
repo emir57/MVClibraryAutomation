@@ -9,12 +9,12 @@ namespace libraryMVC.Models
 
         [Display(Name = "Kitap Adı")]
         [Required(ErrorMessage = "{0} boş olamaz")]
-        [MaxLength(30, ErrorMessage = "{0} maksimum 30 karakter olabilir")]
+        [MaxLength(30, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         public string KitapAd { get; set; }
 
         [Display(Name = "Kitap Yazarı")]
         [Required(ErrorMessage = "{0} boş olamaz")]
-        [MaxLength(30, ErrorMessage = "{0} maksimum 30 karakter olabilir")]
+        [MaxLength(30, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         public string KitapYazari { get; set; }
 
         [Display(Name = "Kitap Baskı Yılı")]
@@ -27,17 +27,17 @@ namespace libraryMVC.Models
 
         [Display(Name = "Kitap Dili")]
         [Required(ErrorMessage = "{0} boş olamaz")]
-        [MaxLength(20, ErrorMessage = "{0} maksimum 20 karakter olabilir")]
+        [MaxLength(20, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         public string KitapDil { get; set; }
 
         [Display(Name = "Kitap Yayın Evi")]
         [Required(ErrorMessage = "{0} boş olamaz")]
-        [MaxLength(30, ErrorMessage = "{0} maksimum 30 karakter olabilir")]
+        [MaxLength(30, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         public string KitapYayinEvi { get; set; }
 
         [Display(Name = "Kitap Açıklaması")]
         [Required(ErrorMessage = "{0} boş olamaz")]
-        [MaxLength(250, ErrorMessage = "{0} maksimum 250 karakter olabilir")]
+        [MaxLength(250, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         public string KitapAciklama { get; set; }
 
     }
