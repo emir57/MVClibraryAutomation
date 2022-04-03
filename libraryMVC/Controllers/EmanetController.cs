@@ -59,6 +59,13 @@ namespace libraryMVC.Controllers
             emanetler = emanetler.Where(e => Convert.ToDateTime(e.EmanetGeriAlmaTarih) >= startDate && Convert.ToDateTime(e.EmanetGeriAlmaTarih) <= finishDate).ToList();
             return Ok(emanetler);
         }
+        [HttpPost]
+        public async Task<IActionResult> EmanetSearchByEmanetVerme(DateTime startDate, DateTime finishDate)
+        {
+            List<EmanetDto> emanetler = await GetEmanetDtoAsync();
+            emanetler = emanetler.Where(e => Convert.ToDateTime(e.EmanetVermeTarih) >= startDate && Convert.ToDateTime(e.EmanetVermeTarih) <= finishDate).ToList();
+            return Ok(emanetler);
+        }
 
 
         [HttpGet]
