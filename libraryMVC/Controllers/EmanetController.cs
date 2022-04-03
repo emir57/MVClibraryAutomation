@@ -61,6 +61,10 @@ namespace libraryMVC.Controllers
         {
             List<EmanetDto> emanetler = await GetEmanetDtoAsync();
             emanetler = emanetler.Where(e => Convert.ToDateTime(e.EmanetGeriAlmaTarih) >= startDate && Convert.ToDateTime(e.EmanetGeriAlmaTarih) <= finishDate).ToList();
+            if (emanetler.Count == 0)
+            {
+                return BadRequest("Bu tarih aralığında kayıt bulunamadı");
+            }
             return Ok(emanetler);
         }
         [HttpPost]
