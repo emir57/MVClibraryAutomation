@@ -101,6 +101,9 @@
                     data: { startDate, finishDate },
                     success: function (datas) {
                         emanetler.empty().append(getDatas(datas))
+                    },
+                    error: function (err) {
+                        showErrorAlert(err.responseText);
                     }
                 })
             }
@@ -111,6 +114,9 @@
                     data: { startDate, finishDate },
                     success: function (datas) {
                         emanetler.empty().append(getDatas(datas))
+                    },
+                    error: function (err) {
+                        showErrorAlert(err.responseText);
                     }
                 })
             }
@@ -121,6 +127,9 @@
                     data: { startDate, finishDate },
                     success: function (datas) {
                         emanetler.empty().append(getDatas(datas))
+                    },
+                    error: function (err) {
+                        showErrorAlert(err.responseText);
                     }
                 })
             }
