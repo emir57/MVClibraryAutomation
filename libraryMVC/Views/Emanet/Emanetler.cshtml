@@ -95,7 +95,14 @@
             let startDate = $("#startDate").val();
             let finishDate = $("#finishDate").val();
             if ($("#emanetverme:checked").length === 1) {
-                console.log("emanetverme")
+                $.ajax({
+                    url: "/Emanet/EmanetSearchByEmanetVerme",
+                    method: "POST",
+                    data: { startDate, finishDate },
+                    success: function (datas) {
+                        emanetler.empty().append(getDatas(datas))
+                    }
+                })
             }
             else if ($("#emanetgerialma:checked").length === 1) {
                 $.ajax({
