@@ -83,12 +83,13 @@ namespace libraryMVC.Controllers
         }
         public async Task<IActionResult> EditUyeler(int? id)
         {
-            var uye = await _context.Uyeler.Where(x => x.UyeNo == id).SingleOrDefaultAsync();
+            Uye uye = await _context.Uyeler.Where(x => x.UyeNo == id).SingleOrDefaultAsync();
             if (uye == null)
             {
                 return RedirectToAction(nameof(Uyeler));
             }
-            return View(uye);
+            UyeViewModel uyeViewModel = _mapper.Map<UyeViewModel>(uye);
+            return View(uyeViewModel);
         }
         [HttpPost]
         public async Task<IActionResult> EditUyeler(int id, Uye uye)
