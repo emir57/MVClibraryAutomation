@@ -13,47 +13,49 @@
             <th>Üye Adres</th>
             <th>İşlemler</th>
         </thead>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.UyeNo</td>
-                <td>@item.UyeAd</td>
-                <td>@item.UyeSoyad</td>
-                <td>@item.UyeTelefon</td>
-                <td>@item.UyeEposta</td>
-                <td>@item.UyeAdres</td>
-                <td>
-                    <!-- Button trigger modal -->
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UyeNo</td>
+                    <td>@item.UyeAd</td>
+                    <td>@item.UyeSoyad</td>
+                    <td>@item.UyeTelefon</td>
+                    <td>@item.UyeEposta</td>
+                    <td>@item.UyeAdres</td>
+                    <td>
+                        <!-- Button trigger modal -->
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal@(item.UyeNo)">
-                    Sil
-                    </button>
-                    <a asp-action="EditUyeler" asp-route-id="@item.UyeNo">Düzenle</a>
-                    <!-- Modal -->
-                    <div class="modal fade" id="modal@(item.UyeNo)" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
-                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
-                                </div>
-                                <div class="modal-body">
-                                    <span class="text-danger">@item.UyeAd - @item.UyeSoyad - @item.UyeEposta</span>
-                                    <br>
-                                    Bu Kaydı Silmek İstediğinizden Emin misiniz?
-                                </div>
-                                <div class="modal-footer">
-                                    <!-- Button trigger modal -->
+                            Sil
+                        </button>
+                        <a asp-action="EditUyeler" asp-route-id="@item.UyeNo">Düzenle</a>
+                        <!-- Modal -->
+                    <div class="modal fade" id="modal@(item.UyeNo)" role="dialog" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
+                                        <button type="button" class="btn-close" data-dismiss="modal"
+                                        aria-label="Close">X</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="text-danger">@item.UyeAd - @item.UyeSoyad - @item.UyeEposta</span>
+                                        <br>
+                                        Bu Kaydı Silmek İstediğinizden Emin misiniz?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- Button trigger modal -->
                                     <a class="text text-secondary" data-dismiss="modal">İptal</a>
-                                    <a class="text text-danger"asp-action="DeleteUyeler" asp-route-id="@item.UyeNo">Sil</a>
+                                        <a class="text text-danger" asp-action="DeleteUyeler"
+                                        asp-route-id="@item.UyeNo">Sil</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            
-        }
-        
-        
+                    </td>
+                </tr>
+            }
+        </tbody>
     </table>
 </div>
-<a style="margin-bootm:100px;"asp-action="Uyeler" class="btn btn-outline-secondary btn-sm mx-2">Listeye Geri Dön</a>
+<a style="margin-bootm:100px;" asp-action="Uyeler" class="btn btn-outline-secondary btn-sm mx-2">Listeye Geri Dön</a>
