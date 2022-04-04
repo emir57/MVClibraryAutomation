@@ -90,7 +90,8 @@ namespace libraryMVC.Controllers
             {
                 return RedirectToAction(nameof(Kitaplar));
             }
-            return View(kitap);
+            KitapViewModel kitapViewModel = _mapper.Map<KitapViewModel>(kitap);
+            return View(kitapViewModel);
         }
         [HttpPost]
         public async Task<IActionResult> EditKitaplar(KitapViewModel kitapViewModel)
