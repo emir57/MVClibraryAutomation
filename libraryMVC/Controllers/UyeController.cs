@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using libraryMVC.Entities;
 using libraryMVC.Models;
 using libraryMVC_.Data;
 using Microsoft.AspNetCore.Mvc;
