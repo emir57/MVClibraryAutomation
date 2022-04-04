@@ -69,15 +69,16 @@ namespace libraryMVC.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateKitaplar(Kitap kitap)
+        public async Task<IActionResult> CreateKitaplar(KitapViewModel kitapViewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View(kitap);
+                return View(kitapViewModel);
             }
-            await _context.Kitaplar.AddAsync(kitap);
+            //TODO: mapping
+            await _context.Kitaplar.AddAsync(kitapViewModel);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Kitaplar), new { @message = $"{kitap.KitapAd} başarıyla eklendi" });
+            return RedirectToAction(nameof(Kitaplar), new { @message = $"{kitapViewModel.KitapAd} başarıyla eklendi" });
         }
         public async Task<IActionResult> EditKitaplar(int? id)
         {
