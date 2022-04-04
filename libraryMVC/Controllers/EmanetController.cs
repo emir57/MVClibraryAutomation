@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using libraryMVC.Dtos;
 using libraryMVC.Entities;
 using libraryMVC.Models;
@@ -16,9 +17,11 @@ namespace libraryMVC.Controllers
     public class EmanetController : Controller
     {
         private readonly AppDbContext _context;
-        public EmanetController(AppDbContext context)
+        private readonly IMapper _mapper;
+        public EmanetController(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         private async Task<List<EmanetDto>> GetEmanetDtoAsync()
         {
@@ -145,10 +148,10 @@ namespace libraryMVC.Controllers
             //TODO: mapping
             EmanetViewModel model = new EmanetViewModel
             {
-                Emanet = emanet,
                 Kitaplar = await _context.Kitaplar.ToListAsync(),
                 Uyeler = await _context.Uyeler.ToListAsync()
             };
+            model = 
             return View(model);
         }
         [HttpPost]
