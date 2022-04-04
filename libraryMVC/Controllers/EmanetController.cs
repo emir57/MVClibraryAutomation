@@ -160,7 +160,7 @@ namespace libraryMVC.Controllers
             {
                 return View(emanetViewModel);
             }
-            //TODO: mapping
+            Emanet emanet = _mapper.Map<Emanet>(emanetViewModel);
             _context.Update(emanet);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Emanetler), new { @message = "Emanet başarıyla güncellendi" });
