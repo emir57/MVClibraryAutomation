@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using libraryMVC.Entities;
 using libraryMVC.Models;
 using libraryMVC_.Data;
@@ -12,9 +13,11 @@ namespace libraryMVC.Controllers
     public class UyeController : Controller
     {
         private readonly AppDbContext _context;
-        public UyeController(AppDbContext context)
+        private readonly IMapper _mapper;
+        public UyeController(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         public IActionResult Uyeler(string message = null)
         {
