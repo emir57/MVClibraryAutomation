@@ -90,15 +90,16 @@ namespace libraryMVC.Controllers
             return View(kitap);
         }
         [HttpPost]
-        public async Task<IActionResult> EditKitaplar(int id, Kitap kitap)
+        public async Task<IActionResult> EditKitaplar(KitapViewModel kitapViewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View(kitap);
+                return View(kitapViewModel);
             }
-            _context.Kitaplar.Update(kitap);
+            //TODO: mapping
+            _context.Kitaplar.Update(kitapViewModel);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Kitaplar), new { @message = $"{kitap.KitapAd} başarıyla güncellendi" });
+            return RedirectToAction(nameof(Kitaplar), new { @message = $"{kitapViewModel.KitapAd} başarıyla güncellendi" });
         }
     }
 }
