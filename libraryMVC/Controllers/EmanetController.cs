@@ -115,7 +115,7 @@ namespace libraryMVC.Controllers
         }
         public async Task<IActionResult> CreateEmanetler()
         {
-            EmanetlerViewModel model = new EmanetlerViewModel
+            EmanetViewModel model = new EmanetViewModel
             {
                 Uyeler = await _context.Uyeler.ToListAsync(),
                 Kitaplar = await _context.Kitaplar.ToListAsync()
@@ -142,7 +142,8 @@ namespace libraryMVC.Controllers
             {
                 return RedirectToAction(nameof(Emanetler));
             }
-            EmanetlerViewModel model = new EmanetlerViewModel
+            //TODO: mapping
+            EmanetViewModel model = new EmanetViewModel
             {
                 Emanet = emanet,
                 Kitaplar = await _context.Kitaplar.ToListAsync(),
@@ -151,12 +152,13 @@ namespace libraryMVC.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> EditEmanetler(Emanet emanet)
+        public async Task<IActionResult> EditEmanetler(EmanetViewModel emanetViewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View(emanet);
+                return View(emanetViewModel);
             }
+            //TODO: mapping
             _context.Update(emanet);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Emanetler), new { @message = "Emanet başarıyla güncellendi" });
