@@ -78,8 +78,8 @@ namespace libraryMVC.Controllers
             {
                 return View(kitapViewModel);
             }
-            //TODO: mapping
-            await _context.Kitaplar.AddAsync(kitapViewModel);
+            Kitap kitap = _mapper.Map<Kitap>(kitapViewModel);
+            await _context.Kitaplar.AddAsync(kitap);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Kitaplar), new { @message = $"{kitapViewModel.KitapAd} başarıyla eklendi" });
         }
