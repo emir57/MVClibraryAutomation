@@ -5,6 +5,7 @@ namespace libraryMVC.Dtos
 {
     public class EmanetDto
     {
+        //TODO: Emanet emanet
         public int EmanetNo {get; set;}
         public Uye Uye {get; set;}
         public Kitap Kitap {get; set;}
