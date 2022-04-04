@@ -70,12 +70,13 @@ namespace libraryMVC.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateUyeler(Uye uye)
+        public async Task<IActionResult> CreateUyeler(UyeViewModel uyeViewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View(uye);
+                return View(uyeViewModel);
             }
+            Uye uye = _mapper.Map<Uye>(uyeViewModel);
             await _context.Uyeler.AddAsync(uye);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Uyeler), new { @message = $"{uye.UyeAd} {uye.UyeSoyad} başarıyla eklendi" });
