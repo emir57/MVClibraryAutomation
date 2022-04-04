@@ -6,6 +6,7 @@ using libraryMVC_.Data;
 using Microsoft.EntityFrameworkCore;
 using libraryMVC.Models;
 using System.Collections.Generic;
+using libraryMVC.Entities;
 
 namespace libraryMVC.Controllers
 {
