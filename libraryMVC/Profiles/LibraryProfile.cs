@@ -13,6 +13,9 @@ namespace libraryMVC.Profiles
 
             CreateMap<Emanet, EmanetViewModel>();
             CreateMap<EmanetViewModel, Emanet>();
+
+            CreateMap<Uye, UyeViewModel>();
+            CreateMap<UyeViewModel, Uye>();
         }
     }
 }
