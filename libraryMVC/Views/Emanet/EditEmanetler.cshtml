@@ -8,7 +8,7 @@
     <div class="row">
         <div class="col-6">
             <form asp-action="EditEmanetler" id="editEmanetlerForm">
-                <input type="hidden" asp-for="@Model.Emanet.EmanetNo" />
+                <input type="hidden" asp-for="@Model.EmanetNo" />
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <h2 class="display-4 text-primary">Emaneti Düzenle</h2>
@@ -17,60 +17,60 @@
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        @Html.LabelFor(e=>e.Emanet.UyeNo)
-                        <select asp-for="@Model.Emanet.UyeNo" class="form-control">
+                        @Html.LabelFor(e=>e.UyeNo)
+                        <select asp-for="@Model.UyeNo" class="form-control">
                             <option selected value="">Üye Seçiniz</option>
                             @foreach (var uye in Model.Uyeler)
                             {
                                 <option value="@uye.UyeNo">@uye.UyeAd @uye.UyeSoyad</option>
                             }
                         </select>
-                        <span class="text-danger" asp-validation-for="@Model.Emanet.UyeNo"></span>
+                        <span class="text-danger" asp-validation-for="@Model.UyeNo"></span>
                     </div>
                     <div class="col-md-6 mb-3">
-                        @Html.LabelFor(e=>e.Emanet.KitapNo)
-                        <select asp-for="@Model.Emanet.KitapNo" class="form-control">
+                        @Html.LabelFor(e=>e.KitapNo)
+                        <select asp-for="@Model.KitapNo" class="form-control">
                             <option selected value="">Kitap Seçiniz</option>
                             @foreach (var kitap in Model.Kitaplar)
                             {
                                 <option value="@kitap.KitapNo">@kitap.KitapAd</option>
                             }
                         </select>
-                        <span class="text-danger" asp-validation-for="@Model.Emanet.KitapNo"></span>
+                        <span class="text-danger" asp-validation-for="@Model.KitapNo"></span>
                     </div>
                     <div class="col-md-12 mb-3">
-                        @Html.LabelFor(e=>e.Emanet.EmanetVermeTarih)
-                        <input required asp-for="@Model.Emanet.EmanetVermeTarih" type="date" class="form-control"
+                        @Html.LabelFor(e=>e.EmanetVermeTarih)
+                        <input required asp-for="@Model.EmanetVermeTarih" type="date" class="form-control"
                             id="EmanetVerme" aria-describedby="emailHelp">
-                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetVermeTarih"></span>
+                        <span class="text-danger" asp-validation-for="@Model.EmanetVermeTarih"></span>
                     </div>
                     <div class="col-md-12 mb-3">
-                        @Html.LabelFor(e=>e.Emanet.EmanetGeriAlmaTarih)
-                        <input required asp-for="@Model.Emanet.EmanetGeriAlmaTarih" type="date" class="form-control"
+                        @Html.LabelFor(e=>e.EmanetGeriAlmaTarih)
+                        <input required asp-for="@Model.EmanetGeriAlmaTarih" type="date" class="form-control"
                             id="EmanetAlma" aria-describedby="emailHelp">
-                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetGeriAlmaTarih"></span>
+                        <span class="text-danger" asp-validation-for="@Model.EmanetGeriAlmaTarih"></span>
                     </div>
                     <div class="col-md-12 mb-3">
-                        @Html.LabelFor(e=>e.Emanet.EmanetIslemTarih)
-                        <input required asp-for="@Model.Emanet.EmanetIslemTarih" type="date" class="form-control"
+                        @Html.LabelFor(e=>e.EmanetIslemTarih)
+                        <input required asp-for="@Model.EmanetIslemTarih" type="date" class="form-control"
                             id="EmanetIslem" aria-describedby="emailHelp">
-                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetIslemTarih"></span>
+                        <span class="text-danger" asp-validation-for="@Model.EmanetIslemTarih"></span>
                     </div>
                     <div class="col-md-12 mb-3">
-                        @Html.LabelFor(e=>e.Emanet.EmanetNot)
-                        @Html.TextBoxFor(e=>e.Emanet.EmanetNot,new{@class="form-control"})
-                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetNot"></span>
+                        @Html.LabelFor(e=>e.EmanetNot)
+                        @Html.TextBoxFor(e=>e.EmanetNot,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="@Model.EmanetNot"></span>
                     </div>
                     <div class="col-md-12 mb-3">
-                        @Html.LabelFor(e=>e.Emanet.EmanetTeslimEdildi)
-                        <select class="form-control" asp-for="@Model.Emanet.EmanetTeslimEdildi" id="EmanetTeslim"
+                        @Html.LabelFor(e=>e.EmanetTeslimEdildi)
+                        <select class="form-control" asp-for="@Model.EmanetTeslimEdildi" id="EmanetTeslim"
                             aria-label="Floating label select example">
                             <option selected value="">Lütfen Birini seçiniz.</option>
                             <option value="Teslim Edilmedi">Teslim Edilmedi</option>
                             <option value="Teslim Edildi">Teslim Edildi</option>
                             <option value="Sürüyor">Sürüyor</option>
                         </select>
-                        <span class="text-danger" asp-validation-for="@Model.Emanet.EmanetTeslimEdildi"></span>
+                        <span class="text-danger" asp-validation-for="@Model.EmanetTeslimEdildi"></span>
                     </div>
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary">Kaydet</button>
