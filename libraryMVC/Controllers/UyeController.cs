@@ -92,12 +92,13 @@ namespace libraryMVC.Controllers
             return View(uyeViewModel);
         }
         [HttpPost]
-        public async Task<IActionResult> EditUyeler(int id, Uye uye)
+        public async Task<IActionResult> EditUyeler(UyeViewModel uyeViewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View(uye);
+                return View(uyeViewModel);
             }
+            Uye uye = _mapper.Map<Uye>(uyeViewModel);
             _context.Update(uye);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Uyeler), new { @message = $"{uye.UyeAd} {uye.UyeSoyad} başarıyla güncellendi" });
