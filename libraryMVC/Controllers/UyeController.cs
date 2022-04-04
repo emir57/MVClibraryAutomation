@@ -66,7 +66,8 @@ namespace libraryMVC.Controllers
         }
         public IActionResult CreateUyeler()
         {
-            return View();
+            UyeViewModel model = new UyeViewModel();
+            return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> CreateUyeler(Uye uye)
