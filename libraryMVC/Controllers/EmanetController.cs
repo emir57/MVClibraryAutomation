@@ -126,14 +126,15 @@ namespace libraryMVC.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateEmanetler(Emanet emanet)
+        public async Task<IActionResult> CreateEmanetler(EmanetViewModel emanetViewModel)
         {
             if (!ModelState.IsValid)
             {
-                return View(emanet);
+                return View(emanetViewModel);
             }
-            emanet.EmanetIslemTarih = DateTime.Now.ToString("yyyy/MM/dd");
-            emanet.EmanetIslemTarih = emanet.EmanetIslemTarih.Replace(".", "-");
+            emanetViewModel.EmanetIslemTarih = DateTime.Now.ToString("yyyy/MM/dd");
+            emanetViewModel.EmanetIslemTarih = emanetViewModel.EmanetIslemTarih.Replace(".", "-");
+            Emanet emanet = _mapper.Map<Emanet>(emanetViewModel);
             await _context.Emanetler.AddAsync(emanet);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Emanetler), new { @message = "Emanet başarıyla eklendi" });
