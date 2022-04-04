@@ -146,12 +146,10 @@ namespace libraryMVC.Controllers
             {
                 return RedirectToAction(nameof(Emanetler));
             }
-            EmanetViewModel model = new EmanetViewModel
-            {
-                Kitaplar = await _context.Kitaplar.ToListAsync(),
-                Uyeler = await _context.Uyeler.ToListAsync()
-            };
+            EmanetViewModel model = new EmanetViewModel();
             model = _mapper.Map<EmanetViewModel>(emanet);
+            model.Kitaplar = await _context.Kitaplar.ToListAsync();
+            model.Uyeler = await _context.Uyeler.ToListAsync();
             return View(model);
         }
         [HttpPost]
