@@ -1,3 +1,4 @@
+using libraryMVC.Entities;
 using libraryMVC.Models;
 
 namespace libraryMVC.Dtos
