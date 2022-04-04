@@ -1,4 +1,6 @@
 using AutoMapper;
+using libraryMVC.Entities;
+using libraryMVC.Models;
 
 namespace libraryMVC.Profiles
 {
@@ -6,7 +8,8 @@ namespace libraryMVC.Profiles
     {
         public LibraryProfile()
         {
-            // CreateMap<>
+            CreateMap<Kitap, KitapViewModel>();
+            CreateMap<KitapViewModel, Kitap>();
         }
     }
 }
