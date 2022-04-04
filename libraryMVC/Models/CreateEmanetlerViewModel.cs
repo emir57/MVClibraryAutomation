@@ -3,7 +3,7 @@ using libraryMVC.Entities;
 
 namespace libraryMVC.Models
 {
-    public class EmanetlerViewModel
+    public class EmanetViewModel
     {
         public List<Uye> Uyeler { get; set; }
         public List<Kitap> Kitaplar { get; set; }
