@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-namespace libraryMVC.Models
+namespace libraryMVC.Entities
 {
     public class Uye
     {
