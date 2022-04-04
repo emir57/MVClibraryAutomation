@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using libraryMVC.Entities;
 using libraryMVC.Models;
 using Microsoft.EntityFrameworkCore;
 
