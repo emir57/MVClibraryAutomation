@@ -7,15 +7,18 @@ using Microsoft.EntityFrameworkCore;
 using libraryMVC.Models;
 using System.Collections.Generic;
 using libraryMVC.Entities;
+using AutoMapper;
 
 namespace libraryMVC.Controllers
 {
     public class KitapController : Controller
     {
         private readonly AppDbContext _context;
-        public KitapController(AppDbContext context)
+        private readonly IMapper _mapper;
+        public KitapController(AppDbContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         public IActionResult Kitaplar(string message = null)
         {
