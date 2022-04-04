@@ -6,7 +6,6 @@ namespace libraryMVC.Entities
         [Key]
         public int EmanetNo { get; set; }
 
-
         [Display(Name = "Üye")]
         [Required(ErrorMessage = "{0} boş olamaz")]
         public int UyeNo { get; set; }
