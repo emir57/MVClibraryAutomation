@@ -10,6 +10,9 @@ namespace libraryMVC.Profiles
         {
             CreateMap<Kitap, KitapViewModel>();
             CreateMap<KitapViewModel, Kitap>();
+
+            CreateMap<Emanet, EmanetViewModel>();
+            CreateMap<EmanetViewModel, Emanet>();
         }
     }
 }
