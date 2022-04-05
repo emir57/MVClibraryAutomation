@@ -199,24 +199,24 @@
 
     function generatorHtml(data) {
         let emanetClass = "";
-        if (data.emanetTeslimEdildi === "Sürüyor") { emanetClass = "text-primary"; }
-        else if (data.emanetTeslimEdildi === "Teslim Edildi") { emanetClass = "text-success"; }
-        else if (data.emanetTeslimEdildi === "Teslim Edilmedi") { emanetClass = "text-danger"; }
+        if (data.emanet.emanetTeslimEdildi === "Sürüyor") { emanetClass = "text-primary"; }
+        else if (data.emanet.emanetTeslimEdildi === "Teslim Edildi") { emanetClass = "text-success"; }
+        else if (data.emanet.emanetTeslimEdildi === "Teslim Edilmedi") { emanetClass = "text-danger"; }
         return `
-                <tr id="${data.emanetNo}">
-                    <td>${data.emanetNo}</td>
+                <tr id="${data.emanet.emanetNo}">
+                    <td>${data.emanet.emanetNo}</td>
                     <td>
                         <a href="/Uye/Uyeler#${data.uye.uyeNo}">${data.uye.uyeAd} ${data.uye.uyeSoyad}</a>
                     </td>
                     <td>
                         <a href="/Kitap/Kitaplar#${data.kitap.kitapNo}">${data.kitap.kitapAd}</a>
                     </td>
-                    <td>${data.emanetVermeTarih}</td>
-                    <td>${data.emanetGeriAlmaTarih}</td>
-                    <td>${data.emanetIslemTarih}</td>
-                    <td>${data.emanetNot}</td>
+                    <td>${data.emanet.emanetVermeTarih}</td>
+                    <td>${data.emanet.emanetGeriAlmaTarih}</td>
+                    <td>${data.emanet.emanetIslemTarih}</td>
+                    <td>${data.emanet.emanetNot}</td>
                     <td>
-                        <p class="${emanetClass}">${data.emanetTeslimEdildi}</p>
+                        <p class="${emanetClass}">${data.emanet.emanetTeslimEdildi}</p>
                     </td>
                     <td>
                         <!-- Button trigger modal -->
@@ -228,7 +228,7 @@
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                         <!-- Modal -->
-                        <div class="modal fade" id="modal${data.emanetNo}" role="dialog" tabindex="-1"
+                        <div class="modal fade" id="modal${data.emanet.emanetNo}" role="dialog" tabindex="-1"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -238,14 +238,14 @@
                                         aria-label="Close">X</button>
                                     </div>
                                     <div class="modal-body">
-                                        <span class="text-danger">${data.emanetNo} - ${data.emanetTeslimEdildi}</span>
+                                        <span class="text-danger">${data.emanet.emanetemanetNo} - ${data.emanet.emanetTeslimEdildi}</span>
                                         <br>
                                         Bu Kaydı Silmek İstediğinizden Emin misiniz?
                                     </div>
                                     <div class="modal-footer">
                                         <a class="btn  btn-secondary text text-white" data-dismiss="modal"
                                         role="button">İptal</a>
-                                        <a class="btn btn-danger text text-white" href="/Emanet/DeleteEmanetler/${data.emanetNo}" role="button">Sil</a>
+                                        <a class="btn btn-danger text text-white" href="/Emanet/DeleteEmanetler/${data.emanet.emanetNo}" role="button">Sil</a>
                                     </div>
                                 </div>
                             </div>
