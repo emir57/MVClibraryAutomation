@@ -96,7 +96,7 @@ namespace libraryMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> EmanetlerSearchById(int id)
         {
-            EmanetDto emanet = (await GetEmanetDtoAsync()).FirstOrDefault(e => e.EmanetNo == id);
+            EmanetDto emanet = (await GetEmanetDtoAsync()).FirstOrDefault(e => e.Emanet.EmanetNo == id);
             if (emanet == null)
             {
                 return NotFound("Not Found");
