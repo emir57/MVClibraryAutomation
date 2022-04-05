@@ -47,7 +47,7 @@ namespace libraryMVC.Controllers
         public async Task<IActionResult> EmanetSearchByEmanetIslem(DateTime startDate, DateTime finishDate)
         {
             List<EmanetDto> emanetler = await GetEmanetDtoAsync();
-            emanetler = emanetler.Where(e => Convert.ToDateTime(e.EmanetIslemTarih) >= startDate && Convert.ToDateTime(e.EmanetIslemTarih) <= finishDate).ToList();
+            emanetler = emanetler.Where(e => Convert.ToDateTime(e.Emanet.EmanetIslemTarih) >= startDate && Convert.ToDateTime(e.Emanet.EmanetIslemTarih) <= finishDate).ToList();
             if (emanetler.Count == 0)
             {
                 return BadRequest("Bu tarih aralığında kayıt bulunamadı");
