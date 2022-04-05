@@ -28,12 +28,7 @@ namespace libraryMVC.Controllers
             List<EmanetDto> emanetler = await (from e in _context.Emanetler
                                                select new EmanetDto
                                                {
-                                                   EmanetNo = e.EmanetNo,
-                                                   EmanetVermeTarih = e.EmanetVermeTarih,
-                                                   EmanetGeriAlmaTarih = e.EmanetGeriAlmaTarih,
-                                                   EmanetIslemTarih = e.EmanetIslemTarih,
-                                                   EmanetNot = e.EmanetNot,
-                                                   EmanetTeslimEdildi = e.EmanetTeslimEdildi,
+                                                   Emanet = _mapper.Map<EmanetViewModel>(e),
                                                    Uye = _context.Uyeler.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
                                                    Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
                                                }).ToListAsync();
