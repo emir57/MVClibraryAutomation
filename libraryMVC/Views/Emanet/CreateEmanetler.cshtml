@@ -14,15 +14,15 @@
                         <div id="errors" asp-validation-summary="ModelOnly" class="text-danger"></div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        @Html.LabelFor(e=>e.UyeNo)
-                        <select asp-for="@Model.UyeNo" class="form-control">
+                        @Html.LabelFor(e=>e.UyeId)
+                        <select asp-for="@Model.UyeId" class="form-control">
                             <option selected value="">Üye Seçiniz</option>
                             @foreach (var uye in Model.Uyeler)
                             {
                                 <option value="@uye.Id">@uye.UyeAd @uye.UyeSoyad</option>
                             }
                         </select>
-                        <span class="text-danger" asp-validation-for="@Model.UyeNo"></span>
+                        <span class="text-danger" asp-validation-for="@Model.UyeId"></span>
                     </div>
                     <div class="col-md-6 mb-3">
                         @Html.LabelFor(e=>e.KitapNo)

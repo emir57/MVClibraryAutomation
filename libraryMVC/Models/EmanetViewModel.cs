@@ -13,7 +13,7 @@ namespace libraryMVC.Models
 
         [Display(Name = "Üye")]
         [Required(ErrorMessage = "{0} boş olamaz")]
-        public int UyeNo { get; set; }
+        public int UyeId { get; set; }
 
         [Display(Name = "Kitap")]
         [Required(ErrorMessage = "{0} boş olamaz")]
