@@ -80,7 +80,7 @@ namespace libraryMVC.Controllers
                 return View(uyeViewModel);
             }
             Uye uye = _mapper.Map<Uye>(uyeViewModel);
-            await _context.Uyeler.AddAsync(uye);
+            await _userManager.CreateAsync(uye);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Uyeler), new { @message = $"{uye.UyeAd} {uye.UyeSoyad} başarıyla eklendi" });
         }
