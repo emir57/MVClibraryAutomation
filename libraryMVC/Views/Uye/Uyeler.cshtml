@@ -108,7 +108,7 @@
     function generatorHtml(data) {
         return `
 <tr id="${data.id}">
-    <td>${data.id}</td>
+    <td>${data.id.substring(0,15)}...</td>
     <td>${data.uyeAd}</td>
     <td>${data.uyeSoyad}</td>
     <td>${data.uyeTelefon}</td>
