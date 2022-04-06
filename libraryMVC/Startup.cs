@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using libraryMVC_.Data;
 using libraryMVC.Profiles;
+using libraryMVC.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace site
 {
@@ -28,6 +30,7 @@ namespace site
         {
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(options=> options.UseSqlite(Configuration.GetConnectionString("AppDbContext")));
+            services.AddIdentity<Uye,IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             services.AddAutoMapper(typeof(LibraryProfile));
         }
 
