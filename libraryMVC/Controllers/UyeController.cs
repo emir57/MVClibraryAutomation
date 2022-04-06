@@ -49,7 +49,7 @@ namespace libraryMVC.Controllers
             return Ok(uyeler);
         }
         [HttpGet]
-        public async Task<IActionResult> UyelerSearchById(string? id = null)
+        public async Task<IActionResult> UyelerSearchById(string id = null)
         {
             Uye uye;
             if (id == null)
@@ -95,7 +95,7 @@ namespace libraryMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Uyeler), new { @message = $"{uye.UyeAd} {uye.UyeSoyad} başarıyla eklendi" });
         }
-        public async Task<IActionResult> EditUyeler(string? id)
+        public async Task<IActionResult> EditUyeler(string id)
         {
             Uye uye = await _userManager.Users.Where(x => x.Id == id).SingleOrDefaultAsync();
             if (uye == null)
