@@ -5,6 +5,7 @@ using AutoMapper;
 using libraryMVC.Entities;
 using libraryMVC.Models;
 using libraryMVC_.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,10 +15,12 @@ namespace libraryMVC.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
-        public UyeController(AppDbContext context, IMapper mapper)
+        private readonly UserManager<Uye> _userManager;
+        public UyeController(AppDbContext context, IMapper mapper, UserManager<Uye> userManager)
         {
             _context = context;
             _mapper = mapper;
+            _userManager = userManager;
         }
         public IActionResult Uyeler(string message = null)
         {
@@ -25,7 +28,7 @@ namespace libraryMVC.Controllers
             {
                 ViewBag.Message = message;
             }
-            return View(_context.Uyeler);
+            return View(_userManager.Users.ToList());
         }
         [HttpGet]
         public async Task<IActionResult> UyelerSearchBySearchString(string searchString = null)
@@ -33,11 +36,11 @@ namespace libraryMVC.Controllers
             List<Uye> uyeler;
             if (searchString == null)
             {
-                uyeler = await _context.Uyeler.ToListAsync();
+                uyeler = await _userManager.Users.ToListAsync();
                 return Ok(uyeler);
             }
             searchString = searchString.ToLower();
-            uyeler = await _context.Uyeler.Where(x => x.UyeAd.ToLower().Contains(searchString) ||
+            uyeler = await _userManager.Users.Where(x => x.UyeAd.ToLower().Contains(searchString) ||
                     x.UyeSoyad.ToLower().Contains(searchString) ||
                     x.UyeEposta.ToLower().Contains(searchString) ||
                     x.UyeTelefon.Contains(searchString) ||
@@ -50,7 +53,7 @@ namespace libraryMVC.Controllers
             Uye uye;
             if (id == null)
             { }
-            uye = await _context.Uyeler.FirstOrDefaultAsync(x => x.UyeNo == id);
+            uye = await _userManager.Users.FirstOrDefaultAsync(x => x.UyeNo == id);
             if (uye == null)
             {
                 return BadRequest("Üye bulunamadı");
@@ -59,8 +62,8 @@ namespace libraryMVC.Controllers
         }
         public async Task<IActionResult> DeleteUyeler(int id)
         {
-            var uye = await _context.Uyeler.SingleOrDefaultAsync(x => x.UyeNo == id);
-            _context.Uyeler.Remove(uye);
+            var uye = await _userManager.Users.SingleOrDefaultAsync(x => x.UyeNo == id);
+            await _userManager.DeleteAsync(uye);
             await _context.SaveChangesAsync();
             return RedirectToAction("Uyeler");
         }
