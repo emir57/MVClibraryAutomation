@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
+
 namespace libraryMVC.Entities
 {
-    public class Uye
+    public class Uye : IdentityUser
     {
-        [Key]
         public int UyeNo { get; set; }
         public string UyeAd { get; set; }
         public string UyeSoyad { get; set; }
