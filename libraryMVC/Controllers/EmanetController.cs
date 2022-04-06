@@ -127,6 +127,8 @@ namespace libraryMVC.Controllers
         {
             if (!ModelState.IsValid)
             {
+                emanetViewModel.Uyeler = await _userManager.Users.ToListAsync();
+                emanetViewModel.Kitaplar = await _context.Kitaplar.ToListAsync();
                 return View(emanetViewModel);
             }
             emanetViewModel.EmanetIslemTarih = DateTime.Now.ToString("yyyy/MM/dd");
