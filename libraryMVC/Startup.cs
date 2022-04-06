@@ -29,9 +29,14 @@ namespace site
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<AppDbContext>(options=> options.UseSqlite(Configuration.GetConnectionString("AppDbContext")));
-            services.AddIdentity<Uye,IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+            services.AddDbContext<AppDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("AppDbContext")));
+            services.AddIdentity<Uye, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             services.AddAutoMapper(typeof(LibraryProfile));
+
+            services.Configure<IdentityOptions>(opt =>
+            {
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
