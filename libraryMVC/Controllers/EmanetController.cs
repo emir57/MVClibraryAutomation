@@ -117,7 +117,7 @@ namespace libraryMVC.Controllers
         {
             EmanetViewModel model = new EmanetViewModel
             {
-                Uyeler = await _context.Uyeler.ToListAsync(),
+                Uyeler = await _userManager.Users.ToListAsync(),
                 Kitaplar = await _context.Kitaplar.ToListAsync()
             };
             return View(model);
