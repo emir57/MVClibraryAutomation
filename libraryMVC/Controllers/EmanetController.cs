@@ -146,7 +146,7 @@ namespace libraryMVC.Controllers
             EmanetViewModel model = new EmanetViewModel();
             model = _mapper.Map<EmanetViewModel>(emanet);
             model.Kitaplar = await _context.Kitaplar.ToListAsync();
-            model.Uyeler = await _context.Uyeler.ToListAsync();
+            model.Uyeler = await _userManager.Users.ToListAsync();
             return View(model);
         }
         [HttpPost]
