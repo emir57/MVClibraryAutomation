@@ -19,7 +19,7 @@
                             <option selected value="">Üye Seçiniz</option>
                             @foreach (var uye in Model.Uyeler)
                             {
-                                <option value="@uye.UyeNo">@uye.UyeAd @uye.UyeSoyad</option>
+                                <option value="@uye.Id">@uye.UyeAd @uye.UyeSoyad</option>
                             }
                         </select>
                         <span class="text-danger" asp-validation-for="@Model.UyeNo"></span>

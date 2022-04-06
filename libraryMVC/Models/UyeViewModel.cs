@@ -4,7 +4,7 @@ namespace libraryMVC.Models
 {
     public class UyeViewModel
     {
-        public int UyeNo { get; set; }
+        public string Id { get; set; }
 
         [Display(Name = "Üye Adı")]
         [Required(ErrorMessage = "{0} zorunlu")]

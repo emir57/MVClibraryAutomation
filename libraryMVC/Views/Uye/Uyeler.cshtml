@@ -20,7 +20,7 @@
     </div>
     <table class="table table-hover mt-3 table-striped">
         <thead>
-            <th>Üye No</th>
+            <th>Üye Id</th>
             <th>Üye Adı</th>
             <th>Üye Soyadı</th>
             <th>Üye Telefonu</th>
@@ -107,24 +107,24 @@
 
     function generatorHtml(data) {
         return `
-<tr id="${data.uyeNo}">
-    <td>${data.uyeNo}</td>
+<tr id="${data.id}">
+    <td>${data.id}</td>
     <td>${data.uyeAd}</td>
     <td>${data.uyeSoyad}</td>
     <td>${data.uyeTelefon}</td>
     <td>${data.uyeEposta}</td>
     <td>${data.uyeAdres}</td>
     <td>
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.uyeNo}"
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.id}"
             title="${data.uyeAd} ${data.uyeSoyad} Sil">
             <i class="fa-solid fa-trash"></i>
         </button>
-        <a class="btn btn-primary text text-white" href="/Uye/EditUyeler/${data.uyeNo}" role="button"
+        <a class="btn btn-primary text text-white" href="/Uye/EditUyeler/${data.id}" role="button"
             title="${data.uyeAd} ${data.uyeSoyad} Düzenle">
             <i class="fa-solid fa-pen-to-square"></i>
         </a>
         <!-- Modal -->
-        <div class="modal fade" id="modal${data.uyeNo}" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="modal${data.id}" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -140,7 +140,7 @@
                     <div class="modal-footer">
                         <!-- Button trigger modal -->
                         <a class="btn btn-secondary text text-white" data-dismiss="modal" role="button">İptal</a>
-                        <a class="btn btn-danger text text-white" href="/Uye/DeleteUyeler/${data.uyeNo}"
+                        <a class="btn btn-danger text text-white" href="/Uye/DeleteUyeler/${data.id}"
                             role="button">Sil</a>
                     </div>
                 </div>
