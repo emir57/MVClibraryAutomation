@@ -48,21 +48,21 @@ namespace libraryMVC.Controllers
             return Ok(uyeler);
         }
         [HttpGet]
-        public async Task<IActionResult> UyelerSearchById(int? id = null)
+        public async Task<IActionResult> UyelerSearchById(string? id = null)
         {
             Uye uye;
             if (id == null)
             { }
-            uye = await _userManager.Users.FirstOrDefaultAsync(x => x.UyeNo == id);
+            uye = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == id);
             if (uye == null)
             {
                 return BadRequest("Üye bulunamadı");
             }
             return Ok(uye);
         }
-        public async Task<IActionResult> DeleteUyeler(int id)
+        public async Task<IActionResult> DeleteUyeler(string id)
         {
-            var uye = await _userManager.Users.SingleOrDefaultAsync(x => x.UyeNo == id);
+            var uye = await _userManager.Users.SingleOrDefaultAsync(x => x.Id == id);
             await _userManager.DeleteAsync(uye);
             await _context.SaveChangesAsync();
             return RedirectToAction("Uyeler");
@@ -84,9 +84,9 @@ namespace libraryMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Uyeler), new { @message = $"{uye.UyeAd} {uye.UyeSoyad} başarıyla eklendi" });
         }
-        public async Task<IActionResult> EditUyeler(int? id)
+        public async Task<IActionResult> EditUyeler(string? id)
         {
-            Uye uye = await _userManager.Users.Where(x => x.UyeNo == id).SingleOrDefaultAsync();
+            Uye uye = await _userManager.Users.Where(x => x.Id == id).SingleOrDefaultAsync();
             if (uye == null)
             {
                 return RedirectToAction(nameof(Uyeler));

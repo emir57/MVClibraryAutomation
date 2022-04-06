@@ -5,7 +5,7 @@ namespace libraryMVC.Entities
     {
         [Key]
         public int EmanetNo { get; set; }
-        public int UyeNo { get; set; }
+        public string UyeNo { get; set; }
         public int KitapNo { get; set; }
         public string EmanetVermeTarih { get; set; }
         public string EmanetGeriAlmaTarih { get; set; }
