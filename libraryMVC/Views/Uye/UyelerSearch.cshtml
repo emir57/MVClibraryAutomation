@@ -17,7 +17,7 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.UyeNo</td>
+                    <td>@item.Id</td>
                     <td>@item.UyeAd</td>
                     <td>@item.UyeSoyad</td>
                     <td>@item.UyeTelefon</td>
@@ -25,12 +25,12 @@
                     <td>@item.UyeAdres</td>
                     <td>
                         <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal@(item.UyeNo)">
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal@(item.Id)">
                             Sil
                         </button>
-                        <a asp-action="EditUyeler" asp-route-id="@item.UyeNo">Düzenle</a>
+                        <a asp-action="EditUyeler" asp-route-id="@item.Id">Düzenle</a>
                         <!-- Modal -->
-                    <div class="modal fade" id="modal@(item.UyeNo)" role="dialog" tabindex="-1"
+                    <div class="modal fade" id="modal@(item.Id)" role="dialog" tabindex="-1"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
@@ -48,7 +48,7 @@
                                         <!-- Button trigger modal -->
                                     <a class="text text-secondary" data-dismiss="modal">İptal</a>
                                         <a class="text text-danger" asp-action="DeleteUyeler"
-                                        asp-route-id="@item.UyeNo">Sil</a>
+                                        asp-route-id="@item.Id">Sil</a>
                                     </div>
                                 </div>
                             </div>
