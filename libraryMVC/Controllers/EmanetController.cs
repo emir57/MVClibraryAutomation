@@ -32,7 +32,7 @@ namespace libraryMVC.Controllers
                                                select new EmanetDto
                                                {
                                                    Emanet = _mapper.Map<EmanetViewModel>(e),
-                                                   Uye = _userManager.Users.FirstOrDefault(uye => uye.Id == e.UyeNo),
+                                                   Uye = _userManager.Users.FirstOrDefault(uye => uye.Id == e.UyeId),
                                                    Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
                                                }).ToListAsync();
             return emanetler;
