@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -81,6 +82,7 @@ namespace libraryMVC.Controllers
             }
             Uye uye = _mapper.Map<Uye>(uyeViewModel);
             uye.UserName = uyeViewModel.UyeEposta;
+            uye.Id = Guid.NewGuid().ToString();
             var result = await _userManager.CreateAsync(uye);
             if (!result.Succeeded)
             {
