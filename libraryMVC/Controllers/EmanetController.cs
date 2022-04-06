@@ -7,6 +7,7 @@ using libraryMVC.Dtos;
 using libraryMVC.Entities;
 using libraryMVC.Models;
 using libraryMVC_.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
@@ -18,10 +19,12 @@ namespace libraryMVC.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
-        public EmanetController(AppDbContext context, IMapper mapper)
+        private readonly UserManager<Uye> _userManager;
+        public EmanetController(AppDbContext context, IMapper mapper, UserManager<Uye> userManager)
         {
             _context = context;
             _mapper = mapper;
+            _userManager = userManager;
         }
         private async Task<List<EmanetDto>> GetEmanetDtoAsync()
         {
@@ -29,7 +32,7 @@ namespace libraryMVC.Controllers
                                                select new EmanetDto
                                                {
                                                    Emanet = _mapper.Map<EmanetViewModel>(e),
-                                                   Uye = _context.Uyeler.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
+                                                   Uye = _userManager.Users.FirstOrDefault(uye => uye.UyeNo == e.UyeNo),
                                                    Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
                                                }).ToListAsync();
             return emanetler;
