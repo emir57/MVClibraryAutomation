@@ -81,7 +81,7 @@ namespace libraryMVC.Controllers
                 return View(uyeViewModel);
             }
             Uye uye = _mapper.Map<Uye>(uyeViewModel);
-            uye.UserName = uyeViewModel.UyeEposta;
+            uye.UserName = uyeViewModel.Email;
             uye.Id = Guid.NewGuid().ToString();
             var result = await _userManager.CreateAsync(uye);
             if (!result.Succeeded)

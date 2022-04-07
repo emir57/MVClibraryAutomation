@@ -28,7 +28,7 @@ namespace libraryMVC.Models
         [Required(ErrorMessage = "{0} zorunlu")]
         [MaxLength(30, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         [EmailAddress(ErrorMessage = "Geçersiz üye eposta adresi")]
-        public string UyeEposta { get; set; }
+        public string Email { get; set; }
 
         [Display(Name = "Üye Adresi")]
         [Required(ErrorMessage = "{0} zorunlu")]
