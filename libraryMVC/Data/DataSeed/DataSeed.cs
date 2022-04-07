@@ -17,14 +17,15 @@ namespace libraryMVC.Data.DataSeed
             {
 
             }
-            if (context.Emanetler.Count() == 0)
-            {
-
-            }
             if (context.Users.Count() == 0)
             {
 
             }
+            if (context.Emanetler.Count() == 0)
+            {
+
+            }
+
         }
         private static async void AddKitaps(AppDbContext context)
         {
@@ -60,6 +61,36 @@ namespace libraryMVC.Data.DataSeed
                 KitapAciklama = "-"
             });
             await context.Kitaplar.AddRangeAsync(kitaplar);
+            await context.SaveChangesAsync();
+        }
+        private static async void AddUyes(AppDbContext context)
+        {
+            List<Uye> uyeler = new List<Uye>();
+            uyeler.Add(new Uye{
+                UyeAd = "Emir",
+                UyeSoyad = "Gürbüz",
+                UyeTelefon = "(555) 555-5555",
+                Email = "emir@hotmail.com",
+                UserName = "emir@hotmail.com",
+                UyeAdres = "Ankara"
+            });
+            uyeler.Add(new Uye{
+                UyeAd = "Ahmet",
+                UyeSoyad = "Karaçayır",
+                UyeTelefon = "(555) 000-5555",
+                Email = "akara@hotmail.com",
+                UserName = "akara@hotmail.com",
+                UyeAdres = "İstanbul"
+            });
+            uyeler.Add(new Uye{
+                UyeAd = "Ali",
+                UyeSoyad = "Deniz",
+                UyeTelefon = "(555) 111-5555",
+                Email = "dali@hotmail.com",
+                UserName = "dali@hotmail.com",
+                UyeAdres = "Bursa"
+            });
+            await context.Users.AddRangeAsync(uyeler);
             await context.SaveChangesAsync();
         }
     }
