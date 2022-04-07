@@ -11,5 +11,7 @@ namespace libraryMVC.Models
         [Display(Name = "Sifre")]
         [Required(ErrorMessage = "Şifre boş olamaz")]
         public string Sifre { get; set; }
+
+        public bool RememberMe { get; set; }
     }
 }
