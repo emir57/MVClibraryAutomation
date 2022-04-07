@@ -113,10 +113,19 @@ namespace libraryMVC.Data.DataSeed
             {
                 KitapNo = 2,
                 EmanetNot = "-",
-                EmanetVermeTarih = new DateTime(2022, 4, 7).ToString("yyyy-mm-dd"),
-                EmanetIslemTarih = new DateTime(2022, 4, 7).ToString("yyyy-mm-dd"),
-                EmanetGeriAlmaTarih = new DateTime(2022, 4, 28).ToString("yyyy-mm-dd"),
-                EmanetTeslimEdildi = "Sürüyor"
+                EmanetVermeTarih = new DateTime(2022, 3, 11).ToString("yyyy-mm-dd"),
+                EmanetIslemTarih = new DateTime(2022, 3, 11).ToString("yyyy-mm-dd"),
+                EmanetGeriAlmaTarih = new DateTime(2022, 3, 25).ToString("yyyy-mm-dd"),
+                EmanetTeslimEdildi = "Teslim Edilmedi"
+            });
+            emanetler.Add(new Emanet
+            {
+                KitapNo = 3,
+                EmanetNot = "-",
+                EmanetVermeTarih = new DateTime(2022, 3, 5).ToString("yyyy-mm-dd"),
+                EmanetIslemTarih = new DateTime(2022, 3, 5).ToString("yyyy-mm-dd"),
+                EmanetGeriAlmaTarih = new DateTime(2022, 3, 19).ToString("yyyy-mm-dd"),
+                EmanetTeslimEdildi = "Teslim Edildi"
             });
         }
     }
