@@ -66,6 +66,7 @@ namespace libraryMVC.Data.DataSeed
             List<Uye> uyeler = new List<Uye>();
             uyeler.Add(new Uye
             {
+                Id = "21ab7786-a8e2-40e4-b425-a4037db1de00",
                 UyeAd = "Emir",
                 UyeSoyad = "Gürbüz",
                 UyeTelefon = "(555) 555-5555",
@@ -75,6 +76,7 @@ namespace libraryMVC.Data.DataSeed
             });
             uyeler.Add(new Uye
             {
+                Id = "38d9e421-bd6b-473f-88de-07b8ce5a7d08",
                 UyeAd = "Ahmet",
                 UyeSoyad = "Karaçayır",
                 UyeTelefon = "(555) 000-5555",
@@ -84,6 +86,7 @@ namespace libraryMVC.Data.DataSeed
             });
             uyeler.Add(new Uye
             {
+                Id = "73794d38-4474-49c1-a729-fa8824062419",
                 UyeAd = "Ali",
                 UyeSoyad = "Deniz",
                 UyeTelefon = "(555) 111-5555",
