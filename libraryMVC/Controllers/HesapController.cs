@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using libraryMVC.Entities;
+using libraryMVC.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +17,10 @@ namespace libraryMVC.Controllers
             _signInManager = signInManager;
         }
 
-        public async Task<IActionResult> GirisYap()
+        public IActionResult GirisYap()
         {
-            return View();
+            LoginViewModel model = new LoginViewModel();
+            return View(model);
         }
     }
 }
