@@ -8,7 +8,6 @@ namespace libraryMVC.Entities
         public string UyeAd { get; set; }
         public string UyeSoyad { get; set; }
         public string UyeTelefon { get; set; }
-        public string UyeEposta { get; set; }
         public string UyeAdres { get; set; }
 
     }
