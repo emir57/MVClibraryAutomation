@@ -131,6 +131,8 @@ namespace libraryMVC.Data.DataSeed
                 EmanetGeriAlmaTarih = new DateTime(2022, 3, 19).ToString("yyyy-mm-dd"),
                 EmanetTeslimEdildi = "Teslim Edildi"
             });
+            await context.Emanetler.AddRangeAsync(emanetler);
+            await context.SaveChangesAsync();
         }
     }
 }
