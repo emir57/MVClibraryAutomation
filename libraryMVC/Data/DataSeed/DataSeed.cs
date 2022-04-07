@@ -4,6 +4,7 @@ using System.Linq;
 using libraryMVC.Entities;
 using libraryMVC_.Data;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace libraryMVC.Data.DataSeed
@@ -14,6 +15,7 @@ namespace libraryMVC.Data.DataSeed
         {
             var scope = app.ApplicationServices.CreateScope();
             var context = scope.ServiceProvider.GetService<AppDbContext>();
+            context.Database.Migrate();
             if (context.Kitaplar.Count() == 0)
             {
                 AddKitaps(context);
