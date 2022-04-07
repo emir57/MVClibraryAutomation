@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using libraryMVC.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,11 @@ namespace libraryMVC.Controllers
         {
             _userManager = userManager;
             _signInManager = signInManager;
+        }
+
+        public async Task<IActionResult> GirisYap()
+        {
+            return View();
         }
     }
 }
