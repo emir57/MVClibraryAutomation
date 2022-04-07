@@ -13,8 +13,8 @@
                     @Html.TextBoxFor(x=>x.EPosta,new{@class="form-control",placeholder="Eposta Adresiniz"})
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                    <label for="floatingPassword">Password</label>
+                    @Html.LabelFor(x=>x.Sifre)
+                    @Html.PasswordFor(x=>x.Sifre,new{@class="form-control",placeholder="Şifreniz"})
                 </div>
                 <div class="checkbox mb-3">
                     <label>
