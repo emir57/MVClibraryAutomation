@@ -192,7 +192,13 @@
     showSuccessAlert("@ViewBag.Message")
 </script>
 }
-else if(ViewBag.Message != null && ViewBag.Message.EndsWith("başarıyla eklendi"))
+@if(ViewBag.Message != null && ViewBag.Message.EndsWith("başarıyla eklendi"))
+{
+<script>
+    showSuccessAlert("@ViewBag.Message")
+</script>
+}
+@if(ViewBag.Message != null && ViewBag.Message.EndsWith("Başarıyla Giriş Yapıldı"))
 {
 <script>
     showSuccessAlert("@ViewBag.Message")
