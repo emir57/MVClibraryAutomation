@@ -9,8 +9,8 @@ using libraryMVC_.Data;
 namespace site.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220406173400_mig3")]
-    partial class mig3
+    [Migration("20220407134503_mig1")]
+    partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -170,8 +170,8 @@ namespace site.Migrations
                     b.Property<int>("KitapNo")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("UyeNo")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("UyeId")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("EmanetNo");
 
@@ -270,9 +270,6 @@ namespace site.Migrations
 
                     b.Property<string>("UyeEposta")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("UyeNo")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("UyeSoyad")
                         .HasColumnType("TEXT");
