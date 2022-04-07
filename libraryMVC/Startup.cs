@@ -13,6 +13,7 @@ using libraryMVC_.Data;
 using libraryMVC.Profiles;
 using libraryMVC.Entities;
 using Microsoft.AspNetCore.Identity;
+using libraryMVC.Data.DataSeed;
 
 namespace site
 {
@@ -45,6 +46,7 @@ namespace site
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                DataSeed.Seed(app);
             }
             else
             {
