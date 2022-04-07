@@ -15664,6 +15664,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Hesap\\GirisYap.cshtml",
+      "TargetPath": "Views\\Hesap\\GirisYap.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Uye\\UyelerSearch.cshtml",
       "TargetPath": "Views\\Uye\\UyelerSearch.cshtml",
       "FileKind": "mvc"
