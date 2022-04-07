@@ -97,11 +97,12 @@ namespace libraryMVC.Data.DataSeed
             await context.Users.AddRangeAsync(uyeler);
             await context.SaveChangesAsync();
         }
-        private static async void AddEmanets(AppDbContext context)
+        private static async void AddEmanets(AppDbContext context,List<Uye> uyeler)
         {
             List<Emanet> emanetler = new List<Emanet>();
             emanetler.Add(new Emanet
             {
+                UyeId = uyeler.FirstOrDefault(u=>u.UyeAd == "Emir").Id,
                 KitapNo = 1,
                 EmanetNot = "-",
                 EmanetVermeTarih = new DateTime(2022, 4, 7).ToString("yyyy-mm-dd"),
@@ -111,6 +112,7 @@ namespace libraryMVC.Data.DataSeed
             });
             emanetler.Add(new Emanet
             {
+                UyeId = uyeler.FirstOrDefault(u=>u.UyeAd == "Ahmet").Id,
                 KitapNo = 2,
                 EmanetNot = "-",
                 EmanetVermeTarih = new DateTime(2022, 3, 11).ToString("yyyy-mm-dd"),
@@ -120,6 +122,7 @@ namespace libraryMVC.Data.DataSeed
             });
             emanetler.Add(new Emanet
             {
+                UyeId = uyeler.FirstOrDefault(u=>u.UyeAd == "Ali").Id,
                 KitapNo = 3,
                 EmanetNot = "-",
                 EmanetVermeTarih = new DateTime(2022, 3, 5).ToString("yyyy-mm-dd"),
