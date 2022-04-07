@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using libraryMVC.Entities;
@@ -66,7 +67,8 @@ namespace libraryMVC.Data.DataSeed
         private static async void AddUyes(AppDbContext context)
         {
             List<Uye> uyeler = new List<Uye>();
-            uyeler.Add(new Uye{
+            uyeler.Add(new Uye
+            {
                 UyeAd = "Emir",
                 UyeSoyad = "Gürbüz",
                 UyeTelefon = "(555) 555-5555",
@@ -74,7 +76,8 @@ namespace libraryMVC.Data.DataSeed
                 UserName = "emir@hotmail.com",
                 UyeAdres = "Ankara"
             });
-            uyeler.Add(new Uye{
+            uyeler.Add(new Uye
+            {
                 UyeAd = "Ahmet",
                 UyeSoyad = "Karaçayır",
                 UyeTelefon = "(555) 000-5555",
@@ -82,7 +85,8 @@ namespace libraryMVC.Data.DataSeed
                 UserName = "akara@hotmail.com",
                 UyeAdres = "İstanbul"
             });
-            uyeler.Add(new Uye{
+            uyeler.Add(new Uye
+            {
                 UyeAd = "Ali",
                 UyeSoyad = "Deniz",
                 UyeTelefon = "(555) 111-5555",
@@ -92,6 +96,28 @@ namespace libraryMVC.Data.DataSeed
             });
             await context.Users.AddRangeAsync(uyeler);
             await context.SaveChangesAsync();
+        }
+        private static async void AddEmanets(AppDbContext context)
+        {
+            List<Emanet> emanetler = new List<Emanet>();
+            emanetler.Add(new Emanet
+            {
+                KitapNo = 1,
+                EmanetNot = "-",
+                EmanetVermeTarih = new DateTime(2022, 4, 7).ToString("yyyy-mm-dd"),
+                EmanetIslemTarih = new DateTime(2022, 4, 7).ToString("yyyy-mm-dd"),
+                EmanetGeriAlmaTarih = new DateTime(2022, 4, 28).ToString("yyyy-mm-dd"),
+                EmanetTeslimEdildi = "Sürüyor"
+            });
+            emanetler.Add(new Emanet
+            {
+                KitapNo = 2,
+                EmanetNot = "-",
+                EmanetVermeTarih = new DateTime(2022, 4, 7).ToString("yyyy-mm-dd"),
+                EmanetIslemTarih = new DateTime(2022, 4, 7).ToString("yyyy-mm-dd"),
+                EmanetGeriAlmaTarih = new DateTime(2022, 4, 28).ToString("yyyy-mm-dd"),
+                EmanetTeslimEdildi = "Sürüyor"
+            });
         }
     }
 }
