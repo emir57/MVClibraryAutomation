@@ -181,3 +181,4 @@ C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\bin\Debug\net5.0\Microsof
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Hesap\GirisYap.cshtml.g.cs

@@ -4,6 +4,7 @@ using System.Linq;
 using libraryMVC.Entities;
 using libraryMVC_.Data;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
