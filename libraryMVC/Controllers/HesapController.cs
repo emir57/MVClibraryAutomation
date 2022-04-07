@@ -16,11 +16,20 @@ namespace libraryMVC.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
-
+        [HttpGet]
         public IActionResult GirisYap()
         {
             LoginViewModel model = new LoginViewModel();
             return View(model);
+        }
+        [HttpPost]
+        public IActionResult GirisYap(LoginViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            return RedirectToAction("Kitaplar", "Kitap", new { @message = "Başarıyla Giriş Yapıldı" });
         }
     }
 }
