@@ -13,5 +13,6 @@ namespace libraryMVC.Entities
         public string KitapDil { get; set; }
         public string KitapYayinEvi { get; set; }
         public string KitapAciklama { get; set; }
+        public bool IsActive { get; set; }
     }
 }
