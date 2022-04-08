@@ -32,7 +32,7 @@ namespace libraryMVC.Data.DataSeed
             {
                 AddEmanets(context);
             }
-            if ((await roleManager.GetRoleNameAsync(new IdentityRole { Name = "Admin" })) == null)
+            if ((await roleManager.RoleExistsAsync("Admin")))
             {
                 await roleManager.CreateAsync(new IdentityRole { Id = "admin-role", Name = "Admin" });
             }
