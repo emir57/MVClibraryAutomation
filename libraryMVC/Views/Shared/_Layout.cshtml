@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model List<libraryMVC.Entities.Uye>
+<!DOCTYPE html>
 <html lang="tr">
 
 <head>
@@ -20,7 +21,7 @@
 
 <body>
     <header>
-        @await Html.PartialAsync("_Navbar")
+        @await Html.PartialAsync("_Navbar",Model)
     </header>
     <div class="ml-4 mr-4">
         <main role="main" class="pb-3">
