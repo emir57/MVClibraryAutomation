@@ -94,7 +94,6 @@ namespace libraryMVC.Data.DataSeed
         }
         private static async void AddUyes(AppDbContext context, UserManager<Uye> userManager)
         {
-            List<Uye> uyeler = new List<Uye>();
             Uye uye1 = new Uye
             {
                 Id = "21ab7786-a8e2-40e4-b425-a4037db1de00",
@@ -125,12 +124,9 @@ namespace libraryMVC.Data.DataSeed
                 UserName = "dali@hotmail.com",
                 UyeAdres = "Bursa"
             };
-            userManager.PasswordHasher.HashPassword(uye1, "Aa.123");
-            userManager.PasswordHasher.HashPassword(uye2, "Aa.123");
-            userManager.PasswordHasher.HashPassword(uye3, "Aa.123");
-            uyeler.AddRange(new List<Uye> { uye1, uye2, uye3 });
-            await context.Users.AddRangeAsync(uyeler);
-            await context.SaveChangesAsync();
+            await userManager.CreateAsync(uye1,"Aa.123");
+            await userManager.CreateAsync(uye2,"Aa.123");
+            await userManager.CreateAsync(uye3,"Aa.123");
         }
         private static async void AddEmanets(AppDbContext context)
         {
