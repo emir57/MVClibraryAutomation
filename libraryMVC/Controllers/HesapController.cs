@@ -39,6 +39,11 @@ namespace libraryMVC.Controllers
                 return View(model);
             }
             Uye uye = await _context.Users.FirstOrDefaultAsync(x => x.Email == model.EPosta);
+            if (uye == null)
+            {
+                ModelState.AddModelError("", "Eposta veya şifre hatalı");
+                return View(model);
+            }
             var result = await _signInManager.PasswordSignInAsync(uye, model.Sifre, model.RememberMe, false);
             if (!result.Succeeded)
             {
