@@ -79,6 +79,7 @@ namespace libraryMVC.Controllers
                 return View(kitapViewModel);
             }
             Kitap kitap = _mapper.Map<Kitap>(kitapViewModel);
+            kitap.IsActive = false;
             await _context.Kitaplar.AddAsync(kitap);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Kitaplar), new { @message = $"{kitapViewModel.KitapAd} başarıyla eklendi" });
