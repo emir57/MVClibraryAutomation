@@ -14,8 +14,9 @@ namespace libraryMVC.Data.DataSeed
     {
         public static void Seed(IApplicationBuilder app)
         {
-            var scope = app.ApplicationServices.CreateScope();
-            var context = scope.ServiceProvider.GetService<AppDbContext>();
+            IServiceScope scope = app.ApplicationServices.CreateScope();
+            AppDbContext context = scope.ServiceProvider.GetService<AppDbContext>();
+            UserManager<Uye> userManager = scope.ServiceProvider.GetService<UserManager<Uye>>();
             context.Database.Migrate();
             if (context.Kitaplar.Count() == 0)
             {
