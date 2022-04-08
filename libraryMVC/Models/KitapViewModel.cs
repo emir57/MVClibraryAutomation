@@ -37,5 +37,7 @@ namespace libraryMVC.Models
         [Required(ErrorMessage = "{0} boş olamaz")]
         [MaxLength(250, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         public string KitapAciklama { get; set; }
+        [Display(Name = "Kitap Kiralık")]
+        public bool IsActive { get; set; }
     }
 }
