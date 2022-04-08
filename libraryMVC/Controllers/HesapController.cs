@@ -21,8 +21,13 @@ namespace libraryMVC.Controllers
             _context = context;
         }
         [HttpGet]
-        public IActionResult GirisYap()
+        public IActionResult GirisYap(string message = null, string @class = null)
         {
+            if (message != null && @class != null)
+            {
+                ViewBag.Message = message;
+                ViewBag.Class = @class;
+            }
             LoginViewModel model = new LoginViewModel();
             return View(model);
         }
