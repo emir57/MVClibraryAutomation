@@ -27,7 +27,7 @@ namespace libraryMVC.Data.DataSeed
             }
             if (context.Users.Count() == 0)
             {
-                AddUyes(context);
+                AddUyes(context, userManager);
             }
             if (context.Emanetler.Count() == 0)
             {
@@ -92,10 +92,10 @@ namespace libraryMVC.Data.DataSeed
             await context.Kitaplar.AddRangeAsync(kitaplar);
             await context.SaveChangesAsync();
         }
-        private static async void AddUyes(AppDbContext context)
+        private static async void AddUyes(AppDbContext context, UserManager<Uye> userManager)
         {
             List<Uye> uyeler = new List<Uye>();
-            uyeler.Add(new Uye
+            Uye uye1 = new Uye
             {
                 Id = "21ab7786-a8e2-40e4-b425-a4037db1de00",
                 UyeAd = "Emir",
@@ -104,8 +104,8 @@ namespace libraryMVC.Data.DataSeed
                 Email = "emir@hotmail.com",
                 UserName = "emir@hotmail.com",
                 UyeAdres = "Ankara"
-            });
-            uyeler.Add(new Uye
+            };
+            Uye uye2 = new Uye
             {
                 Id = "38d9e421-bd6b-473f-88de-07b8ce5a7d08",
                 UyeAd = "Ahmet",
@@ -114,8 +114,8 @@ namespace libraryMVC.Data.DataSeed
                 Email = "akara@hotmail.com",
                 UserName = "akara@hotmail.com",
                 UyeAdres = "İstanbul"
-            });
-            uyeler.Add(new Uye
+            };
+            Uye uye3 = new Uye
             {
                 Id = "73794d38-4474-49c1-a729-fa8824062419",
                 UyeAd = "Ali",
@@ -124,7 +124,11 @@ namespace libraryMVC.Data.DataSeed
                 Email = "dali@hotmail.com",
                 UserName = "dali@hotmail.com",
                 UyeAdres = "Bursa"
-            });
+            };
+            userManager.PasswordHasher.HashPassword(uye1, "Aa.123");
+            userManager.PasswordHasher.HashPassword(uye2, "Aa.123");
+            userManager.PasswordHasher.HashPassword(uye3, "Aa.123");
+            uyeler.AddRange(new List<Uye> { uye1, uye2, uye3 });
             await context.Users.AddRangeAsync(uyeler);
             await context.SaveChangesAsync();
         }
