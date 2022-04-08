@@ -8,25 +8,20 @@ using site.Controllers;
 
 namespace libraryMVC.Controllers
 {
-    public class BaseController : Controller
+    public class CustomActionFilter : ActionFilterAttribute
     {
         private readonly AppDbContext _context;
 
-        public BaseController(AppDbContext context)
+        public CustomActionFilter(AppDbContext context)
         {
             _context = context;
         }
         public override void OnActionExecuted(ActionExecutedContext context)
         {
-            base.OnActionExecuted(context);
-            var model = context.Controller.ViewBag.Model as MainViewModel;
-            model
-        }
-
-        protected MainViewModel mainViewModel(){
-            MainViewModel model = new MainViewModel();
+            var model = new MainViewModel();
             model.Uyeler = _context.Users.ToList();
-            return model;
+            var controller = (context.Controller as Controller).ViewData.Model = model;
+            base.OnActionExecuted(context);
         }
     }
 }
