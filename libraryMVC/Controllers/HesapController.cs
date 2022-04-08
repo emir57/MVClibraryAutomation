@@ -34,7 +34,12 @@ namespace libraryMVC.Controllers
                 return View(model);
             }
             Uye uye = await _context.Users.FirstOrDefaultAsync(x => x.Email == model.EPosta);
-            var result = _signInManager.PasswordSignInAsync(uye, model.Sifre, model.RememberMe, false);
+            var result = await _signInManager.PasswordSignInAsync(uye, model.Sifre, model.RememberMe, false);
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", result.ToString());
+                return View(model);
+            }
             return RedirectToAction("Kitaplar", "Kitap", new { @message = "Başarıyla Giriş Yapıldı" });
         }
     }
