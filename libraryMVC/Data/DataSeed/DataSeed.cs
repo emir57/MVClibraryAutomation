@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using libraryMVC.Entities;
 using libraryMVC_.Data;
@@ -36,20 +37,20 @@ namespace libraryMVC.Data.DataSeed
             {
                 await roleManager.CreateAsync(new IdentityRole { Id = "admin-role", Name = "Admin" });
             }
+            Uye uye = new Uye
+            {
+                UyeAd = "admin",
+                Email = "admin@hotmail.com",
+                UserName = "admin@hotmail.com"
+            };
             if ((await userManager.FindByEmailAsync("admin@hotmail.com")) == null)
             {
-                Uye uye = new Uye
-                {
-                    UyeAd = "admin",
-                    Email = "admin@hotmail.com",
-                    UserName = "admin@hotmail.com"
-                };
                 await userManager.AddPasswordAsync(uye, "123456aA.");
                 await userManager.CreateAsync(uye);
-                if (!(await userManager.GetRolesAsync(uye)).Any(x => x == "Admin"))
-                {
-                    await userManager.AddToRoleAsync(uye, "Admin");
-                }
+            }
+            if (!(await userManager.GetRolesAsync(uye)).Any(x => x == "Admin"))
+            {
+                await userManager.AddToRoleAsync(uye, "Admin");
             }
         }
         private static async void AddKitaps(AppDbContext context)
