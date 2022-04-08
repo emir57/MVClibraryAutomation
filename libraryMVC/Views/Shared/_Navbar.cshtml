@@ -1,3 +1,6 @@
+@using libraryMVC.Entities;
+@model List<Uye>;
+
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
         <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Welcome">Kütüphane</a>
@@ -18,11 +21,24 @@
                         asp-action="Emanetler">Emanetler</a>
                 </li>
             </ul>
-            <ul class="navbar-nav navbar-right">
-                <li class="nav-item">
-                    <a class="nav-link text-dark" asp-area="" asp-controller="Hesap" asp-action="GirisYap">Giriş Yap</a>
-                </li>
-            </ul>
+            @if (!User.Identity.IsAuthenticated)
+            {
+                <ul class="navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Hesap" asp-action="GirisYap">Giriş Yap</a>
+                    </li>
+                </ul>
+            }
+            else
+            {
+                Uye uye = Model.FirstOrDefault(x=>x.Email == User.Identity.Name);
+                <ul class="navbar-nav navbar-right">
+                    <li class="nav-item">
+                        Hoşgeldiniz @uye.UyeAd.
+                    </li>
+                </ul>
+            }
+
         </div>
     </div>
 </nav>
