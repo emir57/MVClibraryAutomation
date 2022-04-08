@@ -18,6 +18,7 @@ namespace libraryMVC.Data.DataSeed
             AppDbContext context = scope.ServiceProvider.GetService<AppDbContext>();
             UserManager<Uye> userManager = scope.ServiceProvider.GetService<UserManager<Uye>>();
             SignInManager<Uye> signInManager = scope.ServiceProvider.GetService<SignInManager<Uye>>();
+            RoleManager<IdentityRole> roleManager = scope.ServiceProvider.GetService<RoleManager<IdentityRole>>();
             context.Database.Migrate();
             if (context.Kitaplar.Count() == 0)
             {
@@ -31,14 +32,23 @@ namespace libraryMVC.Data.DataSeed
             {
                 AddEmanets(context);
             }
+            if ((await roleManager.GetRoleNameAsync(new IdentityRole { Name = "Admin" })) == null)
+            {
+                await roleManager.CreateAsync(new IdentityRole { Id = "admin-role", Name = "Admin" });
+            }
             if ((await userManager.FindByEmailAsync("admin@hotmail.com")) == null)
             {
-                Uye uye = new Uye{
+                Uye uye = new Uye
+                {
                     UyeAd = "admin",
                     Email = "admin@hotmail.com",
                 };
-                await userManager.AddPasswordAsync(uye,"123456");
+                await userManager.AddPasswordAsync(uye, "123456");
                 await userManager.CreateAsync(uye);
+                if (!(await userManager.GetRolesAsync(uye)).Any(x => x == "Admin"))
+                {
+                    await userManager.AddToRoleAsync(uye, "Admin");
+                }
             }
         }
         private static async void AddKitaps(AppDbContext context)
