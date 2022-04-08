@@ -20,7 +20,7 @@ namespace libraryMVC.Controllers
         {
             var model = new MainViewModel();
             model.Uyeler = _context.Users.ToList();
-            var controller = (context.Controller as Controller).ViewData.Model = model;
+            var controller = (context.Controller as Controller).ViewBag.Users = model;
             base.OnActionExecuted(context);
         }
     }
