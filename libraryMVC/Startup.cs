@@ -14,6 +14,7 @@ using libraryMVC.Profiles;
 using libraryMVC.Entities;
 using Microsoft.AspNetCore.Identity;
 using libraryMVC.Data.DataSeed;
+using libraryMVC.Controllers;
 
 namespace site
 {
@@ -41,6 +42,9 @@ namespace site
             services.Configure<IdentityOptions>(opt =>
             {
 
+            });
+            services.AddMvcCore(opt=>{
+                opt.Filters.Add(typeof(CustomActionFilter));
             });
         }
 
