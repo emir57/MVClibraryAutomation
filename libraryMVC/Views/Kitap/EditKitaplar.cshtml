@@ -49,6 +49,12 @@
                         <span class="text-danger" asp-validation-for="@Model.KitapAciklama"></span>
                     </div>
                     <div class="col-md-12 mb-3">
+                        <div class="form-check">
+                            @Html.CheckBoxFor(k=>k.IsActive,new{@class="form-check-input"})
+                            @Html.LabelFor(k=>k.IsActive)
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
                         <button type="submit" class="btn btn-primary">Kaydet</button>
                     </div>
                 </div>
