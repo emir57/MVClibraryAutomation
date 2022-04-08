@@ -1,4 +1,4 @@
-﻿@model libraryMVC.Models.MainViewModel
+﻿@using libraryMVC.Models
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -21,7 +21,7 @@
 
 <body>
     <header>
-        @await Html.PartialAsync("_Navbar",Model)
+        @await Html.PartialAsync("_Navbar",(ViewBag.MainViewModel as MainViewModel))
     </header>
     <div class="ml-4 mr-4">
         <main role="main" class="pb-3">
