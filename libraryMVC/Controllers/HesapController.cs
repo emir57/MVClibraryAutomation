@@ -37,7 +37,7 @@ namespace libraryMVC.Controllers
             var result = await _signInManager.PasswordSignInAsync(uye, model.Sifre, model.RememberMe, false);
             if (!result.Succeeded)
             {
-                ModelState.AddModelError("", result.ToString());
+                ModelState.AddModelError("", "Eposta veya şifre hatalı");
                 return View(model);
             }
             return RedirectToAction("Kitaplar", "Kitap", new { @message = "Başarıyla Giriş Yapıldı" });
