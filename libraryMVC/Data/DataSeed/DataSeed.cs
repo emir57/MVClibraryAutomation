@@ -12,11 +12,12 @@ namespace libraryMVC.Data.DataSeed
 {
     public class DataSeed
     {
-        public static void Seed(IApplicationBuilder app)
+        public static async void Seed(IApplicationBuilder app)
         {
             IServiceScope scope = app.ApplicationServices.CreateScope();
             AppDbContext context = scope.ServiceProvider.GetService<AppDbContext>();
             UserManager<Uye> userManager = scope.ServiceProvider.GetService<UserManager<Uye>>();
+            SignInManager<Uye> signInManager = scope.ServiceProvider.GetService<SignInManager<Uye>>();
             context.Database.Migrate();
             if (context.Kitaplar.Count() == 0)
             {
@@ -29,6 +30,15 @@ namespace libraryMVC.Data.DataSeed
             if (context.Emanetler.Count() == 0)
             {
                 AddEmanets(context);
+            }
+            if ((await userManager.FindByEmailAsync("admin@hotmail.com")) == null)
+            {
+                Uye uye = new Uye{
+                    UyeAd = "admin",
+                    Email = "admin@hotmail.com",
+                };
+                await userManager.AddPasswordAsync(uye,"123456");
+                await userManager.CreateAsync(uye);
             }
         }
         private static async void AddKitaps(AppDbContext context)
