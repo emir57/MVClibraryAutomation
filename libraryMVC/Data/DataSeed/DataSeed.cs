@@ -41,7 +41,8 @@ namespace libraryMVC.Data.DataSeed
                 KitapSayfaSayi = 300,
                 KitapDil = "Türkçe",
                 KitapYayinEvi = "Martı Yayınları",
-                KitapAciklama = "-"
+                KitapAciklama = "-",
+                IsActive = true
             });
             kitaplar.Add(new Kitap
             {
@@ -51,7 +52,8 @@ namespace libraryMVC.Data.DataSeed
                 KitapSayfaSayi = 351,
                 KitapDil = "Türkçe",
                 KitapYayinEvi = "Panama",
-                KitapAciklama = "-"
+                KitapAciklama = "-",
+                IsActive = true
             });
             kitaplar.Add(new Kitap
             {
@@ -61,7 +63,8 @@ namespace libraryMVC.Data.DataSeed
                 KitapSayfaSayi = 320,
                 KitapDil = "Türkçe",
                 KitapYayinEvi = "indigo",
-                KitapAciklama = "-"
+                KitapAciklama = "-",
+                IsActive = false
             });
             await context.Kitaplar.AddRangeAsync(kitaplar);
             await context.SaveChangesAsync();
@@ -124,16 +127,6 @@ namespace libraryMVC.Data.DataSeed
                 EmanetIslemTarih = new DateTime(2022, 3, 11).ToString("yyyy-mm-dd"),
                 EmanetGeriAlmaTarih = new DateTime(2022, 3, 25).ToString("yyyy-mm-dd"),
                 EmanetTeslimEdildi = "Teslim Edilmedi"
-            });
-            emanetler.Add(new Emanet
-            {
-                UyeId = "73794d38-4474-49c1-a729-fa8824062419",
-                KitapNo = 3,
-                EmanetNot = "-",
-                EmanetVermeTarih = new DateTime(2022, 3, 5).ToString("yyyy-mm-dd"),
-                EmanetIslemTarih = new DateTime(2022, 3, 5).ToString("yyyy-mm-dd"),
-                EmanetGeriAlmaTarih = new DateTime(2022, 3, 19).ToString("yyyy-mm-dd"),
-                EmanetTeslimEdildi = "Teslim Edildi"
             });
             await context.Emanetler.AddRangeAsync(emanetler);
             await context.SaveChangesAsync();
