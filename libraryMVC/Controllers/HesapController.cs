@@ -42,5 +42,10 @@ namespace libraryMVC.Controllers
             }
             return RedirectToAction("Kitaplar", "Kitap", new { @message = "Başarıyla Giriş Yapıldı" });
         }
+        public async Task<IActionResult> Cikis()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction(nameof(GirisYap), new { @message = "Çıkış işlemi başarılı", @class = "alert alert-success" });
+        }
     }
 }
