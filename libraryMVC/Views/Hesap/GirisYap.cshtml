@@ -7,6 +7,7 @@
             <p class="col-lg-12 fs-4">Tek tıkla kitabı kiralama ve teslim noktalarından teslim etme. Basit arama, kayıt ekleme, kayıt güncelleme ve daha fazlası.</p>
         </div>
         <div class="col-md-10 mx-auto col-lg-5">
+            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
             <form asp-action="GirisYap" asp-controller="Hesap" class="p-4 p-md-5 border rounded-3 bg-light">
                 <div class="form-floating mb-3">
                     @Html.LabelFor(x=>x.EPosta)
