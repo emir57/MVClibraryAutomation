@@ -34,9 +34,9 @@ namespace site
             services.AddIdentity<Uye, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
             services.AddAutoMapper(typeof(LibraryProfile));
 
-            services.AddSingleton<UserManager<Uye>>();
-            services.AddSingleton<SignInManager<Uye>>();
-            services.AddSingleton<RoleManager<IdentityRole>>();
+            services.AddScoped<UserManager<Uye>>();
+            services.AddScoped<SignInManager<Uye>>();
+            services.AddScoped<RoleManager<IdentityRole>>();
 
             services.Configure<IdentityOptions>(opt =>
             {

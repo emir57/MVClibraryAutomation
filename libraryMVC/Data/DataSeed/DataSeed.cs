@@ -42,8 +42,9 @@ namespace libraryMVC.Data.DataSeed
                 {
                     UyeAd = "admin",
                     Email = "admin@hotmail.com",
+                    UserName = "admin@hotmail.com"
                 };
-                await userManager.AddPasswordAsync(uye, "123456");
+                await userManager.AddPasswordAsync(uye, "123456aA.");
                 await userManager.CreateAsync(uye);
                 if (!(await userManager.GetRolesAsync(uye)).Any(x => x == "Admin"))
                 {
