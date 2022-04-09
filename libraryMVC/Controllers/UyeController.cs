@@ -6,6 +6,7 @@ using AutoMapper;
 using libraryMVC.Entities;
 using libraryMVC.Models;
 using libraryMVC_.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@ namespace libraryMVC.Controllers
             _mapper = mapper;
             _userManager = userManager;
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Uyeler(string message = null)
         {
             if (message != null)

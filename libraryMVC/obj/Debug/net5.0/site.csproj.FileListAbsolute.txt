@@ -184,3 +184,4 @@ C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\bin\Debug\net5.0\Microsof
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Hesap\GirisYap.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Shared\_Navbar.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Hesap\KayitOl.cshtml.g.cs
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Home\UnAuthorized.cshtml.g.cs
