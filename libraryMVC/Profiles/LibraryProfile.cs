@@ -16,6 +16,9 @@ namespace libraryMVC.Profiles
 
             CreateMap<Uye, UyeViewModel>();
             CreateMap<UyeViewModel, Uye>();
+
+            CreateMap<Uye, RegisterViewModel>();
+            CreateMap<RegisterViewModel, Uye>();
         }
     }
 }
