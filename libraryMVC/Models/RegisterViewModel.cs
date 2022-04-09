@@ -15,7 +15,9 @@ namespace libraryMVC.Models
         public string Email { get; set; }
         [Display(Name = "Adres")]
         [Required(ErrorMessage = "{0} boş olamaz")]
+        [MaxLength(250, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
         public string UyeAdres { get; set; }
+        
         [Display(Name = "Telefon Numarası")]
         [Required(ErrorMessage = "{0} boş olamaz")]
         [MaxLength(14, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
