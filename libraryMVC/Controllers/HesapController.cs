@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using AutoMapper;
 using libraryMVC.Entities;
 using libraryMVC.Models;
 using libraryMVC_.Data;
@@ -13,12 +14,14 @@ namespace libraryMVC.Controllers
         private readonly SignInManager<Uye> _signInManager;
         private readonly UserManager<Uye> _userManager;
         private readonly AppDbContext _context;
+        private readonly IMapper _mapper;
 
-        public HesapController(UserManager<Uye> userManager, SignInManager<Uye> signInManager, AppDbContext context)
+        public HesapController(UserManager<Uye> userManager, SignInManager<Uye> signInManager, AppDbContext context, IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _context = context;
+            _mapper = mapper;
         }
         [HttpGet]
         public IActionResult GirisYap(string message = null, string @class = null)
