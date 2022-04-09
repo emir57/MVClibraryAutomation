@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace libraryMVC.Controllers
 {
+    
     public class UyeController : Controller
     {
         private readonly AppDbContext _context;
@@ -25,6 +26,7 @@ namespace libraryMVC.Controllers
             _userManager = userManager;
         }
         [Authorize(Roles = "Admin")]
+        [HttpGet]
         public IActionResult Uyeler(string message = null)
         {
             if (message != null)
