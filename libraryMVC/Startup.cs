@@ -43,7 +43,12 @@ namespace site
             {
 
             });
-            services.AddMvcCore(opt=>{
+            services.ConfigureApplicationCookie(opt =>
+            {
+                opt.AccessDeniedPath = "Home/UnAuthorize";
+            });
+            services.AddMvcCore(opt =>
+            {
                 opt.Filters.Add(typeof(CustomActionFilter));
             });
         }
