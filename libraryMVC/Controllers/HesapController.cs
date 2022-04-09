@@ -70,6 +70,7 @@ namespace libraryMVC.Controllers
                 return View(model);
             }
             Uye uye = _mapper.Map<Uye>(model);
+            uye.UserName = uye.Email;
             var result = await _userManager.CreateAsync(uye, model.Sifre);
             if (!result.Succeeded)
             {
