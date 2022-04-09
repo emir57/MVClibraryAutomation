@@ -8,6 +8,7 @@
         </div>
         <div class="col-md-10 mx-auto col-lg-5">
             <form asp-action="GirisYap" asp-controller="Hesap" class="p-4 p-md-5 border rounded-3 bg-light">
+                <input type="hidden" name="ReturnUrl" value=@ViewData["ReturnUrl"]>
                 <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                 <div class="@ViewBag.Class">@ViewBag.Message</div>
                 <div class="form-floating mb-3">
