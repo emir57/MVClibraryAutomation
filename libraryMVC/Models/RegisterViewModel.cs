@@ -13,6 +13,9 @@ namespace libraryMVC.Models
         [Display(Name = "Eposta")]
         [Required(ErrorMessage = "{0} boş olamaz")]
         public string Email { get; set; }
+        [Display(Name = "Adres")]
+        [Required(ErrorMessage = "{0} boş olamaz")]
+        public string UyeAdres { get; set; }
 
         [Display(Name = "Sifre")]
         [Required(ErrorMessage = "{0} boş olamaz")]
