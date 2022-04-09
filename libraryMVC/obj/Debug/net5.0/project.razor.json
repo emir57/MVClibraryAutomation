@@ -15679,6 +15679,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Home\\UnAuthorized.cshtml",
+      "TargetPath": "Views\\Home\\UnAuthorized.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Kitap\\CreateKitaplar.cshtml",
       "TargetPath": "Views\\Kitap\\CreateKitaplar.cshtml",
       "FileKind": "mvc"
