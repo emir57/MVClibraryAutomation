@@ -42,15 +42,21 @@
                     @Html.TextAreaFor(x=>x.UyeAdres,new{@class="form-control",style="min-height:100px;max-height:200px;",placeholder="Adresiniz"})
                     <span class="text-danger" asp-validation-for="UyeAdres"></span>
                 </div>
-                <div class="form-floating mb-3">
-                    @Html.LabelFor(x=>x.Sifre)
-                    @Html.PasswordFor(x=>x.Sifre,new{@class="form-control",placeholder="Şifreniz"})
-                    <span class="text-danger" asp-validation-for="Sifre"></span>
-                </div>
-                <div class="form-floating mb-3">
-                    @Html.LabelFor(x=>x.SifreTekrar)
-                    @Html.PasswordFor(x=>x.SifreTekrar,new{@class="form-control",placeholder="Şifre Tekrarı"})
-                    <span class="text-danger" asp-validation-for="SifreTekrar"></span>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            @Html.LabelFor(x=>x.Sifre)
+                            @Html.PasswordFor(x=>x.Sifre,new{@class="form-control",placeholder="Şifreniz"})
+                            <span class="text-danger" asp-validation-for="Sifre"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating mb-3">
+                            @Html.LabelFor(x=>x.SifreTekrar)
+                            @Html.PasswordFor(x=>x.SifreTekrar,new{@class="form-control",placeholder="Şifre Tekrarı"})
+                            <span class="text-danger" asp-validation-for="SifreTekrar"></span>
+                        </div>
+                    </div>
                 </div>
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Kayıt Ol</button>
                 <hr class="my-4">
