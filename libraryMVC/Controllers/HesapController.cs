@@ -52,6 +52,13 @@ namespace libraryMVC.Controllers
             }
             return RedirectToAction("Kitaplar", "Kitap", new { @message = "Başarıyla Giriş Yapıldı" });
         }
+        
+        [HttpGet]
+        public IActionResult KayitOl()
+        {
+            return View();
+        }
+
         public async Task<IActionResult> Cikis()
         {
             await _signInManager.SignOutAsync();
