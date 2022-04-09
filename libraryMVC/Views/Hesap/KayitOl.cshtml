@@ -13,22 +13,27 @@
                 <div class="form-floating mb-3">
                     @Html.LabelFor(x=>x.UyeAd)
                     @Html.TextBoxFor(x=>x.UyeAd,new{@class="form-control",placeholder="Eposta Adresiniz"})
+                    <span class="text-danger" asp-validation-for="UyeAd"></span>
                 </div>
                 <div class="form-floating mb-3">
                     @Html.LabelFor(x=>x.UyeSoyad)
                     @Html.TextBoxFor(x=>x.UyeSoyad,new{@class="form-control",placeholder="Eposta Adresiniz"})
+                    <span class="text-danger" asp-validation-for="UyeSoyad"></span>
                 </div>
                 <div class="form-floating mb-3">
                     @Html.LabelFor(x=>x.Email)
                     @Html.TextBoxFor(x=>x.Email,new{@class="form-control",placeholder="Eposta Adresiniz"})
+                    <span class="text-danger" asp-validation-for="Email"></span>
                 </div>
                 <div class="form-floating mb-3">
                     @Html.LabelFor(x=>x.Sifre)
                     @Html.PasswordFor(x=>x.Sifre,new{@class="form-control",placeholder="Şifreniz"})
+                    <span class="text-danger" asp-validation-for="Sifre"></span>
                 </div>
                 <div class="form-floating mb-3">
                     @Html.LabelFor(x=>x.SifreTekrar)
                     @Html.PasswordFor(x=>x.SifreTekrar,new{@class="form-control",placeholder="Şifre Tekrarı"})
+                    <span class="text-danger" asp-validation-for="SifreTekrar"></span>
                 </div>
                 <button class="w-100 btn btn-lg btn-primary" type="submit">Kayıt Ol</button>
                 <hr class="my-4">
