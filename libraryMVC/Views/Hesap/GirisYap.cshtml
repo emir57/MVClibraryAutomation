@@ -13,10 +13,12 @@
                 <div class="form-floating mb-3">
                     @Html.LabelFor(x=>x.EPosta)
                     @Html.TextBoxFor(x=>x.EPosta,new{@class="form-control",placeholder="Eposta Adresiniz"})
+                    <span class="text-danger" asp-validation-for="EPosta"></span>
                 </div>
                 <div class="form-floating mb-3">
                     @Html.LabelFor(x=>x.Sifre)
                     @Html.PasswordFor(x=>x.Sifre,new{@class="form-control",placeholder="Şifreniz"})
+                    <span class="text-danger" asp-validation-for="Sifre"></span>
                 </div>
                 <div class="checkbox mb-3">
                     <label>
