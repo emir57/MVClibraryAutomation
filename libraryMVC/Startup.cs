@@ -45,6 +45,7 @@ namespace site
             });
             services.ConfigureApplicationCookie(opt =>
             {
+                opt.LoginPath = "/Hesap/GirisYap";
                 opt.AccessDeniedPath = "/Home/UnAuthorized";
             });
             services.AddMvcCore(opt =>
