@@ -24,12 +24,8 @@ namespace libraryMVC.Controllers
             _mapper = mapper;
         }
         [HttpGet]
-        public IActionResult GirisYap(string ReturnUrl, string message = null, string @class = null)
+        public IActionResult GirisYap(string message = null, string @class = null)
         {
-            if (!string.IsNullOrEmpty(ReturnUrl))
-            {
-                return Redirect(ReturnUrl);
-            }
             if (message != null && @class != null)
             {
                 ViewBag.Message = message;
@@ -39,7 +35,7 @@ namespace libraryMVC.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> GirisYap(LoginViewModel model)
+        public async Task<IActionResult> GirisYap(string ReturnUrl,LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -57,7 +53,11 @@ namespace libraryMVC.Controllers
                 ModelState.AddModelError("", "Eposta veya şifre hatalı");
                 return View(model);
             }
-            return RedirectToAction(nameof(GirisYap), new { @message = "Başarıyla Giriş Yapıldı" });
+            if (!string.IsNullOrEmpty(ReturnUrl))
+            {
+                return Redirect(ReturnUrl);
+            }
+            return RedirectToAction("Kitaplar", "Kitap", new { @message = "Başarıyla Giriş Yapıldı" });
         }
 
         [HttpGet]
