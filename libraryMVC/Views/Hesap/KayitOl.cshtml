@@ -1,4 +1,4 @@
-@model libraryMVC.Models.LoginViewModel
+@model libraryMVC.Models.RegisterViewModel
 
 <div class="container col-xl-10 col-xxl-8 px-4 py-5">
     <div class="row align-items-center g-lg-5 py-5">
@@ -11,21 +11,28 @@
                 <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                 <div class="@ViewBag.Class">@ViewBag.Message</div>
                 <div class="form-floating mb-3">
-                    @Html.LabelFor(x=>x.EPosta)
-                    @Html.TextBoxFor(x=>x.EPosta,new{@class="form-control",placeholder="Eposta Adresiniz"})
+                    @Html.LabelFor(x=>x.UyeAd)
+                    @Html.TextBoxFor(x=>x.UyeAd,new{@class="form-control",placeholder="Eposta Adresiniz"})
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(x=>x.UyeSoyad)
+                    @Html.TextBoxFor(x=>x.UyeSoyad,new{@class="form-control",placeholder="Eposta Adresiniz"})
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(x=>x.Email)
+                    @Html.TextBoxFor(x=>x.Email,new{@class="form-control",placeholder="Eposta Adresiniz"})
                 </div>
                 <div class="form-floating mb-3">
                     @Html.LabelFor(x=>x.Sifre)
                     @Html.PasswordFor(x=>x.Sifre,new{@class="form-control",placeholder="Şifreniz"})
                 </div>
-                <div class="checkbox mb-3">
-                    <label>
-                        @Html.CheckBoxFor(x=>x.RememberMe) Beni Hatırla
-                    </label>
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(x=>x.SifreTekrar)
+                    @Html.PasswordFor(x=>x.SifreTekrar,new{@class="form-control",placeholder="Şifre Tekrarı"})
                 </div>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Giriş Yap</button>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Kayıt Ol</button>
                 <hr class="my-4">
-                <small class="text-muted">Giriş yaptığınızda, kullanım haklarını kabul etmiş olursunuz.</small>
+                <small class="text-muted">Kayıt olduğunuzda, kullanım haklarını kabul etmiş olursunuz.</small>
             </form>
         </div>
     </div>
