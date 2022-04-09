@@ -26,6 +26,16 @@
                     <span class="text-danger" asp-validation-for="Email"></span>
                 </div>
                 <div class="form-floating mb-3">
+                    @Html.LabelFor(x=>x.UyeTelefon)
+                    @Html.TextBoxFor(x=>x.UyeTelefon,new{@class="form-control",placeholder="(555) 555-5555"})
+                    <span class="text-danger" asp-validation-for="UyeTelefon"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    @Html.LabelFor(x=>x.UyeAdres)
+                    @Html.TextAreaFor(x=>x.UyeAdres,new{@class="form-control",style="max-height:200px;",placeholder="Adresiniz"})
+                    <span class="text-danger" asp-validation-for="UyeAdres"></span>
+                </div>
+                <div class="form-floating mb-3">
                     @Html.LabelFor(x=>x.Sifre)
                     @Html.PasswordFor(x=>x.Sifre,new{@class="form-control",placeholder="Şifreniz"})
                     <span class="text-danger" asp-validation-for="Sifre"></span>
