@@ -77,6 +77,7 @@ namespace libraryMVC.Controllers
                 {
                     ModelState.AddModelError("",error.Code);
                 }
+                return View(model);
             }
             return RedirectToAction(nameof(GirisYap), new { @message = "Başarıyla Kayıt Olundu", @class = "alert alert-success" });
         }
