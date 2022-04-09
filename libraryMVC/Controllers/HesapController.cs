@@ -35,7 +35,7 @@ namespace libraryMVC.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> GirisYap(LoginViewModel model)
+        public async Task<IActionResult> GirisYap(LoginViewModel model, string ReturnUrl)
         {
             if (!ModelState.IsValid)
             {
@@ -52,6 +52,10 @@ namespace libraryMVC.Controllers
             {
                 ModelState.AddModelError("", "Eposta veya şifre hatalı");
                 return View(model);
+            }
+            if (!string.IsNullOrEmpty(ReturnUrl))
+            {
+                return Redirect(ReturnUrl);
             }
             return RedirectToAction("Kitaplar", "Kitap", new { @message = "Başarıyla Giriş Yapıldı" });
         }
