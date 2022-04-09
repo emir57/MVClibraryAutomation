@@ -16,6 +16,9 @@ namespace libraryMVC.Models
         [Display(Name = "Adres")]
         [Required(ErrorMessage = "{0} boş olamaz")]
         public string UyeAdres { get; set; }
+        [Display(Name = "Telefon Numarası")]
+        [Required(ErrorMessage = "{0} boş olamaz")]
+        public string UyeTelefon { get; set; }
 
         [Display(Name = "Sifre")]
         [Required(ErrorMessage = "{0} boş olamaz")]
