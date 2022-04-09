@@ -18,6 +18,8 @@ namespace libraryMVC.Models
         public string UyeAdres { get; set; }
         [Display(Name = "Telefon Numarası")]
         [Required(ErrorMessage = "{0} boş olamaz")]
+        [MaxLength(14, ErrorMessage = "{0} maksimum {1} karakter olabilir")]
+        [RegularExpression(@"^\(\d{3}\)\s\d{3}-\d{4}", ErrorMessage = "Geçersiz {0} (555) 555-5555")]
         public string UyeTelefon { get; set; }
 
         [Display(Name = "Sifre")]
