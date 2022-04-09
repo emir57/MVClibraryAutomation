@@ -69,7 +69,7 @@ namespace libraryMVC.Controllers
             {
                 return View(model);
             }
-
+            Uye uye = _mapper.Map<Uye>(model);
             return RedirectToAction(nameof(GirisYap), new { @message = "Başarıyla Kayıt Olundu", @class = "alert alert-success" });
         }
 
