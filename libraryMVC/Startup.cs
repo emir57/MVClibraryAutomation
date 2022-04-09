@@ -73,7 +73,7 @@ namespace site
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Welcome}/{id?}");
+                    pattern: "{controller=Hesap}/{action=GirisYap}/{id?}");
             });
         }
     }
