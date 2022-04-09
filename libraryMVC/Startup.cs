@@ -45,7 +45,7 @@ namespace site
             });
             services.ConfigureApplicationCookie(opt =>
             {
-                opt.AccessDeniedPath = "Home/UnAuthorize";
+                opt.AccessDeniedPath = "Home/UnAuthorized";
             });
             services.AddMvcCore(opt =>
             {
