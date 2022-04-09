@@ -20,13 +20,17 @@ namespace site.Controllers
 
         public HomeController(AppDbContext context)
         {
-            _context=context;
+            _context = context;
         }
         public IActionResult Welcome()
         {
             return View();
         }
         public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult UnAuthorized()
         {
             return View();
         }
