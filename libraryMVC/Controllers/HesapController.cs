@@ -52,12 +52,22 @@ namespace libraryMVC.Controllers
             }
             return RedirectToAction("Kitaplar", "Kitap", new { @message = "Başarıyla Giriş Yapıldı" });
         }
-        
+
         [HttpGet]
         public IActionResult KayitOl()
         {
             RegisterViewModel model = new RegisterViewModel();
             return View(model);
+        }
+        [HttpPost]
+        public IActionResult KayitOl(RegisterViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            return RedirectToAction(nameof(GirisYap), new { @message = "Başarıyla Kayıt Olundu", @class = "alert alert-success" });
         }
 
         public async Task<IActionResult> Cikis()
