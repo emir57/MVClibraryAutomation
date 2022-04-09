@@ -63,13 +63,21 @@ namespace libraryMVC.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult KayitOl(RegisterViewModel model)
+        public async Task<IActionResult> KayitOl(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
             Uye uye = _mapper.Map<Uye>(model);
+            var result = await _userManager.CreateAsync(uye, model.Sifre);
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("",error.Code);
+                }
+            }
             return RedirectToAction(nameof(GirisYap), new { @message = "Başarıyla Kayıt Olundu", @class = "alert alert-success" });
         }
 
