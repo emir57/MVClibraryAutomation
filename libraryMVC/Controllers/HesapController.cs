@@ -79,19 +79,22 @@ namespace libraryMVC.Controllers
                     {
                         ModelState.AddModelError("", "Şifre minimum 6 karakter olabilir");
                     }
-                    if (error.Code == "PasswordRequiresNonAlphanumeric")
+                    else if (error.Code == "PasswordRequiresNonAlphanumeric")
                     {
                         ModelState.AddModelError("", "Şifre özel karakter içermelidir");
                     }
-                    if (error.Code == "PasswordRequiresLower")
+                    else if (error.Code == "PasswordRequiresLower")
                     {
                         ModelState.AddModelError("", "Şifre küçük harf içermelidir");
                     }
-                    if (error.Code == "PasswordRequiresUpper")
+                    else if (error.Code == "PasswordRequiresUpper")
                     {
                         ModelState.AddModelError("", "Şifre büyük harf içermelidir");
                     }
-
+                    else
+                    {
+                        ModelState.AddModelError("", error.Code);
+                    }
                 }
                 return View(model);
             }
