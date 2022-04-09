@@ -56,7 +56,8 @@ namespace libraryMVC.Controllers
         [HttpGet]
         public IActionResult KayitOl()
         {
-            return View();
+            RegisterViewModel model = new RegisterViewModel();
+            return View(model);
         }
 
         public async Task<IActionResult> Cikis()
