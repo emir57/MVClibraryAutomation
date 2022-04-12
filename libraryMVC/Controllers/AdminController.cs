@@ -9,7 +9,7 @@ namespace libraryMVC.Controllers
     {
         public async Task<IActionResult> AdminKitaplar()
         {
-            return Ok();
+            return View();
         }
     }
 }
