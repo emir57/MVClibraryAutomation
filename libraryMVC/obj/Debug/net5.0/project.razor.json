@@ -15689,6 +15689,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Shared\\_AdminLeftNav.cshtml",
+      "TargetPath": "Views\\Shared\\_AdminLeftNav.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Emanet\\Emanetler.cshtml",
       "TargetPath": "Views\\Emanet\\Emanetler.cshtml",
       "FileKind": "mvc"
