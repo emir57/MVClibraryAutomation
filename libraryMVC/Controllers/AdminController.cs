@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace libraryMVC.Controllers
 {
     [Authorize(Roles = "Admin")]
-    public class Admin : Controller
+    public class AdminController : Controller
     {
-        public async Task<IActionResult> Kitaplar()
+        public async Task<IActionResult> AdminKitaplar()
         {
             return Ok();
         }
