@@ -15764,6 +15764,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Admin\\AdminUyeler.cshtml",
+      "TargetPath": "Views\\Admin\\AdminUyeler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Shared\\_Navbar.cshtml",
       "TargetPath": "Views\\Shared\\_Navbar.cshtml",
       "FileKind": "mvc"
