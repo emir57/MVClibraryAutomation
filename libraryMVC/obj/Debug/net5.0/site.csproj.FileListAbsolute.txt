@@ -145,7 +145,6 @@ C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\site.Tag
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\site.RazorCoreGenerate.cache
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Home\Welcome.cshtml.g.cs
-C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Kitap\CreateKitaplar.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Kitap\DeleteKitaplar.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Kitap\EditKitaplar.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Kitap\Kitaplar.cshtml.g.cs
@@ -190,3 +189,4 @@ C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Vi
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Shared\_AdminLeftNav.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Admin\AdminEmanetler.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Admin\AdminUyeler.cshtml.g.cs
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Admin\CreateKitaplar.cshtml.g.cs

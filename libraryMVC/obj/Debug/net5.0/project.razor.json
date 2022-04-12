@@ -15689,11 +15689,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Kitap\\CreateKitaplar.cshtml",
-      "TargetPath": "Views\\Kitap\\CreateKitaplar.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Shared\\_AdminLeftNav.cshtml",
       "TargetPath": "Views\\Shared\\_AdminLeftNav.cshtml",
       "FileKind": "mvc"
@@ -15746,6 +15741,11 @@
     {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Kitap\\KitaplarSearch.cshtml",
       "TargetPath": "Views\\Kitap\\KitaplarSearch.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Admin\\AdminKitapEkle.cshtml",
+      "TargetPath": "Views\\Admin\\AdminKitapEkle.cshtml",
       "FileKind": "mvc"
     },
     {
