@@ -15654,6 +15654,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Admin\\AdminEmanetler.cshtml",
+      "TargetPath": "Views\\Admin\\AdminEmanetler.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Kitap\\Kitaplar.cshtml",
       "TargetPath": "Views\\Kitap\\Kitaplar.cshtml",
       "FileKind": "mvc"
