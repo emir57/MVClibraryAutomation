@@ -1,3 +1,211 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+@model IEnumerable<libraryMVC.Entities.Kitap>
+
+@section Css{
+<style>
+    tr {
+        transition: all .5s;
+    }
+</style>
+}
+<a asp-action="CreateKitaplar" class="btn btn-outline-primary btn-sm mt-2">Yeni
+    Kitap Oluştur</a>
+<div class="jumbotron mt-2">
+    <div>
+        <h2 style="float:left;" class="text-info display-4">Kitap Listesi</h2>
+    </div>
+    <div class="searchSection">
+        <input class="form-control" style="max-width: 100px;" placeholder="ID" id="id" type="number" />&nbsp;
+        <input class="form-control" style="max-width: 200px;" placeholder="Ara" id="searchString" type="text" />
+    </div>
+    <table class="table table-hover mt-3 table-striped">
+        <thead>
+            <th>Kitap No</th>
+            <th>Kitap Adı</th>
+            <th>Kitap Yazarı</th>
+            <th>Kitap Baskı Yılı</th>
+            <th>Kitap Sayfa Sayısı</th>
+            <th>Kitap Dili</th>
+            <th>Kitap Yayın Evi</th>
+            <th>Kitap Açıklama</th>
+            <th width="155px">İşlemler</th>
+        </thead>
+        <tbody id="kitaplarTable"></tbody>
+    </table>
+</div>
+<a style="float:left; margin-bottom:100px;" asp-action="CreateKitaplar" class="btn btn-outline-primary btn-sm mx-2">Yeni
+    Kitap Oluştur</a>
+
+@section Scripts{
+<script>
+    $(document).ready(function () {
+        let searchString = $("#searchString");
+        let kitaplarTable = $("#kitaplarTable");
+        $.ajax({
+            url: "/Kitap/KitaplarSearchBySearchString",
+            method: "GET",
+            success: function (datas) {
+                let html = getDatas(datas)
+                kitaplarTable.empty();
+                kitaplarTable.append(html);
+                idAnimation();
+            }
+        })
+        searchString.keyup(function () {
+            if (searchString.val() == "") {
+                $.ajax({
+                    url: "/Kitap/KitaplarSearchBySearchString?searchString=" + searchString.val(),
+                    method: "GET",
+                    success: function (datas) {
+                        let html = getDatas(datas)
+                        kitaplarTable.empty();
+                        kitaplarTable.append(html);
+                    }
+                })
+            }
+            if (searchString.val().length > 1) {
+                $.ajax({
+                    url: "/Kitap/KitaplarSearchBySearchString?searchString=" + searchString.val(),
+                    method: "GET",
+                    success: function (datas) {
+                        let html = getDatas(datas)
+                        kitaplarTable.empty();
+                        kitaplarTable.append(html);
+                    }
+                })
+            }
+        })
+    })
+    $(document).ready(function () {
+        let kitaplarTable = $("#kitaplarTable");
+        let id = $("#id");
+        id.keyup(function () {
+            if (id.val() != "") {
+                $.ajax({
+                    url: "/Kitap/KitaplarSearchById?id=" + id.val(),
+                    method: "GET",
+                    success: function (data) {
+                        let html = getData(data)
+                        kitaplarTable.empty();
+                        kitaplarTable.append(html);
+                    },
+                    error: function () {
+                        showErrorAlert("Kitap Bulunamadı");
+                    }
+                })
+            } else {
+                $.ajax({
+                    url: "/Kitap/KitaplarSearchById?id=" + id.val(),
+                    method: "GET",
+                    success: function (datas) {
+                        let html = getDatas(datas)
+                        kitaplarTable.empty();
+                        kitaplarTable.append(html);
+                    }
+                })
+            }
+        })
+    })
+    function getData(data) {
+        return generatorHtml(data);
+    }
+    function getDatas(datas) {
+        let html = "";
+        datas.forEach(data => {
+            html += generatorHtml(data);
+        })
+        return html;
+    }
+    function idAnimation() {
+        let getid = window.location.href.split("#")[1];
+        $("tr#" + getid).addClass("bg-warning");
+        setTimeout(() => {
+            $("tr#" + getid).removeClass("bg-warning");
+        }, 1000)
+    }
+    function generatorHtml(data) {
+        let html = `
+                        <tr id="${data.kitapNo}">
+                            <td>${data.kitapNo}</td>
+                            <td>${data.kitapAd}</td>
+                            <td>${data.kitapYazari}</td>
+                            <td>${data.kitapBaskiYil}</td>
+                            <td>${data.kitapSayfaSayi}</td>
+                            <td>${data.kitapDil}</td>
+                            <td>${data.kitapYayinEvi}</td>
+                            <td>${data.kitapAciklama}</td>
+                            <td>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.kitapNo}" title="${data.kitapAd} Sil">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                                <a style="cursor:pointer;" class="btn btn-primary text text-white" onClick="window.location.href='/Kitap/EditKitaplar/${data.kitapNo}'"
+                                role="button" title="${data.kitapAd} Düzenle">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <!-- Modal -->
+                                <div class="modal fade" id="modal${data.kitapNo}" role="dialog" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
+                                                <button type="button" class="btn-close" data-dismiss="modal"
+                                                aria-label="Close">X</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <span class="text-danger">${data.kitapNo} - ${data.kitapAd}</span>
+                                                <br>
+                                                Bu Kaydı Silmek İstediğinizden Emin misiniz?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a class="btn btn-secondary text text-white" data-dismiss="modal">İptal</a>
+                                                <a class="btn btn-danger text text-white" href="/Kitap/DeleteKitaplar/${data.kitapNo}">Sil</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    `
+        return html;
+    }
+    function showSuccessAlert(message) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: message
+        })
+    }
+</script>
+@if (ViewBag.Message != null && ViewBag.Message.EndsWith("başarıyla güncellendi"))
+{
+<script>
+    showSuccessAlert("@ViewBag.Message")
+</script>
+}
+@if(ViewBag.Message != null && ViewBag.Message.EndsWith("başarıyla eklendi"))
+{
+<script>
+    showSuccessAlert("@ViewBag.Message")
+</script>
+}
+@if(ViewBag.Message != null && ViewBag.Message.EndsWith("Başarıyla Giriş Yapıldı"))
+{
+<script>
+    showSuccessAlert("@ViewBag.Message")
+</script>
+}
+}

@@ -32,9 +32,9 @@
                 <div class="col-md-2">
                     @await Html.PartialAsync("_AdminLeftNav",(ViewBag.MainViewModel as MainViewModel))
                 </div>
-            </div>
-            <div class="col-md-10">
-                @RenderBody()
+                <div class="col-md-10">
+                    @RenderBody()
+                </div>
             </div>
         </main>
     </div>
