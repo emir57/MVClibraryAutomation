@@ -1,6 +1,9 @@
 @using libraryMVC.Entities;
 @{
     string link = Context.Request.Path.ToString().Split("/")[2];
+    string adminKitaplarClass = link.StartsWith("AdminKitaplar") ? "active":"";
+    string adminEmanetlerClass = link.StartsWith("AdminEmanetler") ? "active":"";
+    string adminUyelerClass = link.StartsWith("AdminUyeler") ? "active":"";
 }
 @section Css{
     <style>
@@ -20,7 +23,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
+            <a href="#" class="nav-link @adminKitaplarClass aria-current="page">
                 <svg class="bi me-2" width="16" height="16">
                     <use xlink:href="#home" />
                 </svg>
