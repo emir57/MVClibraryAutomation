@@ -31,7 +31,9 @@ namespace libraryMVC.Controllers
                 ViewBag.Message = message;
                 ViewBag.Class = @class;
             }
-            LoginViewModel model = new LoginViewModel();
+            LoginViewModel model = new LoginViewModel(){
+                EPosta = "admin@hotmail.com",
+            };
             return View(model);
         }
         [HttpPost]
