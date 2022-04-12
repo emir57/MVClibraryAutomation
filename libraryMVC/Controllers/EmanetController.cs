@@ -113,31 +113,7 @@ namespace libraryMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Emanetler");
         }
-        public async Task<IActionResult> CreateEmanetler()
-        {
-            EmanetViewModel model = new EmanetViewModel
-            {
-                Uyeler = await _userManager.Users.ToListAsync(),
-                Kitaplar = await _context.Kitaplar.ToListAsync()
-            };
-            return View(model);
-        }
-        [HttpPost]
-        public async Task<IActionResult> CreateEmanetler(EmanetViewModel emanetViewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                emanetViewModel.Uyeler = await _userManager.Users.ToListAsync();
-                emanetViewModel.Kitaplar = await _context.Kitaplar.ToListAsync();
-                return View(emanetViewModel);
-            }
-            emanetViewModel.EmanetIslemTarih = DateTime.Now.ToString("yyyy/MM/dd");
-            emanetViewModel.EmanetIslemTarih = emanetViewModel.EmanetIslemTarih.Replace(".", "-");
-            Emanet emanet = _mapper.Map<Emanet>(emanetViewModel);
-            await _context.Emanetler.AddAsync(emanet);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Emanetler), new { @message = "Emanet başarıyla eklendi" });
-        }
+        
         public async Task<IActionResult> EditEmanetler(int? id)
         {
             var emanet = await _context.Emanetler.FindAsync(id);
