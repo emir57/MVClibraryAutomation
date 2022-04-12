@@ -11,5 +11,13 @@ namespace libraryMVC.Controllers
         {
             return View();
         }
+        public async Task<IActionResult> AdminEmanetler()
+        {
+            return View();
+        }
+        public async Task<IActionResult> AdminUyeler()
+        {
+            return View();
+        }
     }
 }
