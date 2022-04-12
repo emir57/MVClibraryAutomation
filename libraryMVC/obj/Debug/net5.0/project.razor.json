@@ -15619,11 +15619,6 @@
   "RootNamespace": "site",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Emanet\\CreateEmanetler.cshtml",
-      "TargetPath": "Views\\Emanet\\CreateEmanetler.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -15746,6 +15741,11 @@
     {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Admin\\AdminKitapEkle.cshtml",
       "TargetPath": "Views\\Admin\\AdminKitapEkle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Admin\\AdminEmanetEkle.cshtml",
+      "TargetPath": "Views\\Admin\\AdminEmanetEkle.cshtml",
       "FileKind": "mvc"
     },
     {
