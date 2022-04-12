@@ -1,5 +1,7 @@
 using System.Threading.Tasks;
 using AutoMapper;
+using libraryMVC.Entities;
+using libraryMVC.Models;
 using libraryMVC_.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +26,26 @@ namespace libraryMVC.Controllers
             }
             return View(_context.Kitaplar);
         }
+        public IActionResult AdminKitapEkle()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AdminKitapEkle(KitapViewModel kitapViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(kitapViewModel);
+            }
+            Kitap kitap = _mapper.Map<Kitap>(kitapViewModel);
+            kitap.IsActive = false;
+            await _context.Kitaplar.AddAsync(kitap);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(AdminKitaplar), new { @message = $"{kitapViewModel.KitapAd} başarıyla eklendi" });
+        }
+
+
+
         public async Task<IActionResult> AdminEmanetler(string message)
         {
             if (message != null)

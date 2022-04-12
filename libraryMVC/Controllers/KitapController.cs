@@ -67,23 +67,7 @@ namespace libraryMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Kitaplar");
         }
-        public IActionResult CreateKitaplar()
-        {
-            return View();
-        }
-        [HttpPost]
-        public async Task<IActionResult> CreateKitaplar(KitapViewModel kitapViewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(kitapViewModel);
-            }
-            Kitap kitap = _mapper.Map<Kitap>(kitapViewModel);
-            kitap.IsActive = false;
-            await _context.Kitaplar.AddAsync(kitap);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Kitaplar), new { @message = $"{kitapViewModel.KitapAd} başarıyla eklendi" });
-        }
+        
         public async Task<IActionResult> EditKitaplar(int? id)
         {
             var kitap = await _context.Kitaplar.Where(x => x.KitapNo == id).SingleOrDefaultAsync();
