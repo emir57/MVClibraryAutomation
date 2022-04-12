@@ -123,7 +123,7 @@
         }, 1000)
     }
     function generatorHtml(data) {
-        return `
+        let html = `
                         <tr id="${data.kitapNo}">
                             <td>${data.kitapNo}</td>
                             <td>${data.kitapAd}</td>
@@ -166,6 +166,7 @@
                             </td>
                         </tr>
                     `
+        return html;
     }
     function showSuccessAlert(message) {
         const Toast = Swal.mixin({
