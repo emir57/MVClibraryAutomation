@@ -27,7 +27,7 @@
         <main role="main" class="pb-3">
             <div class="row">
                 <div class="col-md-2">
-                    @await Html.PartialAsync("_AdminLeftNav")
+                    @await Html.PartialAsync("_AdminLeftNav",(ViewBag.MainViewModel as MainViewModel))
                 </div>
             </div>
             <div class="col-md-10">

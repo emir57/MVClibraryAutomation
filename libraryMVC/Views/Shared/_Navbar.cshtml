@@ -1,5 +1,4 @@
 @using libraryMVC.Entities;
-@model libraryMVC.Models.MainViewModel;
 
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container">
@@ -34,7 +33,7 @@
             }
             else
             {
-                Uye uye = Model.Uyeler.FirstOrDefault(x => x.Email == User.Identity.Name);
+                Uye uye = (ViewBag.MainViewModel.Uyeler as List<Uye>).FirstOrDefault(x => x.Email == User.Identity.Name);
                 <ul class="navbar-nav navbar-right">
                     <li class="nav-item">
                         <div class="btn-group">
