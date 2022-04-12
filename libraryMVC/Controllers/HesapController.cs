@@ -26,19 +26,22 @@ namespace libraryMVC.Controllers
         [HttpGet]
         public IActionResult GirisYap(string message = null, string @class = null)
         {
+            if (User.Identity.IsAuthenticated) return RedirectToAction("Kitaplar", "Kitap");
             if (message != null && @class != null)
             {
                 ViewBag.Message = message;
                 ViewBag.Class = @class;
             }
-            LoginViewModel model = new LoginViewModel(){
+            LoginViewModel model = new LoginViewModel()
+            {
                 EPosta = "admin@hotmail.com",
             };
             return View(model);
         }
         [HttpPost]
-        public async Task<IActionResult> GirisYap(string ReturnUrl,LoginViewModel model)
+        public async Task<IActionResult> GirisYap(string ReturnUrl, LoginViewModel model)
         {
+            if (User.Identity.IsAuthenticated) return RedirectToAction("Kitaplar", "Kitap");
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -65,12 +68,14 @@ namespace libraryMVC.Controllers
         [HttpGet]
         public IActionResult KayitOl()
         {
+            if (User.Identity.IsAuthenticated) return RedirectToAction("Kitaplar", "Kitap");
             RegisterViewModel model = new RegisterViewModel();
             return View(model);
         }
         [HttpPost]
         public async Task<IActionResult> KayitOl(RegisterViewModel model)
         {
+            if (User.Identity.IsAuthenticated) return RedirectToAction("Kitaplar", "Kitap");
             if (!ModelState.IsValid)
             {
                 return View(model);
