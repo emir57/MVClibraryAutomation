@@ -1,19 +1,19 @@
 @using libraryMVC.Entities;
 @{
     string link = Context.Request.Path.ToString().Split("/")[2];
-    string adminKitaplarClass = link.StartsWith("AdminKitaplar") ? "active":"";
-    string adminEmanetlerClass = link.StartsWith("AdminEmanetler") ? "active":"";
-    string adminUyelerClass = link.StartsWith("AdminUyeler") ? "active":"";
-    string adminKitapEkleClass = link.StartsWith("AdminKitapEkle") ? "active":"";
+    string adminKitaplarClass = link.StartsWith("AdminKitaplar") ? "active" : "";
+    string adminEmanetlerClass = link.StartsWith("AdminEmanetler") ? "active" : "";
+    string adminUyelerClass = link.StartsWith("AdminUyeler") ? "active" : "";
+    string adminKitapEkleClass = link.StartsWith("AdminKitapEkle") ? "active" : "";
 }
-@section Css{
-    <style>
-        #leftNav{
-            width: 100%;
-            min-height: 100% !important;
-        }
-    </style>
-}
+<style>
+    #leftNav {
+        width: 100%;
+        height: 100%;
+        position: relative !important;
+    }
+</style>
+
 <div id="leftNav" class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark">
     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <svg class="bi me-2" width="40" height="32">
