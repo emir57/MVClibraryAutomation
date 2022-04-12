@@ -4,6 +4,7 @@
     string adminKitaplarClass = link.StartsWith("AdminKitaplar") ? "active":"";
     string adminEmanetlerClass = link.StartsWith("AdminEmanetler") ? "active":"";
     string adminUyelerClass = link.StartsWith("AdminUyeler") ? "active":"";
+    string adminKitapEkleClass = link.StartsWith("AdminKitapEkle") ? "active":"";
 }
 @section Css{
     <style>
@@ -38,6 +39,15 @@
             <a asp-action="AdminUyeler" asp-controller="Admin" class="nav-link text-white @adminUyelerClass">
                 <i class="fa-solid fa-users"></i>
                 Üyeler
+            </a>
+        </li>
+        <li>
+            <hr>
+        </li>
+        <li>
+            <a asp-action="AdminKitapEkle" asp-controller="Admin" class="nav-link text-white @adminKitapEkleClass">
+                <i class="fa-solid fa-plus"></i>
+                Kitap Ekle
             </a>
         </li>
     </ul>
