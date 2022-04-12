@@ -16,17 +16,29 @@ namespace libraryMVC.Controllers
             _context = context;
             _mapper = mapper;
         }
-        public async Task<IActionResult> AdminKitaplar()
+        public async Task<IActionResult> AdminKitaplar(string message)
         {
-            return View();
+            if (message != null)
+            {
+                ViewBag.Message = message;
+            }
+            return View(_context.Kitaplar);
         }
-        public async Task<IActionResult> AdminEmanetler()
+        public async Task<IActionResult> AdminEmanetler(string message)
         {
-            return View();
+            if (message != null)
+            {
+                ViewBag.Message = message;
+            }
+            return View(_context.Emanetler);
         }
-        public async Task<IActionResult> AdminUyeler()
+        public async Task<IActionResult> AdminUyeler(string message)
         {
-            return View();
+            if (message != null)
+            {
+                ViewBag.Message = message;
+            }
+            return View(_context.Users);
         }
     }
 }
