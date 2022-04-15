@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using libraryMVC.Dtos;
 using libraryMVC.Entities;
 using libraryMVC.Models;
 using libraryMVC_.Data;
@@ -8,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace libraryMVC.Controllers
 {
@@ -22,6 +25,17 @@ namespace libraryMVC.Controllers
             _context = context;
             _mapper = mapper;
             _userManager = userManager;
+        }
+        private async Task<List<EmanetDto>> GetEmanetDtoAsync()
+        {
+            List<EmanetDto> emanetler = await (from e in _context.Emanetler
+                                               select new EmanetDto
+                                               {
+                                                   Emanet = _mapper.Map<EmanetViewModel>(e),
+                                                   Uye = _userManager.Users.FirstOrDefault(uye => uye.Id == e.UyeId),
+                                                   Kitap = _context.Kitaplar.FirstOrDefault(kitap => kitap.KitapNo == e.KitapNo)
+                                               }).ToListAsync();
+            return emanetler;
         }
         public async Task<IActionResult> AdminKitaplar(string message)
         {
