@@ -21,7 +21,14 @@
         <svg class="bi me-2" width="40" height="32">
             <use xlink:href="#bootstrap" />
         </svg>
-        <span class="fs-4">@link</span>
+        @if (link.StartsWith("Edit"))
+        {
+            <span class="fs-4 text-info">Düzenleme Modu</span>
+        }
+        else
+        {
+            <span class="fs-4 text-warning">@link</span>
+        }
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
