@@ -15634,11 +15634,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Uye\\EditUyeler.cshtml",
-      "TargetPath": "Views\\Uye\\EditUyeler.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Uye\\DeleteUyeler.cshtml",
       "TargetPath": "Views\\Uye\\DeleteUyeler.cshtml",
       "FileKind": "mvc"
@@ -15726,6 +15721,11 @@
     {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Admin\\AdminKitaplar.cshtml",
       "TargetPath": "Views\\Admin\\AdminKitaplar.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Admin\\EditAdminUyeler.cshtml",
+      "TargetPath": "Views\\Admin\\EditAdminUyeler.cshtml",
       "FileKind": "mvc"
     },
     {
