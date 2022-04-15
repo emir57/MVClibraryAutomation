@@ -57,7 +57,7 @@ namespace libraryMVC.Controllers
             {
                 ViewBag.Message = message;
             }
-            return View(_context.Emanetler);
+            return View(await _context.Emanetler.ToListAsync());
         }
 
         public async Task<IActionResult> AdminEmanetEkle()
