@@ -2,3 +2,57 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+<div class="jumbotron">
+    <div class="row ml-4">
+        <div class="col-md-6">
+            <form asp-action="CreateUyeler" id="createUyelerForm">
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <h2 class="display-4 text-primary">Yeni Üye Oluştur</h2>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(u=>u.UyeAd)
+                        @Html.TextBoxFor(u=>u.UyeAd,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="UyeAd"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(u=>u.UyeSoyad)
+                        @Html.TextBoxFor(u=>u.UyeSoyad,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="UyeSoyad"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(u=>u.UyeTelefon)
+                        @Html.TextBoxFor(u=>u.UyeTelefon,new{@class="form-control",placeholder="(555) 555-5555"})
+                        <span class="text-danger" asp-validation-for="UyeTelefon"></span>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-6 mb-3">
+                        @Html.LabelFor(u=>u.Email)
+                        @Html.TextBoxFor(u=>u.Email,new{@class="form-control"})
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        @Html.LabelFor(u=>u.UyeAdres)
+                        @Html.TextAreaFor(u=>u.UyeAdres,new{@class="form-control",style="min-height:130px;max-height:140px"})
+                        <span class="text-danger" asp-validation-for="UyeAdres"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Üye Ekle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+    })
+</script>
+}

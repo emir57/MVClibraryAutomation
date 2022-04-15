@@ -15629,11 +15629,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Uye\\CreateUyeler.cshtml",
-      "TargetPath": "Views\\Uye\\CreateUyeler.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Uye\\Uyeler.cshtml",
       "TargetPath": "Views\\Uye\\Uyeler.cshtml",
       "FileKind": "mvc"
