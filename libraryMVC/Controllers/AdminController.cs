@@ -161,5 +161,27 @@ namespace libraryMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(AdminUyeler), new { @message = $"{uye.UyeAd} {uye.UyeSoyad} başarıyla eklendi" });
         }
+        public async Task<IActionResult> EditAdminUyeler(string id)
+        {
+            Uye uye = await _userManager.Users.Where(x => x.Id == id).SingleOrDefaultAsync();
+            if (uye == null)
+            {
+                return RedirectToAction(nameof(AdminUyeler));
+            }
+            UyeViewModel uyeViewModel = _mapper.Map<UyeViewModel>(uye);
+            return View(uyeViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditAdminUyeler(UyeViewModel uyeViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(uyeViewModel);
+            }
+            Uye uye = _mapper.Map<Uye>(uyeViewModel);
+            _context.Update(uye);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(AdminUyeler), new { @message = $"{uye.UyeAd} {uye.UyeSoyad} başarıyla güncellendi" });
+        }
     }
 }
