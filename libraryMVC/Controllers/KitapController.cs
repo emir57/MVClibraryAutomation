@@ -68,27 +68,6 @@ namespace libraryMVC.Controllers
             return RedirectToAction("Kitaplar");
         }
         
-        public async Task<IActionResult> EditKitaplar(int? id)
-        {
-            var kitap = await _context.Kitaplar.Where(x => x.KitapNo == id).SingleOrDefaultAsync();
-            if (kitap == null)
-            {
-                return RedirectToAction(nameof(Kitaplar));
-            }
-            KitapViewModel kitapViewModel = _mapper.Map<KitapViewModel>(kitap);
-            return View(kitapViewModel);
-        }
-        [HttpPost]
-        public async Task<IActionResult> EditKitaplar(KitapViewModel kitapViewModel)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(kitapViewModel);
-            }
-            Kitap kitap = _mapper.Map<Kitap>(kitapViewModel);
-            _context.Kitaplar.Update(kitap);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Kitaplar), new { @message = $"{kitapViewModel.KitapAd} başarıyla güncellendi" });
-        }
+        
     }
 }

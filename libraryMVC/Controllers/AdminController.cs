@@ -63,6 +63,29 @@ namespace libraryMVC.Controllers
             return RedirectToAction(nameof(AdminKitaplar), new { @message = $"{kitapViewModel.KitapAd} başarıyla eklendi" });
         }
 
+        public async Task<IActionResult> EditAdminKitaplar(int? id)
+        {
+            var kitap = await _context.Kitaplar.Where(x => x.KitapNo == id).SingleOrDefaultAsync();
+            if (kitap == null)
+            {
+                return RedirectToAction(nameof(AdminKitaplar));
+            }
+            KitapViewModel kitapViewModel = _mapper.Map<KitapViewModel>(kitap);
+            return View(kitapViewModel);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditAdminKitaplar(KitapViewModel kitapViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(kitapViewModel);
+            }
+            Kitap kitap = _mapper.Map<Kitap>(kitapViewModel);
+            _context.Kitaplar.Update(kitap);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(AdminKitaplar), new { @message = $"{kitapViewModel.KitapAd} başarıyla güncellendi" });
+        }
+
 
 
         public async Task<IActionResult> AdminEmanetler(string message)
