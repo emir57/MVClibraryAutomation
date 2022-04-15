@@ -99,6 +99,31 @@ namespace libraryMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(AdminEmanetler), new { @message = "Emanet başarıyla eklendi" });
         }
+        public async Task<IActionResult> EditAdminEmanetler(int? id)
+        {
+            var emanet = await _context.Emanetler.FindAsync(id);
+            if (emanet == null)
+            {
+                return RedirectToAction(nameof(AdminEmanetler));
+            }
+            EmanetViewModel model = new EmanetViewModel();
+            model = _mapper.Map<EmanetViewModel>(emanet);
+            model.Kitaplar = await _context.Kitaplar.ToListAsync();
+            model.Uyeler = await _userManager.Users.ToListAsync();
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditAdminEmanetler(EmanetViewModel emanetViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(emanetViewModel);
+            }
+            Emanet emanet = _mapper.Map<Emanet>(emanetViewModel);
+            _context.Update(emanet);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(AdminEmanetler), new { @message = "Emanet başarıyla güncellendi" });
+        }
 
 
         public async Task<IActionResult> AdminUyeler(string message)
