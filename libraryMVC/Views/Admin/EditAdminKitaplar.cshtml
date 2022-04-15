@@ -1,10 +1,10 @@
 @model libraryMVC.Models.KitapViewModel
 
 <hr>
-<div class="jumbotron mt-5">
+<div class="jumbotron">
     <div class="row ml-4">
         <div class="col-md-6">
-            <form asp-action="EditKitaplar" id="editKitaplarForm">
+            <form asp-action="EditAdminKitaplar" id="editKitaplarForm">
                 <input type="hidden" asp-for="KitapNo" />
                 <div class="row">
                     <div class="col-md-12 mb-3">
@@ -62,15 +62,7 @@
         </div>
     </div>
 </div>
-<a style="float:left; margin-bottom:100px;" asp-action="Kitaplar" class="btn btn-outline-secondary btn-sm mx-2">Listeye
-    Geri Dön</a>
-
 @section Scripts{
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-<script>
-    $(document).ready(function () {
-
-    })
-</script>
 }
