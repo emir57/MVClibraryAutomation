@@ -95,5 +95,32 @@ namespace libraryMVC.Controllers
             }
             return View(_context.Users);
         }
+        public IActionResult AdminUyeEkle()
+        {
+            UyeViewModel model = new UyeViewModel();
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> AdminUyeEkle(UyeViewModel uyeViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(uyeViewModel);
+            }
+            Uye uye = _mapper.Map<Uye>(uyeViewModel);
+            uye.UserName = uyeViewModel.Email;
+            uye.Id = Guid.NewGuid().ToString();
+            var result = await _userManager.CreateAsync(uye);
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return View(uyeViewModel);
+            }
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(AdminUyeler), new { @message = $"{uye.UyeAd} {uye.UyeSoyad} başarıyla eklendi" });
+        }
     }
 }
