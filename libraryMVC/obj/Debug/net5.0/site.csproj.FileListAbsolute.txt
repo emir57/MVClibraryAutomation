@@ -189,4 +189,4 @@ C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Vi
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Admin\AdminKitapEkle.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Admin\AdminEmanetEkle.cshtml.g.cs
 C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Admin\AdminUyeEkle.cshtml.g.cs
-C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Admin\EditEmanetler.cshtml.g.cs
+C:\Users\lolem\Desktop\MVClibraryAutomation\libraryMVC\obj\Debug\net5.0\Razor\Views\Admin\EditAdminEmanetler.cshtml.g.cs
