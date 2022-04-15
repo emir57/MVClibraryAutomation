@@ -6,6 +6,8 @@
     string adminUyelerClass = link.StartsWith("AdminUyeler") ? "active" : "";
     string adminKitapEkleClass = link.StartsWith("AdminKitapEkle") ? "active" : "";
     string adminEmanetEkleClass = link.StartsWith("AdminEmanetEkle") ? "active" : "";
+    string adminUyeEkleClass = link.StartsWith("AdminUyeEkle") ? "active" : "";
+
 }
 <style>
     #leftNav {
@@ -54,6 +56,12 @@
             <a asp-action="AdminEmanetEkle" asp-controller="Admin" class="nav-link text-white @adminEmanetEkleClass">
                 <i class="fa-solid fa-plus"></i>
                 Emanet Ekle
+            </a>
+        </li>
+        <li>
+            <a asp-action="AdminUyeEkle" asp-controller="Admin" class="nav-link text-white @adminUyeEkleClass">
+                <i class="fa-solid fa-plus"></i>
+                Üye Ekle
             </a>
         </li>
     </ul>
