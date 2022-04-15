@@ -15694,6 +15694,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Admin\\AdminUyeEkle.cshtml",
+      "TargetPath": "Views\\Admin\\AdminUyeEkle.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\Views\\Emanet\\DeleteEmanetler.cshtml",
       "TargetPath": "Views\\Emanet\\DeleteEmanetler.cshtml",
       "FileKind": "mvc"
