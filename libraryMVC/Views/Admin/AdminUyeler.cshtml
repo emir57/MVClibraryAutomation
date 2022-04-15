@@ -1,3 +1,186 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+@model IEnumerable<libraryMVC.Entities.Uye>
+
+@section Css{
+<style>
+    tr {
+        transition: all .5s;
+    }
+</style>
+}
+
+<a asp-action="CreateUyeler" class="btn btn-outline-primary btn-sm mt-2">Yeni
+    Üye Oluştur</a>
+<div class="jumbotron mt-2">
+    <div>
+        <h2 style="float:left;" class="text-info display-4">Üye Listesi</h2>
+    </div>
+    <div class="searchSection">
+        <input class="form-control" style="max-width: 100px;" placeholder="ID" id="id" type="number" />&nbsp;
+        <input class="form-control" style="max-width: 200px;" placeholder="Ara" id="searchString" type="text" />
+    </div>
+    <table class="table table-hover mt-3 table-striped">
+        <thead>
+            <th>Üye Id</th>
+            <th>Üye Adı</th>
+            <th>Üye Soyadı</th>
+            <th>Üye Telefonu</th>
+            <th>Üye E-postası</th>
+            <th>Üye Adres</th>
+            <th>İşlemler</th>
+        </thead>
+        <tbody id="uyeler"></tbody>
+    </table>
+</div>
+<a style="float:left; margin-bottom:100px;" asp-action="CreateUyeler" class="btn btn-outline-primary btn-sm mx-2">Yeni
+    Üye Oluştur</a>
+
+
+@section Scripts{
+<script>
+    getUyeler();
+    $(document).ready(function () {
+        $("#searchString").keyup(function () {
+            if ($(this).val().length > 1) {
+                $.ajax({
+                    url: "/Uye/UyelerSearchBySearchString?searchString=" + $(this).val(),
+                    method: "GET",
+                    success: function (datas) {
+                        let html = getDatas(datas);
+                        $("#uyeler").empty().append(html);
+                        idAnimation();
+                    }
+                })
+            } else {
+                getUyeler();
+            }
+        })
+    })
+    $(document).ready(function () {
+        $("#id").keyup(function () {
+            if ($(this).val().length > 0) {
+                $.ajax({
+                    url: "/Uye/UyelerSearchById?id=" + $(this).val(),
+                    method: "GET",
+                    success: function (data) {
+                        let html = getData(data);
+                        $("#uyeler").empty().append(html);
+                        idAnimation();
+                    },
+                    error: function () {
+                        showErrorAlert("Üye bulunamadı")
+                    }
+                })
+            } else {
+                getUyeler();
+            }
+        })
+    })
+    function getDatas(datas) {
+        let html = "";
+        datas.forEach(data => {
+            html += generatorHtml(data);
+        })
+        return html;
+    }
+    function getData(data) {
+        let html = generatorHtml(data);
+        return html;
+    }
+    function getUyeler() {
+        $.ajax({
+            url: "/Uye/UyelerSearchBySearchString",
+            method: "GET",
+            success: function (datas) {
+                let html = getDatas(datas);
+                $("#uyeler").empty().append(html);
+                idAnimation();
+            }
+        })
+    }
+    function idAnimation() {
+        let getid = window.location.href.split("#")[1];
+        $("tr#" + getid).addClass("bg-warning");
+        setTimeout(() => {
+            $("tr#" + getid).removeClass("bg-warning");
+        }, 1000)
+    }
+
+    function generatorHtml(data) {
+        return `
+<tr id="${data.id}">
+    <td>${data.id.substring(0, 15)}....</td>
+    <td>${data.uyeAd}</td>
+    <td>${data.uyeSoyad}</td>
+    <td>${data.uyeTelefon}</td>
+    <td>${data.email}</td>
+    <td>${data.uyeAdres}</td>
+    <td>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.id}"
+            title="${data.uyeAd} ${data.uyeSoyad} Sil">
+            <i class="fa-solid fa-trash"></i>
+        </button>
+        <a class="btn btn-primary text text-white" href="/Uye/EditUyeler/${data.id}" role="button"
+            title="${data.uyeAd} ${data.uyeSoyad} Düzenle">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </a>
+        <!-- Modal -->
+        <div class="modal fade" id="modal${data.id}" role="dialog" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">X</button>
+                    </div>
+                    <div class="modal-body">
+                        <span class="text-danger">${data.uyeAd} - ${data.uyeSoyad} - ${data.uyeEposta}</span>
+                        <br>
+                        Bu Kaydı Silmek İstediğinizden Emin misiniz?
+                    </div>
+                    <div class="modal-footer">
+                        <!-- Button trigger modal -->
+                        <a class="btn btn-secondary text text-white" data-dismiss="modal" role="button">İptal</a>
+                        <a class="btn btn-danger text text-white" href="/Uye/DeleteUyeler/${data.id}"
+                            role="button">Sil</a>
+                    </div>
+                </div>
+            </div>
+    </td>
+</tr>
+`
+    }
+    function showSuccessAlert(message) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: message
+        })
+    }
+</script>
+@if (ViewBag.Message != null && ViewBag.Message.EndsWith("başarıyla güncellendi"))
+{
+<script>
+    showSuccessAlert("@ViewBag.Message")
+</script>
+}
+else if(ViewBag.Message != null && ViewBag.Message.EndsWith("başarıyla eklendi"))
+{
+<script>
+    showSuccessAlert("@ViewBag.Message")
+</script>
+}
+}
