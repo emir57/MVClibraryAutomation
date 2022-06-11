@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Z06WU1LPyhCFA98J2nwOthdtq/cM6pbYP8FnypuxkXLqD9DQBOl70b38lxRnV/IrpdV7CRWLR0m/D7/DdaaKJg==",
+  "dgSpecHash": "9kXxkT2US+qhiou+WsIfa4rD+lTr7xXBQvT8hviMKgbn4xqjhBarXjae4NL8BxLKz1mIFKj5i3iILInB5CoWMQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\lolem\\Desktop\\MVClibraryAutomation\\libraryMVC\\site.csproj",
   "expectedPackageFiles": [
@@ -41,7 +41,7 @@
     "C:\\Users\\lolem\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
     "C:\\Users\\lolem\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
     "C:\\Users\\lolem\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\lolem\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.14\\microsoft.netcore.app.host.win-x64.5.0.14.nupkg.sha512"
+    "C:\\Users\\lolem\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
   ],
   "logs": []
 }

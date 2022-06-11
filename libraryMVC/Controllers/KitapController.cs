@@ -67,7 +67,10 @@ namespace libraryMVC.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Kitaplar");
         }
-        
-        
+
+        // public async Task<IActionResult> EmanetAl()
+        // {
+
+        // }
     }
 }

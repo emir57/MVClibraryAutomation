@@ -137,32 +137,10 @@
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal${data.kitapNo}" title="${data.kitapAd} Sil">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
-                                <a style="cursor:pointer;" class="btn btn-primary text text-white" onClick="window.location.href='/Kitap/EditKitaplar/${data.kitapNo}'"
-                                role="button" title="${data.kitapAd} Düzenle">
-                                    <i class="fa-solid fa-pen-to-square"></i>
+                                <a style="cursor:pointer;" class="btn btn-primary text text-white" onClick="kiralaOnay()"
+                                role="button" title="${data.kitapAd} Kirala">
+                                    Kirala
                                 </a>
-                                <!-- Modal -->
-                                <div class="modal fade" id="modal${data.kitapNo}" role="dialog" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Kayıt Siliniyor</h5>
-                                                <button type="button" class="btn-close" data-dismiss="modal"
-                                                aria-label="Close">X</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <span class="text-danger">${data.kitapNo} - ${data.kitapAd}</span>
-                                                <br>
-                                                Bu Kaydı Silmek İstediğinizden Emin misiniz?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <a class="btn btn-secondary text text-white" data-dismiss="modal">İptal</a>
-                                                <a class="btn btn-danger text text-white" href="/Kitap/DeleteKitaplar/${data.kitapNo}">Sil</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </td>
                         </tr>
                     `
@@ -206,3 +184,30 @@
 </script>
 }
 }
+<script>
+    function kiralaOnay() {
+        Swal.fire({
+            title: 'Emanet Notunuz',
+            input: 'text',
+            inputAttributes: {
+                autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Ödünç Al',
+            showLoaderOnConfirm: true,
+            preConfirm: (login) => {
+                $.ajax({
+
+                })
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: `${result.value.login}'s avatar`,
+                    imageUrl: result.value.avatar_url
+                })
+            }
+        })
+    }
+</script>
